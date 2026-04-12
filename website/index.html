@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpecAg — Run an AI Engineering Team with Full Cost Control</title>
+  <meta name="description" content="Open-source framework for running AI-powered engineering teams with spec-driven development, hard budget guardrails, and stakes-based tiering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">SA</div>
+        SpecAg
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="getting-started.html">Get Started</a>
+        <a href="documentation.html">Docs</a>
+        <a href="tiers.html">Tiers</a>
+        <a href="use-cases.html">Use Cases</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">&#9789;</button>
+        <a href="https://github.com/dedeepyasai/specag" class="btn-github" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner fade-up">
+      <div class="hero-badge">&#9889; Open Source &middot; MIT Licensed</div>
+      <h1>Run an AI Engineering Team<br>with <span class="gradient">Full Cost Control</span></h1>
+      <p>Spec-driven development, hard budget guardrails, and stakes-based tiering. Built for solo founders and small teams who want AI leverage without AI chaos.</p>
+      <div class="hero-actions">
+        <a href="getting-started.html" class="btn btn-primary">Get Started &#8594;</a>
+        <a href="documentation.html" class="btn btn-secondary">Read the Docs</a>
+      </div>
+      <div class="hero-install">
+        <span class="prompt">$</span>
+        <span>pip install specag</span>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Why SpecAg?</h2>
+        <p>Most AI coding tools solve the typing problem. SpecAg solves the engineering process problem.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon blue">&#128176;</div>
+          <h3>Hard Cost Enforcement</h3>
+          <p>Pre-call hook chain stops API calls before they happen. Daily/weekly token caps with automatic pause. Your bill never surprises you.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon green">&#128221;</div>
+          <h3>Spec-Driven Development</h3>
+          <p>No code without a spec. No commit without a spec reference. AI agents have no memory between sessions &mdash; the spec IS their memory.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon orange">&#9878;</div>
+          <h3>Stakes-Based Tiers</h3>
+          <p>Tier by project stakes, not user count. A HIPAA app with 20 users needs more rigor than a meme app with 10M users.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon red">&#9200;</div>
+          <h3>Cascading Blocker SLA</h3>
+          <p>When work is blocked: T+1 nudge, T+3 escalation, T+7 hard pause. Zero token spend on blocked paths until a human responds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon purple">&#128101;</div>
+          <h3>4-Role AI Team</h3>
+          <p>1 human Advisor + Lead Dev (AI) + Associate (AI) + PO Agent (AI). All coordination over Slack. No meetings. No Jira.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon cyan">&#9889;</div>
+          <h3>Pluggable Hooks</h3>
+          <p>6 default hooks (DailyCap, WeeklyCap, WorkWindow, PausedRegistry, PCMode, BudgetGuard). Add your own without touching core code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Honest Comparison</h2>
+        <p>We don't pretend to be unique in every dimension. We're unique where it matters.</p>
+      </div>
+      <div style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>BMAD</th>
+              <th>Spec Kit</th>
+              <th>MetaGPT</th>
+              <th>SpecAg</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agent roles (PM, Dev, etc.)</td>
+              <td class="yes">Yes</td>
+              <td class="no">No</td>
+              <td class="yes">Yes</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+            <tr>
+              <td>Spec-driven development</td>
+              <td class="yes">Yes</td>
+              <td class="yes">Yes</td>
+              <td class="partial">Partial</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+            <tr>
+              <td>Token cost enforcement (hard stop)</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+            <tr>
+              <td>Cascading blocker SLA (T+7 hard pause)</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+            <tr>
+              <td>Stakes-based tier system</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+            <tr>
+              <td>Sustainable pace ceiling</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+            <tr>
+              <td>Pluggable hook architecture</td>
+              <td class="no">No</td>
+              <td class="partial">Partial</td>
+              <td class="no">No</td>
+              <td class="yes"><strong>Yes</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiers Preview -->
+  <section class="section" id="tiers">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Stakes-Based Tiers</h2>
+        <p>Choose the rigor level that matches your project's real-world consequences.</p>
+      </div>
+      <div class="tier-grid">
+        <!-- T1 -->
+        <div class="tier-card">
+          <h3>Starter</h3>
+          <span class="tier-code">T1</span>
+          <div class="tier-price">Free</div>
+          <p class="tier-desc">Learning, experiments, tutorials. Full open-source access.</p>
+          <ul class="tier-features">
+            <li><span class="check">&#10003;</span> Full CLI access</li>
+            <li><span class="check">&#10003;</span> Cost enforcement (always on)</li>
+            <li><span class="check">&#10003;</span> Pre-call hook chain</li>
+            <li><span class="check">&#10003;</span> Spec templates</li>
+            <li><span class="dash">&mdash;</span> Ceremonies optional</li>
+            <li><span class="dash">&mdash;</span> Specs optional</li>
+          </ul>
+          <a href="getting-started.html" class="tier-btn tier-btn-primary">Install Free &#8594;</a>
+        </div>
+        <!-- T2 -->
+        <div class="tier-card featured">
+          <div class="tier-badge">Most Popular</div>
+          <h3>Personal</h3>
+          <span class="tier-code">T2</span>
+          <div class="tier-price">Contact <span class="period">us</span></div>
+          <p class="tier-desc">Real side projects with real users. Solo owner, shipping to production.</p>
+          <ul class="tier-features">
+            <li><span class="check">&#10003;</span> Everything in T1</li>
+            <li><span class="check">&#10003;</span> Ceremonies recommended</li>
+            <li><span class="check">&#10003;</span> Specs recommended</li>
+            <li><span class="check">&#10003;</span> PR review required</li>
+            <li><span class="check">&#10003;</span> Blocker SLA recommended</li>
+            <li><span class="check">&#10003;</span> Onboarding support</li>
+          </ul>
+          <a href="mailto:sai.gondi@ieee.org?subject=SpecAg%20T2%20Personal%20Tier%20Inquiry" class="tier-btn tier-btn-primary">Contact Us &#8594;</a>
+        </div>
+        <!-- T3 -->
+        <div class="tier-card">
+          <h3>Medium</h3>
+          <span class="tier-code">T3</span>
+          <div class="tier-price">Contact <span class="period">us</span></div>
+          <p class="tier-desc">Paying users, real revenue, reputation on the line. Full enforcement.</p>
+          <ul class="tier-features">
+            <li><span class="check">&#10003;</span> Everything in T2</li>
+            <li><span class="check">&#10003;</span> All ceremonies required</li>
+            <li><span class="check">&#10003;</span> All specs required</li>
+            <li><span class="check">&#10003;</span> Velocity tracking</li>
+            <li><span class="check">&#10003;</span> Tech debt register</li>
+            <li><span class="check">&#10003;</span> Priority support</li>
+          </ul>
+          <a href="mailto:sai.gondi@ieee.org?subject=SpecAg%20T3%20Medium%20Tier%20Inquiry" class="tier-btn tier-btn-outline">Contact Us &#8594;</a>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:1.5rem; color: var(--text-light); font-size: 0.9rem;">
+        <strong>T4 Enterprise</strong> (RBAC, SSO, compliance hooks, audit export) is on the roadmap.
+        <a href="mailto:sai.gondi@ieee.org?subject=SpecAg%20Enterprise%20Inquiry">Get notified &#8594;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Cost -->
+  <section class="section section-alt">
+    <div class="section-inner" style="max-width: 700px;">
+      <div class="section-header">
+        <h2>Estimated Annual Cost</h2>
+        <p>Running a full SpecAg team (1 human + 3 AI agents) for a year.</p>
+      </div>
+      <table class="comparison-table" style="max-width: 500px; margin: 0 auto;">
+        <thead>
+          <tr><th>Item</th><th style="text-align:right">Annual Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>VPS (4 vCPU / 16GB)</td><td style="text-align:right">~$144</td></tr>
+          <tr><td>AI APIs (primary + fallback)</td><td style="text-align:right">~$280</td></tr>
+          <tr><td><strong>Total</strong></td><td style="text-align:right"><strong>~$424/year ($35/mo)</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="text-align:center; margin-top:1rem; color: var(--text-light); font-size: 0.9rem;">Cost enforcement makes this a ceiling, not a guess.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="section-inner" style="max-width: 700px; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem;">Ready to stop the AI chaos?</h2>
+      <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 2rem;">Install SpecAg in 60 seconds. Free, open-source, MIT licensed.</p>
+      <div class="hero-install" style="margin-bottom: 1.5rem;">
+        <span class="prompt">$</span>
+        <span>pip install specag</span>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+      </div>
+      <br>
+      <a href="getting-started.html" class="btn btn-primary" style="margin-top: 1rem;">Get Started in 10 Minutes &#8594;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: #e2e8f0;">
+            <div class="logo-icon">SA</div>
+            SpecAg
+          </div>
+          <p>Run an AI engineering team with full cost control and traceability.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="getting-started.html">Get Started</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="tiers.html">Tiers</a></li>
+            <li><a href="use-cases.html">Use Cases</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/dedeepyasai/specag" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/dedeepyasai/specag/discussions" target="_blank">Discussions</a></li>
+            <li><a href="https://github.com/dedeepyasai/specag/issues" target="_blank">Issues</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:sai.gondi@ieee.org">sai.gondi@ieee.org</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://github.com/dedeepyasai/specag/blob/main/LICENSE" target="_blank">MIT License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SpecAg. Open source under MIT License.</span>
+        <span>Built in Dallas, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
