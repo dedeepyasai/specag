@@ -22,25 +22,25 @@
 | Sprint cancellation protocol | Done | PLAT-013, Datta-only authority |
 | Demo script template | Done | 5-min structured demo |
 | Tech debt register template | Done | Append-only, PO weekly scan |
-| `rootine.config.example.yaml` | Done | Unified config |
-| CLI skeleton (`rootine init`) | Done | Basic scaffolding |
+| `specag.config.example.yaml` | Done | Unified config |
+| CLI skeleton (`specag init`) | Done | Basic scaffolding |
 
 ## What's Next (v0.2.0 — target: after first real project)
 
 | Component | Priority | Notes |
 |---|---|---|
-| `rootine init` — full interactive setup | High | Tier picker, provider config, Slack setup |
-| `rootine sprint prepare` — DoR validation | High | Validates specs against Definition of Ready |
-| `rootine sprint kickoff` — state transition | High | draft → planned → active |
-| `rootine stats` — cost summary CLI | High | Per-provider, per-agent, per-epic cost breakdown |
-| `rootine tier set` — tier migration | High | Upgrade/downgrade with diff |
+| `specag init` — full interactive setup | High | Tier picker, provider config, Slack setup |
+| `specag sprint prepare` — DoR validation | High | Validates specs against Definition of Ready |
+| `specag sprint kickoff` — state transition | High | draft → planned → active |
+| `specag stats` — cost summary CLI | High | Per-provider, per-agent, per-epic cost breakdown |
+| `specag tier set` — tier migration | High | Upgrade/downgrade with diff |
 | Token tracker implementation | High | SQLite, hook chain, real enforcement |
 | Slack bot implementation | Medium | Ceremony posts, alerts, commands |
 | Cron job setup automation | Medium | Auto-install ceremony crons |
-| `rootine sprint descope` — structured descope | Medium | Reason, classification, cost impact |
+| `specag sprint descope` — structured descope | Medium | Reason, classification, cost impact |
 | Backlog folder structure | Low | `active/paused/blocked/deprioritized/` |
 | Spec quality linter | Low | Auto-score against DoR checklist |
-| Example project (todo-app) | High | Real project built with Rootine, full audit trail |
+| Example project (todo-app) | High | Real project built with SpecAg, full audit trail |
 
 ## What's Deferred (no timeline)
 
@@ -65,7 +65,7 @@
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md). The highest-impact contributions right now:
 
-1. **Try it** — use Rootine on a project and report what broke
-2. **Write an example project** — build something real with Rootine, submit it to `examples/`
+1. **Try it** — use SpecAg on a project and report what broke
+2. **Write an example project** — build something real with SpecAg, submit it to `examples/`
 3. **Add a hook** — implement a custom PreCallHook for a use case we haven't thought of
 4. **Improve docs** — fix unclear sections, add diagrams, translate

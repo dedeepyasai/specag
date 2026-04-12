@@ -1,4 +1,4 @@
-# Study Guide — Learning Rootine from Zero
+# Study Guide — Learning SpecAg from Zero
 
 This is a structured learning path. Follow it in order. Each section builds on the previous one and tells you exactly what to read, what to understand, and what to try.
 
@@ -16,15 +16,15 @@ This is a structured learning path. Follow it in order. Each section builds on t
 ### Understand
 
 - Why "spec-driven" matters for AI agents (they have no memory between sessions)
-- Why cost enforcement is the moat (every other tool observes; Rootine stops)
+- Why cost enforcement is the moat (every other tool observes; SpecAg stops)
 - Why tiers exist (stakes-based, not user-count-based)
 - The 4 roles: Advisor (human), Lead Dev (AI), Associate (AI), PO Agent (AI)
 
 ### Try
 
 ```bash
-pip install rootine
-rootine --help
+pip install specag
+specag --help
 ```
 
 Read the help output. Don't run anything yet — just see what commands exist.
@@ -51,12 +51,12 @@ Read the help output. Don't run anything yet — just see what commands exist.
 
 ```bash
 mkdir study-project && cd study-project
-rootine init
+specag init
 # Choose "starter" tier
 # Explore the generated files
 ```
 
-Look at every file `rootine init` created. Read the comments in `rootine.config.yaml`.
+Look at every file `specag init` created. Read the comments in `specag.config.yaml`.
 
 ---
 
@@ -98,7 +98,7 @@ As a user who forgot their password...
 AC-001: Given...
 ```
 
-Run `rootine sprint prepare` — does your spec pass the DoR check?
+Run `specag sprint prepare` — does your spec pass the DoR check?
 
 ---
 
@@ -108,7 +108,7 @@ Run `rootine sprint prepare` — does your spec pass the DoR check?
 
 1. **`templates/shared/specs/platform/PLAT-001-token-monitoring.spec.md`** — the full token monitoring spec
 2. **`templates/shared/specs/platform/PLAT-002-model-fallback.spec.md`** — the fallback chain
-3. **`rootine.config.example.yaml`** — the hooks section
+3. **`specag.config.example.yaml`** — the hooks section
 
 ### Understand
 
@@ -121,11 +121,11 @@ Run `rootine sprint prepare` — does your spec pass the DoR check?
 ### Try
 
 ```bash
-rootine stats
+specag stats
 # Even with no usage, this shows your configured caps and active hooks
 ```
 
-Edit `rootine.config.yaml` — change the daily_token_cap to something tiny (like 100), then imagine what would happen if an agent hit that cap mid-task.
+Edit `specag.config.yaml` — change the daily_token_cap to something tiny (like 100), then imagine what would happen if an agent hit that cap mid-task.
 
 ---
 
@@ -147,10 +147,10 @@ Edit `rootine.config.yaml` — change the daily_token_cap to something tiny (lik
 ### Try
 
 ```bash
-rootine tier show
+specag tier show
 # Shows current tier + what's enforced
 
-rootine tier set medium
+specag tier set medium
 # Upgrades to T3 — see what new requirements activate
 ```
 
@@ -170,7 +170,7 @@ rootine tier set medium
 - The 1-in-1-out swap rule (no free additions mid-sprint)
 - Blocker SLA cascade: T+1 nudge → T+3 escalation → T+7 hard pause
 - "Decisions from data, not gut. Gut calls are labelled and revisited."
-- How Rootine's architecture separates framework (templates) from project (your code)
+- How SpecAg's architecture separates framework (templates) from project (your code)
 
 ### Try
 
@@ -211,7 +211,7 @@ Pick one small thing from the roadmap that interests you. Fork the repo, make th
 
 ## After the Study Guide
 
-You now understand Rootine well enough to:
+You now understand SpecAg well enough to:
 
 1. **Use it** — initialize a real project, write specs, run sprints
 2. **Customize it** — adjust your tier, add hooks, change ceremony schedules
@@ -221,6 +221,6 @@ You now understand Rootine well enough to:
 The best next step is to **use it on a real project**. Even a small one. The framework only makes sense when it's running — reading about Agile is not the same as doing Agile.
 
 ```bash
-rootine init
+specag init
 # Pick your project. Write your first spec. Ship your first sprint.
 ```

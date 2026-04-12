@@ -107,7 +107,7 @@ def set_tier(new_tier: str) -> None:
     """Update the project tier in rootine.config.yaml."""
     config_path = find_config()
     if config_path is None:
-        console.print("[red]No rootine.config.yaml found. Run 'rootine init' first.[/red]")
+        console.print("[red]No rootine.config.yaml found. Run '{NAME_LOWER} init' first.[/red]")
         return
 
     current = get_tier()

@@ -5,6 +5,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.table import Table
 
+from rootine.brand import NAME_LOWER
 from rootine.config import get_tier, load_config
 
 console = Console()
@@ -14,7 +15,7 @@ def prepare_sprint() -> None:
     """Validate all specs in specs/ against the Definition of Ready."""
     config = load_config()
     if not config:
-        console.print("[red]No rootine.config.yaml found. Run 'rootine init' first.[/red]")
+        console.print("[red]No rootine.config.yaml found. Run '{NAME_LOWER} init' first.[/red]")
         return
 
     tier = get_tier()
@@ -76,7 +77,7 @@ def kickoff_sprint() -> None:
     """Transition the current sprint from planned to active."""
     config = load_config()
     if not config:
-        console.print("[red]No rootine.config.yaml found. Run 'rootine init' first.[/red]")
+        console.print("[red]No rootine.config.yaml found. Run '{NAME_LOWER} init' first.[/red]")
         return
 
     console.print("[bold]Sprint Kickoff[/bold]")

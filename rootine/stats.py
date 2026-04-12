@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
+from rootine.brand import NAME
 from rootine.config import get_tier, load_config
 
 console = Console()
@@ -15,7 +16,7 @@ def show_stats() -> None:
     """Display token usage, cost summary, and active hooks."""
     config = load_config()
     if not config:
-        console.print("[red]No rootine.config.yaml found. Run 'rootine init' first.[/red]")
+        console.print("[red]No rootine.config.yaml found. Run '{NAME_LOWER} init' first.[/red]")
         return
 
     tier = get_tier()
@@ -27,7 +28,7 @@ def show_stats() -> None:
 
     console.print(
         Panel(
-            f"[bold]Rootine Cost Summary[/bold] — {project_name} (T{'1' if tier == 'starter' else '2' if tier == 'personal' else '3'} {tier.title()})",
+            f"[bold]{NAME} Cost Summary[/bold] — {project_name} (T{'1' if tier == 'starter' else '2' if tier == 'personal' else '3'} {tier.title()})",
             border_style="blue",
         )
     )

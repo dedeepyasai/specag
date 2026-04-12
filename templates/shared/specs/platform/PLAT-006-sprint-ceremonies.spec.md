@@ -1,7 +1,7 @@
 # PLAT-006: Sprint Ceremonies, Story Points & Work Schedules
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: PO Agent (facilitation), Datta (participation)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1

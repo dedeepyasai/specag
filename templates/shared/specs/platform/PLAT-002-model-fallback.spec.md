@@ -1,7 +1,7 @@
 # PLAT-002: Tiered Model Fallback System
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Lead Dev Agent (implementation), Datta (tier selection approval)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1

@@ -1,12 +1,12 @@
-# Contributing to Rootine
+# Contributing to SpecAg
 
-Thank you for considering contributing. Rootine is an early-stage open-source project and every contribution matters.
+Thank you for considering contributing. SpecAg is an early-stage open-source project and every contribution matters.
 
 ## Ways to Contribute
 
 ### 1. Use it and report back
 
-The most valuable contribution right now is **using Rootine on a real project** and telling us what broke, what was confusing, or what you wish existed. Open an issue with:
+The most valuable contribution right now is **using SpecAg on a real project** and telling us what broke, what was confusing, or what you wish existed. Open an issue with:
 
 - What you tried to do
 - What happened
@@ -18,9 +18,9 @@ Found a confusing paragraph? A missing step in the quick start? A broken link? F
 
 ### 3. Add an example project
 
-Build something small with Rootine (a todo app, a CLI tool, an API) and submit it to `examples/`. Include:
+Build something small with SpecAg (a todo app, a CLI tool, an API) and submit it to `examples/`. Include:
 
-- `rootine.config.yaml` with your tier choice
+- `specag.config.yaml` with your tier choice
 - At least 2-3 specs showing the spec-driven flow
 - A README explaining what you built and what tier you used
 
@@ -39,8 +39,8 @@ If you've customized the tier matrix for your use case (e.g., a "regulated" tier
 ## Development Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/rootine.git
-cd rootine
+git clone https://github.com/dedeepyasai/specag.git
+cd specag
 python -m venv .venv
 source .venv/bin/activate    # or .venv\Scripts\activate on Windows
 pip install -e ".[dev]"
@@ -65,7 +65,7 @@ ruff format rootine/
 2. **Write a clear description.** What changed, why, and how to test it.
 3. **Follow existing patterns.** Read the code around your change before writing new abstractions.
 4. **No comments unless the WHY is non-obvious.** Code should be self-documenting.
-5. **Test your change.** If you're adding CLI functionality, manually test `rootine <command>`.
+5. **Test your change.** If you're adding CLI functionality, manually test `specag <command>`.
 
 ## Code of Conduct
 

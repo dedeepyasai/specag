@@ -1,7 +1,7 @@
 # PLAT-007: New Hire Onboarding System
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: PO Agent (maintains), Lead Dev (tech content review)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
@@ -9,7 +9,7 @@
 - Priority: S2 — must exist before scaling beyond founding team
 
 ## [STORY]
-As a new team member (AI agent or human), when I join the Rootine project, I need a
+As a new team member (AI agent or human), when I join the SpecAg project, I need a
 role-specific onboarding guide that tells me exactly what to read, what tools to set up,
 what I own, what I don't touch, and how to start my first epic — so I can be productive
 from day one without asking questions that are already documented.

@@ -1,7 +1,7 @@
 # PLAT-012: Rollback Mechanism
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Lead Dev (implementation), Datta (approval gate)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0

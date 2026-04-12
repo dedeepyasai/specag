@@ -1,7 +1,7 @@
 # PLAT-008: Epic Categorization System
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: PO Agent (categorizes), Lead Dev (validates)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1

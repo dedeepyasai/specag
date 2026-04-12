@@ -1,11 +1,13 @@
-"""Configuration loader — reads rootine.config.yaml and applies tier defaults."""
+"""Configuration loader — reads project config and applies tier defaults."""
 
 from pathlib import Path
 from typing import Optional
 
 import yaml
 
-CONFIG_FILE = "rootine.config.yaml"
+from rootine.brand import NAME_LOWER
+
+CONFIG_FILE = f"{NAME_LOWER}.config.yaml"
 
 TIER_DEFAULTS = {
     "starter": {

@@ -6,7 +6,7 @@
 ┌───────────────────────────────────────────────────────────────┐
 │                     YOUR PROJECT REPO                         │
 │                                                               │
-│  rootine.config.yaml ─── tier, providers, hooks, ceremonies   │
+│  specag.config.yaml ─── tier, providers, hooks, ceremonies   │
 │         │                                                     │
 │         ├── specs/          ← your feature specs              │
 │         ├── sprints/        ← velocity, estimation, retros    │
@@ -65,10 +65,10 @@
 
 ### 1. Config-Driven Tier Enforcement
 
-The `tier:` field in `rootine.config.yaml` is the single source of truth for what's enforced. Every component reads it:
+The `tier:` field in `specag.config.yaml` is the single source of truth for what's enforced. Every component reads it:
 
 ```
-rootine.config.yaml → tier: personal
+specag.config.yaml → tier: personal
   → Hook loader: loads daily_cap, weekly_cap, work_window, paused_registry, budget_guard
   → Ceremony engine: enables planning, kickoff, standup, review, retro (recommended)
   → Sprint validator: warns on DoR gaps but doesn't block
@@ -116,11 +116,11 @@ Two databases, both SQLite, both local:
 | `token_usage.db` | Token tracking + cost accounting | `usage`, `hook_decisions` |
 
 **Why SQLite, not Postgres:**
-- Zero setup. `rootine init` creates it automatically.
+- Zero setup. `specag init` creates it automatically.
 - File-based. Backs up with a single `cp` command.
 - Fast enough for the scale (even 1M rows/year is trivial for SQLite).
 - No network dependency. Works offline.
-- For Rootine Cloud (Path B), we swap SQLite for Postgres. Same schema, different driver.
+- For SpecAg Cloud (Path B), we swap SQLite for Postgres. Same schema, different driver.
 
 ### 4. Specs Are Markdown, Not Database Rows
 
@@ -136,17 +136,17 @@ Specs live as `.spec.md` files in the `specs/` directory, not in a database or i
 ### 5. Framework vs. Project Separation
 
 ```
-rootine (pip package)          your-project/
-├── templates/                 ├── rootine.config.yaml    ← project-specific
+specag (pip package)          your-project/
+├── templates/                 ├── specag.config.yaml    ← project-specific
 ├── rootine/ (CLI)             ├── specs/                 ← project-specific
 └── docs/                      ├── agents/                ← copied from templates
                                ├── sprints/               ← generated at runtime
                                └── .sdd/                  ← copied from templates
 ```
 
-`rootine init` copies from `templates/` into your project. After that, your project owns those files. Framework updates don't overwrite your customizations.
+`specag init` copies from `templates/` into your project. After that, your project owns those files. Framework updates don't overwrite your customizations.
 
-**Upgrade path:** `rootine upgrade` merges new template changes into your project, showing diffs for files you've modified. Never auto-overwrites.
+**Upgrade path:** `specag upgrade` merges new template changes into your project, showing diffs for files you've modified. Never auto-overwrites.
 
 ## Data Flow
 
@@ -214,7 +214,7 @@ Saturday 15:00  Next Sprint Review (cycle repeats)
 | Extension | How | Example |
 |---|---|---|
 | Add a custom hook | Implement `PreCallHook`, add to `hooks.yaml` | GDPR hook that rejects calls with PII in the prompt |
-| Change ceremony schedule | Edit `rootine.config.yaml` → ceremonies section | Move standup to 09:00 instead of 08:05 |
+| Change ceremony schedule | Edit `specag.config.yaml` → ceremonies section | Move standup to 09:00 instead of 08:05 |
 | Add a new epic category | Add entry to Bible §8, update PO Agent logic | "Research" category with relaxed DoD |
 | Integrate with Jira | Write a hook that reads blocker status from Jira API | `JiraPausedHook` replaces file-based `PausedRegistryHook` |
-| Change the fallback chain | Edit provider config in `rootine.config.yaml` | Add Groq as Tier 2 instead of DeepSeek |
+| Change the fallback chain | Edit provider config in `specag.config.yaml` | Add Groq as Tier 2 instead of DeepSeek |

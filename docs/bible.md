@@ -1,4 +1,4 @@
-# Rootine AI Development Ecosystem
+# SpecAg AI Development Ecosystem
 ## Project Bible & System Design Document
 
 **Roles:** Datta (Advisor/Admin) | Lead Dev Agent (Claude Sonnet 4.6) | Associate Dev Agent (GPT-4.1) | PO Agent (GPT-4o mini)
@@ -41,7 +41,7 @@
 
 ## 1. Executive Overview
 
-This document is the complete reference for the Rootine AI-powered development ecosystem — a fully autonomous, multi-provider, spec-driven software delivery system designed to build and maintain a web application and iOS/Android mobile application with minimal human interruption.
+This document is the complete reference for the SpecAg AI-powered development ecosystem — a fully autonomous, multi-provider, spec-driven software delivery system designed to build and maintain a web application and iOS/Android mobile application with minimal human interruption.
 
 The system is governed by the **SDD (Spec-Driven Development)** framework, orchestrated by **CrewAI** running continuously on a Mac Mini, and tracked through **GitHub**, **Slack**, and a multi-provider token management layer spanning Anthropic and OpenAI.
 
@@ -76,7 +76,7 @@ Every Agile framework is built around serving a customer. This scaffolding does 
 
 | Field | Value |
 |---|---|
-| Project name | Rootine — AI-powered daily task and reminder app |
+| Project name | SpecAg — AI-powered daily task and reminder app |
 | Platforms | Web (React/Next.js), iOS, Android (React Native) |
 | Runtime | Mac Mini — always-on, cron-driven CrewAI orchestration |
 | Framework | SDD (Spec-Driven Development) + GitHub + Slack |
@@ -332,7 +332,7 @@ Each `spec.md` has labeled sections so agents receive a targeted instruction to 
 # ROOT-041: Reminder scheduling UI
 
 ## [SUMMARY] — all agents read this section
-- App: Rootine
+- App: SpecAg
 - Epic owner: Datta + PO Agent
 - Status: IN PROGRESS
 - Sprint: PC-01 Sprint 1
@@ -618,7 +618,7 @@ Runs before every single epic assignment. Prevents two agents from ever writing 
 
 ```yaml
 app:
-  name: "Rootine"
+  name: "SpecAg"
   type: ["web", "ios", "android"]
   repo: "https://github.com/your-org/rootine"
 
@@ -874,7 +874,7 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 
 ## 18. Infrastructure & Platform Specs
 
-The following specs were created during the infrastructure planning phase (April 2026). They define the VPS setup, token monitoring, model fallback, Slack command interface, and agent state management. These are pre-requisites — they must be implemented before agents begin coding Rootine features.
+The following specs were created during the infrastructure planning phase (April 2026). They define the VPS setup, token monitoring, model fallback, Slack command interface, and agent state management. These are pre-requisites — they must be implemented before agents begin coding SpecAg features.
 
 ### 18.1 Spec Index
 

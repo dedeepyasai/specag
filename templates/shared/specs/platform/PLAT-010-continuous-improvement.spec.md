@@ -1,7 +1,7 @@
 # PLAT-010: Continuous Improvement & Enhanced Retrospective
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Datta (Scrum Master / Advisor), PO (facilitates)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0

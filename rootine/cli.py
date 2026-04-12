@@ -1,14 +1,15 @@
-"""Rootine CLI — the main entry point for all rootine commands."""
+"""SpecAg CLI — the main entry point for all rootine commands."""
 
 import click
 
 from rootine import __version__
+from rootine.brand import NAME, NAME_LOWER, TAGLINE
 
 
 @click.group()
-@click.version_option(version=__version__, prog_name="rootine")
+@click.version_option(version=__version__, prog_name=NAME_LOWER)
 def main():
-    """Run an AI-powered engineering team with full cost control and traceability."""
+    """Run an AI engineering team with full cost control and traceability."""
 
 
 @main.command()
@@ -21,7 +22,7 @@ def main():
 @click.option("--name", prompt="Project name", help="Name of your project.")
 @click.option("--owner", prompt="Your name", help="Project owner name.")
 def init(tier: str, name: str, owner: str):
-    """Initialize a new Rootine project in the current directory."""
+    """Initialize a new SpecAg project in the current directory."""
     from rootine.init import init_project
 
     init_project(name=name, owner=owner, tier=tier)

@@ -1,21 +1,21 @@
-# Rootine
+# SpecAg
 
 **Run an AI-powered engineering team with full cost control and traceability.**
 
-Rootine is an open-source, opinionated framework for running real software projects with AI agents doing the development work — using proper Agile ceremonies, spec-driven development, and hard budget guardrails. Built for solo founders and small teams who want AI leverage without AI chaos.
+SpecAg is an open-source, opinionated framework for running real software projects with AI agents doing the development work — using proper Agile ceremonies, spec-driven development, and hard budget guardrails. Built for solo founders and small teams who want AI leverage without AI chaos.
 
 ```bash
-pip install rootine
-rootine init
+pip install specag
+specag init
 ```
 
 ---
 
-## What Rootine Does
+## What SpecAg Does
 
-Most AI coding tools solve the **typing** problem. Rootine solves the **engineering process** problem.
+Most AI coding tools solve the **typing** problem. SpecAg solves the **engineering process** problem.
 
-| Without Rootine | With Rootine |
+| Without SpecAg | With SpecAg |
 |---|---|
 | AI burns $200 overnight on a feature you didn't ask for | Hard daily/weekly token caps with automatic pause |
 | No spec, no tests, no review | Every line of code traces back to an approved spec |
@@ -25,7 +25,7 @@ Most AI coding tools solve the **typing** problem. Rootine solves the **engineer
 
 ## The Team
 
-Rootine gives you a 4-role team. 1 human, 3 AI agents.
+SpecAg gives you a 4-role team. 1 human, 3 AI agents.
 
 | Role | Who | What they do |
 |---|---|---|
@@ -40,26 +40,26 @@ All coordination happens over Slack. No meetings. No Jira.
 
 ```bash
 # Install
-pip install rootine
+pip install specag
 
 # Initialize a new project (interactive tier picker)
-rootine init
+specag init
 
 # Prepare next sprint (Saturday)
-rootine sprint prepare
+specag sprint prepare
 
 # Kick off sprint (Sunday)
-rootine sprint kickoff
+specag sprint kickoff
 
 # Check cost and token usage
-rootine stats
+specag stats
 ```
 
 See [Quick Start Guide](docs/quick-start.md) for the full 10-minute walkthrough.
 
 ## Stakes-Based Tiers
 
-Rootine tiers projects by **stakes, not user count**. A HIPAA app with 20 users needs more rigor than a meme app with 10M users.
+SpecAg tiers projects by **stakes, not user count**. A HIPAA app with 20 users needs more rigor than a meme app with 10M users.
 
 | Tier | When to use | Ceremonies | Spec required | Cost enforcement |
 |---|---|---|---|---|
@@ -69,7 +69,7 @@ Rootine tiers projects by **stakes, not user count**. A HIPAA app with 20 users 
 
 > **Cost enforcement is strict at every tier.** That's the point. Even a hello-world project gets token caps, because the point is to prevent runaway spend.
 
-Set your tier in `rootine.config.yaml`:
+Set your tier in `specag.config.yaml`:
 
 ```yaml
 project:
@@ -81,7 +81,7 @@ See [Tier Matrix](docs/tier-matrix.md) for the full strictness breakdown.
 
 ## Cost Enforcement (The Moat)
 
-Every AI coding tool watches your spend. **Rootine stops it.**
+Every AI coding tool watches your spend. **SpecAg stops it.**
 
 ### Pre-Call Hook Chain
 
@@ -108,7 +108,7 @@ When work is blocked on a human decision:
 | **T+3** | Priority bumps. Downstream impact broadcast. |
 | **T+7** | **HARD PAUSE.** Token tracker rejects ALL LLM calls on blocked paths. Zero spend until human responds. |
 
-Most tools observe. Rootine enforces.
+Most tools observe. SpecAg enforces.
 
 ## Spec-Driven Development
 
@@ -127,9 +127,9 @@ AI agents have no memory between conversations. **The spec IS their memory.**
 
 ## Honest Comparison
 
-Rootine is inspired by and builds on ideas from [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD), [GitHub Spec Kit](https://github.com/github/spec-kit), and [MetaGPT](https://github.com/FoundationAgents/MetaGPT). Here's what's different:
+SpecAg is inspired by and builds on ideas from [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD), [GitHub Spec Kit](https://github.com/github/spec-kit), and [MetaGPT](https://github.com/FoundationAgents/MetaGPT). Here's what's different:
 
-| Feature | BMAD | Spec Kit | MetaGPT | **Rootine** |
+| Feature | BMAD | Spec Kit | MetaGPT | **SpecAg** |
 |---|---|---|---|---|
 | Agent roles (PM, Dev, etc.) | Yes | No | Yes | Yes |
 | Spec-driven development | Yes | Yes | Partial | Yes |
@@ -167,7 +167,7 @@ We don't pretend to be unique in every dimension. We're unique where it matters:
 
 ## Estimated Cost
 
-Running a full Rootine team (1 human + 3 AI agents) for a year:
+Running a full SpecAg team (1 human + 3 AI agents) for a year:
 
 | Item | Annual cost |
 |---|---|
@@ -192,4 +192,4 @@ MIT. Use it, fork it, sell products built with it. See [LICENSE](LICENSE).
 
 ---
 
-*Built by [Datta](https://github.com/YOUR_USERNAME) in Dallas, TX. Dogfooded on real projects.*
+*Built by [Datta](https://github.com/dedeepyasai) in Dallas, TX. Dogfooded on real projects.*

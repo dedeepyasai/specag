@@ -1,7 +1,7 @@
 # PLAT-009: Testing Standards & SonarQube Quality Gate
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Lead Dev (standards), PO (enforcement via CI)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
@@ -257,7 +257,7 @@ volumes:
 #### sonar-project.properties
 ```properties
 sonar.projectKey=rootine
-sonar.projectName=Rootine
+sonar.projectName=SpecAg
 sonar.sources=src
 sonar.tests=src
 sonar.test.inclusions=**/*.test.ts,**/*.test.tsx,**/*.integration.test.ts

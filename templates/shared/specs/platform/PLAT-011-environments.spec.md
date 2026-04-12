@@ -1,7 +1,7 @@
 # PLAT-011: Environment Strategy & Deployment Pipeline
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Lead Dev (implementation), Datta (QA gate between envs)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0

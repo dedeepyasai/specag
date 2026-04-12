@@ -1,7 +1,7 @@
 # INFRA-001: VPS Infrastructure Setup
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Datta
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1 (pre-requisite — must be complete before agents go live)

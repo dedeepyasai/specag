@@ -1,7 +1,7 @@
 # PLAT-004: Agent State Management
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Lead Dev Agent
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1

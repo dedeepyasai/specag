@@ -1,7 +1,7 @@
 # PLAT-003: Slack Command Interface & Agent Communication
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Datta (design), Lead Dev (implementation)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
@@ -18,7 +18,7 @@ approve decisions, and QA epics — without ever SSH-ing into the VPS.
 ### Slack App Setup
 | Field | Value |
 |---|---|
-| App name | Rootine Dev Bot |
+| App name | SpecAg Dev Bot |
 | Workspace | Datta's Slack workspace |
 | Channel | `#rootine-dev` |
 | Bot token scope | `chat:write`, `channels:read`, `channels:history`, `users:read` |
@@ -35,7 +35,7 @@ Each agent posts as a distinct identity so Datta sees a "team":
 | Associate | Associate Dev Agent | :computer: |
 | PO Agent | PO Agent | :clipboard: |
 | Token Monitor | Token Monitor | :bell: |
-| System | Rootine System | :gear: |
+| System | SpecAg System | :gear: |
 
 ### Command Reference — Datta's Full Control Panel
 
@@ -129,7 +129,7 @@ System processes:
 ```ini
 # /etc/systemd/system/rootine-slack.service
 [Unit]
-Description=Rootine Slack Bot
+Description=SpecAg Slack Bot
 After=network.target
 
 [Service]

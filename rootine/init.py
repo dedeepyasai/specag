@@ -1,4 +1,4 @@
-"""Project initialization — scaffolds a new Rootine project."""
+"""Project initialization — scaffolds a new SpecAg project."""
 
 import shutil
 from importlib import resources
@@ -7,6 +7,9 @@ from pathlib import Path
 import yaml
 from rich.console import Console
 from rich.panel import Panel
+
+from rootine.brand import NAME, NAME_LOWER
+from rootine.config import CONFIG_FILE
 
 console = Console()
 
@@ -23,21 +26,21 @@ SCAFFOLD_DIRS = [
 
 
 def init_project(name: str, owner: str, tier: str) -> None:
-    """Initialize a new Rootine project in the current directory."""
+    """Initialize a new SpecAg project in the current directory."""
     cwd = Path.cwd()
-    config_path = cwd / "rootine.config.yaml"
+    config_path = cwd / CONFIG_FILE
 
     if config_path.exists():
-        console.print("[red]rootine.config.yaml already exists. Aborting.[/red]")
+        console.print(f"[red]{CONFIG_FILE} already exists. Aborting.[/red]")
         return
 
     console.print(
         Panel(
-            f"[bold]Initializing Rootine project[/bold]\n\n"
+            f"[bold]Initializing {NAME} project[/bold]\n\n"
             f"  Name:  {name}\n"
             f"  Owner: {owner}\n"
             f"  Tier:  {tier}",
-            title="rootine init",
+            title=f"{NAME_LOWER} init",
             border_style="green",
         )
     )
@@ -68,7 +71,7 @@ def init_project(name: str, owner: str, tier: str) -> None:
 
     with open(config_path, "w") as f:
         yaml.dump(config, f, default_flow_style=False, sort_keys=False)
-    console.print(f"  [green]created[/green] rootine.config.yaml")
+    console.print(f"  [green]created[/green] {CONFIG_FILE}")
 
     _write_empty_velocity(cwd / "sprints" / "velocity.json")
     _write_empty_estimation_log(cwd / "sprints" / "estimation-log.md")
@@ -80,8 +83,8 @@ def init_project(name: str, owner: str, tier: str) -> None:
     console.print()
     console.print("Next steps:")
     console.print("  1. Write your first spec in specs/")
-    console.print("  2. Run [bold]rootine sprint prepare[/bold] to validate")
-    console.print("  3. Run [bold]rootine stats[/bold] to check budget")
+    console.print(f"  2. Run [bold]{NAME_LOWER} sprint prepare[/bold] to validate")
+    console.print(f"  3. Run [bold]{NAME_LOWER} stats[/bold] to check budget")
     console.print()
     console.print(f"Read the study guide: [link]docs/study-guide.md[/link]")
 

@@ -1,21 +1,21 @@
 # Tier Strictness Matrix
 
-Rootine tiers projects by **stakes, not user count**. A HIPAA app with 20 users needs enterprise rigor. A meme generator with 10M users might not.
+SpecAg tiers projects by **stakes, not user count**. A HIPAA app with 20 users needs enterprise rigor. A meme generator with 10M users might not.
 
 ## Tier Definitions
 
 | Tier | Code | When to use | Example |
 |---|---|---|---|
-| **Starter** | `T1` | Learning, experiments, tutorials, throwaway hacks | "I'm trying Rootine for the first time" |
+| **Starter** | `T1` | Learning, experiments, tutorials, throwaway hacks | "I'm trying SpecAg for the first time" |
 | **Personal** | `T2` | Real side project, solo owner, intended to ship | "My personal app — I want to use it daily" |
 | **Medium** | `T3` | Real users, revenue possible, reputation on the line | "Early-stage SaaS with 50 paying customers" |
 
-> **Enterprise (T4)** is on the roadmap but not shipped. If you need RBAC, compliance hooks, SSO, or audit export, [open an issue](https://github.com/YOUR_USERNAME/rootine/issues).
+> **Enterprise (T4)** is on the roadmap but not shipped. If you need RBAC, compliance hooks, SSO, or audit export, [open an issue](https://github.com/dedeepyasai/specag/issues).
 
 ## How to Set Your Tier
 
 ```yaml
-# rootine.config.yaml
+# specag.config.yaml
 project:
   tier: personal    # starter | personal | medium
 ```
@@ -23,7 +23,7 @@ project:
 Or via CLI:
 
 ```bash
-rootine tier set medium
+specag tier set medium
 ```
 
 ## Strictness Levels
@@ -105,7 +105,7 @@ rootine tier set medium
 
 ## Reading the Matrix
 
-- **Budget & Safety is REQ at every tier.** This is Rootine's core value. Even a tutorial project gets token caps. Without this, Rootine is just another Agile template.
+- **Budget & Safety is REQ at every tier.** This is SpecAg's core value. Even a tutorial project gets token caps. Without this, SpecAg is just another Agile template.
 - **Ceremonies scale with stakes.** T1 has almost no ceremonies. T3 has all of them. The framework is the same; the volume knob is different.
 - **Upgrading is safe.** Moving T1 → T2 → T3 only adds requirements — it never removes files or breaks existing work. The CLI warns you about new requirements when you upgrade.
 - **Downgrading warns.** Moving T3 → T2 loosens enforcement. The CLI lists what will no longer be enforced so you can make an informed decision.
@@ -114,13 +114,13 @@ rootine tier set medium
 
 ```bash
 # See what changes when upgrading
-rootine tier diff medium
+specag tier diff medium
 
 # Upgrade
-rootine tier set medium
+specag tier set medium
 
 # Downgrade (with warning)
-rootine tier set starter
+specag tier set starter
 # WARNING: The following will no longer be enforced:
 #   - Commit epic-ref hook
 #   - PR spec changelog update

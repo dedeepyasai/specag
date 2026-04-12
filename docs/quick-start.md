@@ -7,23 +7,23 @@
 - A Slack workspace with 2 channels (`#dev`, `#planning`)
 - At least one LLM API key (Anthropic, OpenAI, DeepSeek, or Google)
 
-## Step 1: Install Rootine (1 minute)
+## Step 1: Install SpecAg (1 minute)
 
 ```bash
-pip install rootine
+pip install specag
 ```
 
 Or with pipx (recommended for CLI tools):
 
 ```bash
-pipx install rootine
+pipx install specag
 ```
 
 ## Step 2: Initialize Your Project (2 minutes)
 
 ```bash
 cd your-project
-rootine init
+specag init
 ```
 
 The interactive setup asks:
@@ -40,7 +40,7 @@ This creates:
 
 ```
 your-project/
-├── rootine.config.yaml      ← your project config
+├── specag.config.yaml      ← your project config
 ├── specs/
 │   └── platform/            ← PLAT-001 through PLAT-013 (framework specs)
 ├── agents/
@@ -50,7 +50,7 @@ your-project/
 │   ├── velocity.json        ← velocity tracking (empty)
 │   └── estimation-log.md    ← estimation calibration (empty)
 ├── docs/
-│   └── bible.md             ← your project's copy of the Rootine Bible
+│   └── bible.md             ← your project's copy of the SpecAg Bible
 └── .sdd/
     ├── coding-standards.md
     ├── templates/
@@ -98,7 +98,7 @@ AC-003: Given 6 rapid attempts, when POST /api/auth/login, then 429 returned.
 ## Step 4: Prepare Your First Sprint (2 minutes)
 
 ```bash
-rootine sprint prepare
+specag sprint prepare
 ```
 
 This validates your specs against the Definition of Ready:
@@ -120,11 +120,11 @@ Add `- Story points: 3` to the SUMMARY section, then re-run.
 ## Step 5: Check Your Budget (30 seconds)
 
 ```bash
-rootine stats
+specag stats
 ```
 
 ```
-Rootine Cost Summary — my-saas-app (T2 Personal)
+SpecAg Cost Summary — my-saas-app (T2 Personal)
 
   Today:    $0.00 / $0.18 daily cap (0%)
   This week: $0.00 / $0.90 weekly cap (0%)
@@ -143,7 +143,7 @@ Rootine Cost Summary — my-saas-app (T2 Personal)
 2. **Read the [Tier Matrix](tier-matrix.md)** to see what's enforced at your tier
 3. **Set up Slack** — configure your bot token in `.env`
 4. **Write more specs** — one per feature, max 5 story points each
-5. **Run your first sprint** — `rootine sprint kickoff` on Sunday
+5. **Run your first sprint** — `specag sprint kickoff` on Sunday
 
 ## Frequently Asked Questions
 
@@ -151,10 +151,10 @@ Rootine Cost Summary — my-saas-app (T2 Personal)
 No. Start with just Lead Dev if you want. PO Agent and Associate are optional at T1/T2.
 
 **Can I use Cursor / Claude Code / Copilot for the actual coding?**
-Yes. Rootine doesn't generate code — it provides the process, specs, and cost guardrails. Use whatever AI coding tool you prefer.
+Yes. SpecAg doesn't generate code — it provides the process, specs, and cost guardrails. Use whatever AI coding tool you prefer.
 
 **What if I don't use Slack?**
-Slack is recommended but not required. At T1/T2, you can run ceremonies manually and check costs via `rootine stats`.
+Slack is recommended but not required. At T1/T2, you can run ceremonies manually and check costs via `specag stats`.
 
 **Is this just for Python projects?**
-No. Rootine is language- and stack-agnostic. The CLI and hooks are Python, but your project can be any language.
+No. SpecAg is language- and stack-agnostic. The CLI and hooks are Python, but your project can be any language.

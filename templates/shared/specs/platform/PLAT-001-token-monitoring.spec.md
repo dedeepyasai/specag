@@ -1,7 +1,7 @@
 # PLAT-001: Token Usage Monitoring & Alerts
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Datta + PO Agent
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1

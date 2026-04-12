@@ -1,7 +1,7 @@
 # PLAT-005: Epic Traceability & Spec-Code Sync Enforcement
 
 ## [SUMMARY]
-- App: Rootine
+- App: SpecAg
 - Epic owner: Lead Dev Agent
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1

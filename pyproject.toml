@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "rootine"
+name = "specag"
 version = "0.1.0"
-description = "Run an AI-powered engineering team with full cost control and traceability."
+description = "Run an AI engineering team with full cost control and traceability."
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.9"
@@ -44,13 +44,13 @@ dev = [
 ]
 
 [project.scripts]
-rootine = "rootine.cli:main"
+specag = "rootine.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/rootine"
-Documentation = "https://github.com/YOUR_USERNAME/rootine/tree/main/docs"
-Repository = "https://github.com/YOUR_USERNAME/rootine"
-Issues = "https://github.com/YOUR_USERNAME/rootine/issues"
+Homepage = "https://github.com/dedeepyasai/specag"
+Documentation = "https://github.com/dedeepyasai/specag/tree/main/docs"
+Repository = "https://github.com/dedeepyasai/specag"
+Issues = "https://github.com/dedeepyasai/specag/issues"
 
 [tool.ruff]
 line-length = 100

@@ -1,4 +1,4 @@
-# Rootine — Coding Standards
+# SpecAg — Coding Standards
 
 **Applies to:** All agents (Lead Dev, Associate, human contributors)
 **Enforced by:** `pr-validation.yml` GitHub Actions workflow + `commit-msg` git hook
