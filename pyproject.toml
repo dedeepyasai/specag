@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rootine"
+version = "0.1.0"
+description = "Run an AI-powered engineering team with full cost control and traceability."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Datta", email = "datta@example.com"},
+]
+keywords = [
+    "ai-agents",
+    "spec-driven-development",
+    "agile",
+    "cost-control",
+    "multi-agent",
+    "llm",
+    "scrum",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = [
+    "click>=8.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+rootine = "rootine.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/rootine"
+Documentation = "https://github.com/YOUR_USERNAME/rootine/tree/main/docs"
+Repository = "https://github.com/YOUR_USERNAME/rootine"
+Issues = "https://github.com/YOUR_USERNAME/rootine/issues"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rootine"]
