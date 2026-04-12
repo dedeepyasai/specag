@@ -2,14 +2,14 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: PO Agent (facilitation), Datta (participation)
+- Epic owner: PO Agent (facilitation), {{ADVISOR}} (participation)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
 - Related specs: All — this governs how every sprint operates
 - Priority: S1 — defines the core Agile rhythm of the entire system
 
 ## [STORY]
-As Datta (Advisor), I need structured Agile ceremonies — sprint planning, daily standup,
+As {{ADVISOR}} (Advisor), I need structured Agile ceremonies — sprint planning, daily standup,
 kickoff, sprint review, and retro — so the team operates with clarity, predictability,
 and full Scrum compliance. Every agent and human knows what to do, when, and how much.
 
@@ -37,7 +37,7 @@ Daily schedule (CST):
 Total: 5 work hours across 14-hour window
 ```
 
-#### Human Agent (Datta, or future human devs) — 6 hours/day
+#### Human Agent ({{ADVISOR}}, or future human devs) — 6 hours/day
 ```
 Flexible schedule — no enforced blocks
 Available: up to 6 hours/day when participating as developer
@@ -51,7 +51,7 @@ When acting as developer: follows same epic flow as AI agents
 | AI Agent | 5 | 7 (all days, Sat–Fri) | 35 hours |
 | Human Agent | 6 | flexible (weekends for ceremonies) | 30 hours |
 
-**Note:** AI agents work ALL 7 days of the sprint. Datta participates on weekends
+**Note:** AI agents work ALL 7 days of the sprint. {{ADVISOR}} participates on weekends
 for major ceremonies (review, retro, planning, kickoff).
 
 ---
@@ -86,7 +86,7 @@ for major ceremonies (review, retro, planning, kickoff).
 
 #### Velocity Tracking
 ```
-Sprint velocity = sum of story points COMPLETED (accepted by Datta)
+Sprint velocity = sum of story points COMPLETED (accepted by {{ADVISOR}})
 Rolled-over epics do NOT count toward velocity
 
 Example:
@@ -115,7 +115,7 @@ Trailing 3-sprint average used for next sprint loading:
 |---|---|
 | When | Saturday 4:00 PM CST (last day of current sprint) |
 | Where | Slack `#specag-planning` channel |
-| Who | PO (facilitates), Lead Dev, Datta |
+| Who | PO (facilitates), Lead Dev, {{ADVISOR}} |
 | Duration | ~30-45 minutes (async Slack, not a call) |
 | Output | Sprint forecast set, epics assigned, sprint goal agreed |
 
@@ -153,7 +153,7 @@ Step 2 — Lead Dev reviews
   • Confirms or suggests reassignment
   • Posts response in #specag-planning
 
-Step 3 — Datta reviews
+Step 3 — {{ADVISOR}} reviews
   • Confirms sprint goal aligns with PC MVP
   • Approves or adjusts epic selection
   • Posts: "Approved" or "Move ROOT-056 to next sprint, focus on push delivery"
@@ -172,7 +172,7 @@ Step 4 — PO finalizes
 |---|---|
 | When | Sunday 10:00–11:00 AM CST (sprint start) |
 | Where | Slack `#specag-planning` channel |
-| Who | Lead Dev, Associate, PO, Datta |
+| Who | Lead Dev, Associate, PO, {{ADVISOR}} |
 | Duration | ≤1 hour |
 | Output | Technical specs ready for all assigned epics |
 
@@ -205,7 +205,7 @@ Step 5 — Agents begin coding (second work block onward)
 |---|---|
 | When | Every day 08:05 CST (7 days/week) |
 | Where | Slack `#specag-dev` |
-| Who | All agents post, Datta reads |
+| Who | All agents post, {{ADVISOR}} reads |
 | Duration | Auto-posted, <1 minute to read |
 
 **Format (each agent posts):**
@@ -263,7 +263,7 @@ Step 5 — Agents begin coding (second work block onward)
   Anthropic: 52% daily / 41% weekly
   OpenAI: 68% daily / 55% weekly
 
-*Datta action needed:*
+*{{ADVISOR}} action needed:*
   - QA ROOT-051 on staging: specag-staging.app/api/push
 ```
 
@@ -273,7 +273,7 @@ Step 5 — Agents begin coding (second work block onward)
 |---|---|
 | When | Saturday 3:00 PM CST (last day of sprint) |
 | Where | Slack `#specag-dev` |
-| Who | PO presents, Datta reviews |
+| Who | PO presents, {{ADVISOR}} reviews |
 | Duration | ~15 minutes to read |
 
 **Format:**
@@ -301,7 +301,7 @@ Step 5 — Agents begin coding (second work block onward)
   Velocity this sprint: 16
   Trailing 3-sprint avg: 15.3
 
-*Datta: Please review completed epics and issue green flags.*
+*{{ADVISOR}}: Please review completed epics and issue green flags.*
 ```
 
 #### 3.6.5 Backlog Refinement (Async — continuous)
@@ -310,12 +310,12 @@ Step 5 — Agents begin coding (second work block onward)
 |---|---|
 | When | Continuous, async — PO posts a refinement batch every Wednesday 14:00 CST |
 | Where | Slack `#specag-planning` thread per batch |
-| Who | PO drives, Lead Dev + Associate respond async, Datta reads |
+| Who | PO drives, Lead Dev + Associate respond async, {{ADVISOR}} reads |
 | Duration | No meeting — async responses by Thursday 12:00 CST |
 | Output | Backlog epics groomed, sized, and READY (per DoR §31) for the next 1–2 sprints |
 
 **Why async, not a sync meeting:**
-The team is global-async by default — Datta is the only human, agents work
+The team is global-async by default — {{ADVISOR}} is the only human, agents work
 across all 7 days, and pulling everyone into a sync ceremony for backlog talk
 burns calendar time and tokens for low-bandwidth work. Refinement is mostly
 reading and short comments — perfect for async. We sync ONLY when a thread
@@ -358,20 +358,20 @@ Step 4 — Saturday Planning consumes only READY epics
 |---|---|
 | When | Saturday 3:30 PM CST (after Review) |
 | Where | Saved to `sprints/S-NN/retro.md` + posted to `#specag-dev` |
-| Who | PO facilitates, all agents contribute, Datta participates |
+| Who | PO facilitates, all agents contribute, {{ADVISOR}} participates |
 | Duration | Auto-generated |
 
 **Saturday afternoon sequence:**
 ```
-3:00 PM  Sprint Review (PO posts, Datta reviews)
-3:30 PM  Sprint Retro (all team members post, Datta owns action items)
-4:00 PM  Sprint Planning for next sprint (PO facilitates, Datta approves)
+3:00 PM  Sprint Review (PO posts, {{ADVISOR}} reviews)
+3:30 PM  Sprint Retro (all team members post, {{ADVISOR}} owns action items)
+4:00 PM  Sprint Planning for next sprint (PO facilitates, {{ADVISOR}} approves)
 5:00 PM  Sprint officially ends
 ```
 
 **Sunday morning:**
 ```
-10:00 AM  Sunday Kickoff — tech spec grooming (Datta participates)
+10:00 AM  Sunday Kickoff — tech spec grooming ({{ADVISOR}} participates)
 11:00 AM  Grooming complete — agents begin coding Monday
 ```
 
@@ -381,8 +381,8 @@ Step 4 — Saturday Planning consumes only READY epics
 
 | Channel | Purpose | Who posts |
 |---|---|---|
-| `#specag-dev` | Daily standups, daily reports, sprint reviews, retros, alerts | All agents, Datta reads |
-| `#specag-planning` | Sprint planning, kickoff, tech spec reviews, epic discussions | PO, Lead Dev, Datta |
+| `#specag-dev` | Daily standups, daily reports, sprint reviews, retros, alerts | All agents, {{ADVISOR}} reads |
+| `#specag-planning` | Sprint planning, kickoff, tech spec reviews, epic discussions | PO, Lead Dev, {{ADVISOR}} |
 
 ---
 
@@ -403,7 +403,7 @@ Sprint Backlog (forecast)
 In Development
   ↓ PR + Review + Deploy
 Demo / QA
-  ↓ Datta green flag
+  ↓ {{ADVISOR}} green flag
 DONE
 ```
 
@@ -412,18 +412,18 @@ DONE
 ### 6. Epic Lifecycle (Full)
 
 ```
-Saturday (Sprint close — Datta's ceremony day):
-  3:00 PM  Sprint Review (PO presents, Datta reviews + green flags)
-  3:30 PM  Sprint Retro (all team, Datta owns action items)
-  4:00 PM  Sprint Planning for next sprint (PO facilitates, Datta approves)
+Saturday (Sprint close — {{ADVISOR}}'s ceremony day):
+  3:00 PM  Sprint Review (PO presents, {{ADVISOR}} reviews + green flags)
+  3:30 PM  Sprint Retro (all team, {{ADVISOR}} owns action items)
+  4:00 PM  Sprint Planning for next sprint (PO facilitates, {{ADVISOR}} approves)
   PO assigns epics, writes business specs, updates INDEX.md
   Unfinished epics → rollover protocol
 
-Sunday (Kickoff — Datta's grooming day):
+Sunday (Kickoff — {{ADVISOR}}'s grooming day):
   10:00 AM  Tech spec grooming
   Agent reads business spec → writes technical spec (≤1 hour)
   Lead Dev reviews + approves tech spec
-  Datta participates in grooming, approves direction
+  {{ADVISOR}} participates in grooming, approves direction
   Status: READY FOR DEV
 
 Sun–Fri (Development — all 7 days):
@@ -438,8 +438,8 @@ Sun–Fri (Development — all 7 days):
 Thu–Fri (Demo + Acceptance):
   PO runs demo script against staging
   Status: DEMO_PASSED or DEMO_FAILED (bug sub-task created)
-  Datta QA on staging (web + mobile)
-  Datta issues green flag
+  {{ADVISOR}} QA on staging (web + mobile)
+  {{ADVISOR}} issues green flag
   Status: ACCEPTED → DONE
   PO moves spec to finished/
 ```

@@ -1,11 +1,11 @@
 # Demo Script Template — Sprint S-NN
 
-> **Purpose:** A 5-minute structured demo so the team and Datta can SEE working
+> **Purpose:** A 5-minute structured demo so the team and {{ADVISOR}} can SEE working
 > software at the end of every epic, not just read about it. Working software is
 > the primary measure of progress (Bible §1.1).
 >
 > **Owner:** Whoever delivered the epic (Lead Dev or Associate).
-> **Audience:** Datta (acceptance), PO (verification), other agents (awareness).
+> **Audience:** {{ADVISOR}} (acceptance), PO (verification), other agents (awareness).
 > **When:** Before the epic moves to ACCEPTED. Posted to `#specag-dev`.
 > **Format:** Slack post + linked staging/screenshots/cURL transcript.
 > **Length cap:** 5 minutes to read or watch. If it takes longer, you're showing too much.

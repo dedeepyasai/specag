@@ -192,4 +192,4 @@ MIT. Use it, fork it, sell products built with it. See [LICENSE](LICENSE).
 
 ---
 
-*Built by [Datta](https://github.com/dedeepyasai) in Dallas, TX. Dogfooded on real projects.*
+*Built by [Dedeepya Sai Gondi](https://github.com/dedeepyasai) in Dallas, TX. Dogfooded on real projects.*

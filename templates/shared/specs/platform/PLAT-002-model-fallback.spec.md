@@ -2,7 +2,7 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Lead Dev Agent (implementation), Datta (tier selection approval)
+- Epic owner: Lead Dev Agent (implementation), {{ADVISOR}} (tier selection approval)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
 - Related specs: PLAT-001, PLAT-003
@@ -10,7 +10,7 @@
 
 ## [STORY]
 As the system, when a primary AI provider's token cap is reached or the API is down,
-I need to automatically or manually (via Datta's Slack command) fall back to cheaper
+I need to automatically or manually (via {{ADVISOR}}'s Slack command) fall back to cheaper
 alternative models so that development work is not completely halted.
 
 ## [TECH SPEC]
@@ -23,7 +23,7 @@ TIER 1: Primary (default)
 
 TIER 2: Cheap Cloud Fallback
   80-85% quality of primary. 10-15x cheaper.
-  Activated by: Datta Slack command OR auto on 100% cap hit
+  Activated by: {{ADVISOR}} Slack command OR auto on 100% cap hit
   Budget: ~$10-50/year additional
 
 TIER 3: Local Emergency (Ollama)
@@ -57,9 +57,9 @@ TIER 3: Local Emergency (Ollama)
 
 | Trigger | Action | Who decides |
 |---|---|---|
-| Datta types `fallback lead` | Lead Dev switches to DeepSeek-V3 | Datta (manual) |
-| Datta types `fallback all` | All agents switch to Tier 2 | Datta (manual) |
-| 100% daily cap hit | Alert sent + agent paused. Datta decides fallback or pause | Datta (prompted) |
+| {{ADVISOR}} types `fallback lead` | Lead Dev switches to DeepSeek-V3 | {{ADVISOR}} (manual) |
+| {{ADVISOR}} types `fallback all` | All agents switch to Tier 2 | {{ADVISOR}} (manual) |
+| 100% daily cap hit | Alert sent + agent paused. {{ADVISOR}} decides fallback or pause | {{ADVISOR}} (prompted) |
 | 100% weekly cap hit | Full halt until Monday. No auto-fallback | System (automatic halt) |
 | API returns 429 (rate limit) | Exponential backoff: 5s, 15s, 45s. If >3 min, checkpoint + pause | System (automatic) |
 | API returns 5xx (outage) | 3 retries with backoff. Then switch to Tier 2 automatically | System (automatic) |
@@ -114,7 +114,7 @@ completion(model="ollama/qwen2.5-coder:7b", messages=[...])
 
 ## [ACCEPTANCE CRITERIA]
 ```
-AC-001: Given Datta types "fallback lead" in Slack, when the command is processed,
+AC-001: Given {{ADVISOR}} types "fallback lead" in Slack, when the command is processed,
         then Lead Dev's next API call uses DeepSeek-V3 instead of Sonnet 4.6.
 
 AC-002: Given all agents are on Tier 2 fallback, when midnight reset runs,

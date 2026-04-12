@@ -270,5 +270,5 @@ git log --oneline | grep -oE '(ROOT|PLAT|INFRA)-[0-9]+' | sort | uniq -c | sort 
 - [ ] Spec [CHANGE LOG] updated
 - [ ] Merged to main, deployed to staging
 - [ ] PO demo script passes
-- [ ] Datta QA green flag issued
+- [ ] {{ADVISOR}} QA green flag issued
 - [ ] Spec moved to `finished/` in INDEX.md

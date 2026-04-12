@@ -9,7 +9,7 @@
 - Priority: S2 — must be active before any feature development begins
 
 ## [STORY]
-As Datta (Advisor), when I see a commit, PR, branch, or workflow change, I need to
+As {{ADVISOR}} (Advisor), when I see a commit, PR, branch, or workflow change, I need to
 instantly know WHICH epic caused it. And when code changes, the corresponding spec
 must be updated — so the spec always reflects reality, not just the original plan.
 
@@ -201,7 +201,7 @@ Sometimes a code change genuinely doesn't need a spec update (e.g., fixing a typ
 
 ### Git Commands for Epic Tracing
 
-These commands let Datta or any agent trace changes back to epics:
+These commands let {{ADVISOR}} or any agent trace changes back to epics:
 
 ```bash
 # See ALL commits for a specific epic
@@ -265,7 +265,7 @@ AC-003: Given a PR changes src/api/reminders.ts but no spec file is modified,
 AC-004: Given a PR changes src/api/reminders.ts and includes [skip-spec] with
         a reason in the PR body, when CI runs, then the PR is ACCEPTED.
 
-AC-005: Given Datta runs "git log --grep=ROOT-041 --oneline", then ALL commits
+AC-005: Given {{ADVISOR}} runs "git log --grep=ROOT-041 --oneline", then ALL commits
         related to ROOT-041 are shown — complete traceability.
 
 AC-006: Given PO runs the daily audit, when a file was changed that's not in

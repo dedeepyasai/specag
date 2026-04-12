@@ -90,7 +90,7 @@ Bug reported → PO creates Prod Issue epic with due date
   → Deploy to production (not just staging)
   → Verify fix in production
   → PO updates status.log with resolution
-  → Datta notified of resolution (S1/S2)
+  → {{ADVISOR}} notified of resolution (S1/S2)
 ```
 
 #### 4. TechMain (Technical Maintenance)
@@ -115,17 +115,17 @@ Bug reported → PO creates Prod Issue epic with due date
 - PC-11 (Closing PC) is entirely TechMain
 
 #### 5. Blocker
-> **Impediment blocking a developer or PO. Assigned to Datta (or the blocking party). Has a cascading 1/3/7 day SLA.**
+> **Impediment blocking a developer or PO. Assigned to {{ADVISOR}} (or the blocking party). Has a cascading 1/3/7 day SLA.**
 
 | Field | Value |
 |---|---|
 | Label | `blocker` |
 | What it is | An impediment that prevents a developer or PO from continuing their work |
-| Examples | "Need Datta decision on auth provider", "Waiting for API key from external service", "VPS access not working", "Unclear acceptance criteria on ROOT-055", "Waiting for Datta to deliver project documentation" |
+| Examples | "Need {{ADVISOR}} decision on auth provider", "Waiting for API key from external service", "VPS access not working", "Unclear acceptance criteria on ROOT-055", "Waiting for {{ADVISOR}} to deliver project documentation" |
 | Max story points | **3** (blockers should be resolved quickly) |
 | Estimation includes | Investigation → decision/action → unblock team → verify work resumes |
-| Default owner | **Datta always** (as Advisor/Scrum Master, he removes impediments) |
-| Alt owner | Another human/party if they are the blocker (e.g., external vendor) — still tracked by Datta |
+| Default owner | **{{ADVISOR}} always** (as Advisor/Scrum Master, he removes impediments) |
+| Alt owner | Another human/party if they are the blocker (e.g., external vendor) — still tracked by {{ADVISOR}} |
 | Due date | **MANDATORY — cascading SLA below** |
 | Deliverable | Decision made, access granted, or impediment removed — blocked epic resumes |
 | Spec location | `specs/interrupt/BLOCK-NNN.spec.md` |
@@ -134,18 +134,18 @@ Bug reported → PO creates Prod Issue epic with due date
 
 This policy applies to every Blocker epic. Each window triggers a specific
 action. The total budget is 1 week; after that, dependent work is hard-paused
-until Datta responds (no LLM spend on blocked paths).
+until {{ADVISOR}} responds (no LLM spend on blocked paths).
 
 | Window | When | Priority | Action | Notification |
 |---|---|---|---|---|
-| **T+0** | Blocker created | P3 | BLOCK-NNN created, auto-assigned to Datta (or blocking party), due date = T+7 | PO posts in `#specag-planning` tagging owner; Datta gets direct Slack ping |
+| **T+0** | Blocker created | P3 | BLOCK-NNN created, auto-assigned to {{ADVISOR}} (or blocking party), due date = T+7 | PO posts in `#specag-planning` tagging owner; {{ADVISOR}} gets direct Slack ping |
 | **T+1 day — Response window** | No response in 24h | P3 | PO bumps reminder in `#specag-planning` | "@datta BLOCK-NNN awaiting first response — 24h elapsed" |
 | **T+3 days — Escalation window** | No resolution in 72h | **P2** (bumped) | PO broadcasts downstream impact to team | Impact report: "BLOCK-NNN will delay epics [IDs] and sprints [S-NN+1, S-NN+2]. Dependent agents may pause LLM usage if not resolved by T+7." |
-| **T+7 days — Hard pause** | Still unresolved after 1 week | **P1** (bumped) | PO hard-pauses all dependent epics. Agents stop LLM work on those paths. Sprint may need cancellation (PLAT-013) | "🛑 BLOCK-NNN HARD PAUSE. Dependent epics [IDs] frozen. Agents idle on these paths. Waiting for Datta. No further LLM spend until resolved." |
+| **T+7 days — Hard pause** | Still unresolved after 1 week | **P1** (bumped) | PO hard-pauses all dependent epics. Agents stop LLM work on those paths. Sprint may need cancellation (PLAT-013) | "🛑 BLOCK-NNN HARD PAUSE. Dependent epics [IDs] frozen. Agents idle on these paths. Waiting for {{ADVISOR}}. No further LLM spend until resolved." |
 
 **Why the 7-day hard pause:**
 Beyond 1 week, continuing to "nudge" the agents or let them speculate on the
-blocker burns tokens without progress. The decision belongs to Datta. The
+blocker burns tokens without progress. The decision belongs to {{ADVISOR}}. The
 cheapest and most honest action is to stop work and wait. Agents can be
 reassigned to unblocked epics if any exist.
 
@@ -154,14 +154,14 @@ reassigned to unblocked epics if any exist.
 Developer, PO, or Lead Dev encounters impediment they cannot resolve
   → Posts in #specag-dev: "blocker ROOT-NNN: [description]"
   → PO creates Blocker epic (BLOCK-NNN) in specs/interrupt/
-  → Auto-assigned to Datta (or blocking party)
+  → Auto-assigned to {{ADVISOR}} (or blocking party)
   → Due date = T+7 (hard pause threshold)
-  → Datta receives Slack direct ping immediately (T+0)
+  → {{ADVISOR}} receives Slack direct ping immediately (T+0)
   → Tracker schedules 3 wake-ups: T+1 (nudge), T+3 (escalate), T+7 (hard pause)
-  → Datta resolves blocker at any point → PO marks BLOCK-NNN as DONE → dependent epics resume
+  → {{ADVISOR}} resolves blocker at any point → PO marks BLOCK-NNN as DONE → dependent epics resume
 
 If T+1 passes with no response:
-  → PO posts reminder in #specag-planning tagging Datta
+  → PO posts reminder in #specag-planning tagging {{ADVISOR}}
   → Priority unchanged (P3)
 
 If T+3 passes with no response:
@@ -169,7 +169,7 @@ If T+3 passes with no response:
   → PO posts impact report in #specag-planning and #specag-dev
   → Priority bumped P3 → P2
   → Dependent epics flagged "at risk" in INDEX.md
-  → If the blocker owner is someone other than Datta, Datta is also notified
+  → If the blocker owner is someone other than {{ADVISOR}}, {{ADVISOR}} is also notified
     so he can intervene with the blocking party
 
 If T+7 passes with no response:
@@ -193,7 +193,7 @@ the correct state.
 | | Blocker | Prod Issue |
 |---|---|---|
 | Source | Internal impediment | Production bug |
-| Owner | Datta always | Lead Dev always |
+| Owner | {{ADVISOR}} always | Lead Dev always |
 | Affects | Developer/PO productivity | End users |
 | Code output | Usually NO (decision/access) | YES (hotfix) |
 | Due date | Cascading 1/3/7 days | Based on severity (S1 same-day, S2 2 days, S3 within sprint) |
@@ -246,7 +246,7 @@ Each child epic:
 | Story | `story` | 5 | No (sprint end) | Lead Dev preferred | NO (document) | No |
 | Prod Issue | `prod-issue` | 5 | **YES (mandatory)** | **Lead Dev always** | YES (hotfix) | No (urgent) |
 | TechMain | `tech-maintenance` | 5 | No (sprint end) | Lead Dev preferred | YES | No |
-| Blocker | `blocker` | 3 | **YES (cascading 1/3/7 days — hard pause at T+7)** | **Datta always** | Usually NO | No (urgent) |
+| Blocker | `blocker` | 3 | **YES (cascading 1/3/7 days — hard pause at T+7)** | **{{ADVISOR}} always** | Usually NO | No (urgent) |
 | Feature | `feature` | **>10 (container)** | Optional | Split across team | YES (children) | **YES** |
 
 ### GitHub Labels
@@ -269,7 +269,7 @@ Special labels:   blocking, rollover, interrupt
 | Story | ROOT-NNN | ROOT-051 (same prefix, differentiated by label) |
 | Prod Issue | ROOT-NNN | ROOT-060 |
 | TechMain | ROOT-NNN | ROOT-070 |
-| Blocker | BLOCK-NNN | BLOCK-001 (impediment assigned to Datta) |
+| Blocker | BLOCK-NNN | BLOCK-001 (impediment assigned to {{ADVISOR}}) |
 | Feature (parent) | FEAT-NNN | FEAT-001 (groups child ROOT-NNN epics) |
 | Platform work | PLAT-NNN | PLAT-001 |
 | Infrastructure | INFRA-NNN | INFRA-001 |
@@ -299,8 +299,8 @@ Special labels:   blocking, rollover, interrupt
 - Every epic MUST have exactly one category label
 - Prod Issues MUST have a due date — PO sets it based on severity
 - Blockers follow the cascading 1/3/7 day SLA — auto-nudged at T+1, escalated with downstream impact report at T+3, hard-paused at T+7
-- Blockers are always assigned to Datta (or the blocking party with Datta tracking)
-- Hard-paused blockers trigger ZERO LLM spend on dependent epics until Datta responds
+- Blockers are always assigned to {{ADVISOR}} (or the blocking party with {{ADVISOR}} tracking)
+- Hard-paused blockers trigger ZERO LLM spend on dependent epics until {{ADVISOR}} responds
 - Features MUST be decomposed into child epics ≤5 points each
 - Stories MUST produce a document — if it produces code, it's a Task
 - TechMain is default S4 unless CVE-driven (then follows CVSS → severity mapping)
@@ -326,8 +326,8 @@ AC-005: Given an epic is estimated at 8 points, when PO categorizes it as Task,
 AC-006: Given a Feature has child epics in Sprint S-03 and S-04, when Sprint S-03
         review runs, then only S-03 children count toward S-03 velocity.
 
-AC-007: Given a developer posts "blocker ROOT-055: waiting on Datta decision for
-        auth provider", when PO creates BLOCK-001, then it is assigned to Datta
+AC-007: Given a developer posts "blocker ROOT-055: waiting on {{ADVISOR}} decision for
+        auth provider", when PO creates BLOCK-001, then it is assigned to {{ADVISOR}}
         with a due date of T+7 (hard pause threshold) and the tracker schedules
         three wake-ups at T+1, T+3, and T+7.
 
@@ -357,5 +357,5 @@ AC-012: Given a hard-paused blocker makes the current sprint goal unachievable,
 
 ## [CHANGE LOG]
 - 2026-04-10: Initial spec created — 5 epic types defined with rules
-- 2026-04-10: Added Blocker category (6th type) — assigned to Datta, ≤3-day due date
+- 2026-04-10: Added Blocker category (6th type) — assigned to {{ADVISOR}}, ≤3-day due date
 - 2026-04-11: Replaced flat 3-day Blocker SLA with cascading 1/3/7 day policy — nudge at T+1, downstream impact escalation at T+3, hard pause with zero LLM spend at T+7. Added AC-008 through AC-012.

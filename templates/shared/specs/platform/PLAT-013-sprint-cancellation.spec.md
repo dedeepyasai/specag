@@ -2,7 +2,7 @@
 
 ## [SUMMARY]
 - App: SDD Platform (scaffolding)
-- Epic owner: PO Agent (orchestration), Datta (sole authority to cancel)
+- Epic owner: PO Agent (orchestration), {{ADVISOR}} (sole authority to cancel)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0
 - Related specs: PLAT-006 (ceremonies), PLAT-008 (epic categories), PLAT-010 (continuous improvement)
@@ -12,7 +12,7 @@
 As the team, we need a clearly defined protocol for cancelling a sprint mid-flight
 when the sprint goal becomes obsolete, invalid, or impossible to achieve. Without
 this protocol, a bad sprint drags agents through wasted work and pollutes the
-burndown, retro, and velocity metrics. Only Datta can cancel a sprint — agents
+burndown, retro, and velocity metrics. Only {{ADVISOR}} can cancel a sprint — agents
 cannot self-cancel.
 
 ## [TECH SPEC]
@@ -25,7 +25,7 @@ before its scheduled Saturday end. It is different from a normal sprint end:
 | | Normal sprint end | Sprint cancellation |
 |---|---|---|
 | When | Saturday (day 7) | Any day 1–6 of the sprint |
-| Authority | Scheduled | Datta only |
+| Authority | Scheduled | {{ADVISOR}} only |
 | Epics | Accepted or rolled over | All open epics returned to backlog |
 | Review | Full demo + retro | Abbreviated post-mortem (no demo) |
 | Velocity | Counted | NOT counted (excluded from average) |
@@ -33,26 +33,26 @@ before its scheduled Saturday end. It is different from a normal sprint end:
 
 ### 2. Who Can Cancel
 
-**Datta is the sole authority.** Lead Dev, PO Agent, and Associate Developer
+**{{ADVISOR}} is the sole authority.** Lead Dev, PO Agent, and Associate Developer
 can *recommend* cancellation in `#specag-planning` but cannot execute it.
-Slack command `cancel sprint` is restricted to Datta's user ID.
+Slack command `cancel sprint` is restricted to {{ADVISOR}}'s user ID.
 
 ### 3. Valid Cancellation Triggers
 
 | Trigger | Example | Who surfaces it |
 |---|---|---|
-| **Sprint goal obsolete** | Business requirement changed mid-sprint; all in-flight epics no longer valuable | Datta or PO |
+| **Sprint goal obsolete** | Business requirement changed mid-sprint; all in-flight epics no longer valuable | {{ADVISOR}} or PO |
 | **Critical dependency broken** | Upstream API / infra failure blocks >50% of sprint scope | Lead Dev |
-| **Production incident** | S1 prod bug requires full team focus for >2 days | Lead Dev or Datta |
+| **Production incident** | S1 prod bug requires full team focus for >2 days | Lead Dev or {{ADVISOR}} |
 | **Scope collapse** | >60% of sprint epics blocked and blockers cannot be resolved in ≤2 days | PO Agent |
 | **Token/budget halt** | Weekly token cap hit and cannot be raised (see PLAT-001) | PO Agent |
-| **Team unavailability** | Datta unavailable for >3 days AND sprint needs his approval gates | PO Agent |
+| **Team unavailability** | {{ADVISOR}} unavailable for >3 days AND sprint needs his approval gates | PO Agent |
 
 Cancellation is **not** appropriate for:
 - A single blocker (use a Blocker epic instead — see PLAT-008)
 - Underestimation of a few epics (swap using Section 28 of Project Bible)
 - One agent underperforming (reassign epics)
-- Datta changing his mind about a feature's priority (swap, don't cancel)
+- {{ADVISOR}} changing his mind about a feature's priority (swap, don't cancel)
 
 ### 4. Cancellation Flow
 
@@ -63,7 +63,7 @@ Step 1 — TRIGGER
     "Recommend sprint cancellation. Trigger: <trigger>. Evidence: <facts>."
 
 Step 2 — DATTA DECISION (within 4 hours of recommendation)
-  Datta replies in #specag-planning:
+  {{ADVISOR}} replies in #specag-planning:
     ✅ "Cancelling sprint. Reason: <reason>."
        → proceed to Step 3
     ❌ "Declined. Continue sprint. Action: <alternative>."
@@ -72,7 +72,7 @@ Step 2 — DATTA DECISION (within 4 hours of recommendation)
 Step 3 — HALT
   PO Agent executes `cancel sprint` Slack command.
   PO Agent posts to #specag-dev:
-    "🛑 SPRINT S-NN CANCELLED by Datta. All agents: stop work on assigned
+    "🛑 SPRINT S-NN CANCELLED by {{ADVISOR}}. All agents: stop work on assigned
      epics and push WIP. Do NOT open new PRs until next sprint kickoff."
   All agents commit/push work-in-progress to their feature branches.
   No new PRs are opened. Open PRs are marked `status: cancelled-sprint` and
@@ -91,7 +91,7 @@ Step 4 — EPIC RECLASSIFICATION
   counted in rolling average.
 
 Step 5 — POST-MORTEM (within 24 hours of cancellation)
-  Datta + PO + Lead Dev run a 30-minute post-mortem.
+  {{ADVISOR}} + PO + Lead Dev run a 30-minute post-mortem.
   Output: sprints/S-NN/cancellation-postmortem.md with:
     - Trigger
     - Timeline of events that led to cancellation
@@ -121,7 +121,7 @@ Step 6 — NEXT SPRINT ADJUSTMENT
 | Draft tech specs | Kept as-is in specs/backlog/ |
 
 **Rollback is NOT part of sprint cancellation.** Cancellation stops *future*
-work; it does not undo *completed* work. If a rollback is also needed, Datta
+work; it does not undo *completed* work. If a rollback is also needed, {{ADVISOR}}
 triggers it separately via PLAT-012.
 
 ### 6. Burndown & Velocity Treatment
@@ -132,7 +132,7 @@ triggers it separately via PLAT-012.
   "sprint": "S-03",
   "status": "CANCELLED",
   "cancelled_on": "2026-05-20T14:30:00-05:00",
-  "cancelled_by": "Datta",
+  "cancelled_by": "{{ADVISOR}}",
   "reason": "Sprint goal invalidated — upstream API vendor changed contract",
   "points_forecast": 22,
   "points_accepted": 6,
@@ -149,7 +149,7 @@ suppressing forecasts for 3+ sprints afterward.
 ### 7. Slack Commands
 
 ```
-Datta: "cancel sprint"
+{{ADVISOR}}: "cancel sprint"
   → Bot replies:
     ┌──────────────────────────────────────────┐
     │  ⚠️  SPRINT CANCELLATION                 │
@@ -169,13 +169,13 @@ Datta: "cancel sprint"
     │  Reply with "abort" to cancel this dialog │
     └──────────────────────────────────────────┘
 
-Datta: "confirm cancel <reason text>"
+{{ADVISOR}}: "confirm cancel <reason text>"
   → Bot runs cancellation flow (Steps 3–4)
   → Bot posts cancellation notice to #specag-dev
   → Bot creates sprints/S-NN/cancellation-postmortem.md stub
   → Bot schedules post-mortem reminder in 24 hours
 
-Datta: "sprint status"
+{{ADVISOR}}: "sprint status"
   → Shows current sprint state, including CANCELLED if applicable
 ```
 
@@ -186,7 +186,7 @@ Datta: "sprint status"
 
 - **Sprint:** S-NN
 - **Cancelled on:** YYYY-MM-DD HH:MM CST
-- **Cancelled by:** Datta
+- **Cancelled by:** {{ADVISOR}}
 - **Day of sprint:** N of 7
 - **Reason (short):** <one line>
 
@@ -245,7 +245,7 @@ cancellation_log:
 ### 10. Limits
 
 - **Max cancellations per PC:** 1. A second cancellation in the same PC requires
-  Datta to also decide whether the entire PC is viable (see PC close protocol).
+  {{ADVISOR}} to also decide whether the entire PC is viable (see PC close protocol).
 - **Cooldown:** After cancellation, the next sprint cannot also be cancelled
   unless the trigger is *different* from the first.
 - **No partial cancellation.** Either the whole sprint is cancelled or it runs
@@ -261,7 +261,7 @@ cancellation_log:
 - `pc.manifest.yaml` — cancellation_log append
 
 ## [STANDARDS]
-- Only Datta can cancel a sprint — Slack command is user-ID restricted
+- Only {{ADVISOR}} can cancel a sprint — Slack command is user-ID restricted
 - A cancellation recommendation must include a trigger from Section 3
 - Cancelled sprints are excluded from velocity averages
 - Post-mortem must be created within 24 hours of cancellation
@@ -273,14 +273,14 @@ cancellation_log:
 ## [ACCEPTANCE CRITERIA]
 ```
 AC-001: Given a cancellation trigger from Section 3, when a team member posts
-        a recommendation in #specag-planning with justification, then Datta
+        a recommendation in #specag-planning with justification, then {{ADVISOR}}
         responds within 4 hours with accept or decline.
 
-AC-002: Given Datta types "cancel sprint", when the bot responds with the
+AC-002: Given {{ADVISOR}} types "cancel sprint", when the bot responds with the
         confirmation dialog, then the dialog shows current sprint ID, day
         count, sprint goal, and impact summary.
 
-AC-003: Given Datta types "confirm cancel <reason>", when the cancellation
+AC-003: Given {{ADVISOR}} types "confirm cancel <reason>", when the cancellation
         flow runs, then all agents receive the stop-work notification within
         60 seconds and INDEX.md reflects returned epics within 5 minutes.
 
@@ -299,12 +299,12 @@ AC-006: Given a cancellation recommendation does NOT match a Section 3
         mid-sprint swap, or reassignment).
 
 AC-007: Given a cancellation has occurred in the current PC, when a second
-        cancellation is recommended, then Datta must also complete a PC
+        cancellation is recommended, then {{ADVISOR}} must also complete a PC
         viability review before approving.
 
-AC-008: Given a Slack user who is NOT Datta types "cancel sprint", when the
+AC-008: Given a Slack user who is NOT {{ADVISOR}} types "cancel sprint", when the
         bot receives the command, then the command is rejected with
-        "Only Datta can cancel a sprint. Post a recommendation in
+        "Only {{ADVISOR}} can cancel a sprint. Post a recommendation in
         #specag-planning instead."
 ```
 

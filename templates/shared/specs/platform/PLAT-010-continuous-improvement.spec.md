@@ -2,7 +2,7 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Datta (Scrum Master / Advisor), PO (facilitates)
+- Epic owner: {{ADVISOR}} (Scrum Master / Advisor), PO (facilitates)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0
 - Related specs: PLAT-006 (ceremonies)
@@ -10,27 +10,27 @@
 
 ## [STORY]
 As the team, we need a structured retrospective that captures real problems from every
-role — developers, PO, and Advisor — and produces concrete action items that Datta
+role — developers, PO, and Advisor — and produces concrete action items that {{ADVISOR}}
 (as Scrum Master) owns and tracks. The Agile methodology itself is a living system
-that Datta continuously evolves based on retro findings.
+that {{ADVISOR}} continuously evolves based on retro findings.
 
 ## [TECH SPEC]
 
-### 1. Datta's Dual Role: Advisor + Scrum Master
+### 1. {{ADVISOR}}'s Dual Role: Advisor + Scrum Master
 
 | Responsibility | What it means |
 |---|---|
 | **Advisor** | Final authority, QA tester, epic seeder, decision gates |
 | **Scrum Master** | Owns action items from retros, removes impediments, evolves the process |
 
-Datta does NOT just approve/reject — he actively improves the system based on
+{{ADVISOR}} does NOT just approve/reject — he actively improves the system based on
 what the retro reveals. Action items are HIS responsibility to resolve.
 
 ### 2. Enhanced Retrospective Format
 
 **When:** Saturday — after Sprint Review (3:00 PM), before Sprint Planning (4:00 PM)
 **Where:** `#specag-dev` (Slack) + saved to `sprints/S-NN/retro.md`
-**Who:** ALL team members contribute. PO facilitates. Datta owns action items.
+**Who:** ALL team members contribute. PO facilitates. {{ADVISOR}} owns action items.
 
 #### Step 1 — Each team member posts their retro input
 
@@ -94,9 +94,9 @@ what the retro reveals. Action items are HIS responsibility to resolve.
   - Add a mid-week check-in (Wednesday) for dependency status
 ```
 
-**Datta (Advisor) posts:**
+**{{ADVISOR}} (Advisor) posts:**
 ```
-*Datta — Sprint S-03 Retro*
+*{{ADVISOR}} — Sprint S-03 Retro*
 
 *What went well:*
   - QA was smooth — staging deploys were stable
@@ -139,28 +139,28 @@ what the retro reveals. Action items are HIS responsibility to resolve.
 │  △ Estimation accuracy for error-handling     │
 │  △ Dependency epics should complete mid-week  │
 │  △ ACs need walkthrough at Sunday kickoff      │
-│  △ Datta QA within 24 hours of deploy         │
+│  △ {{ADVISOR}} QA within 24 hours of deploy         │
 │  △ Burndown should flag dependency risks      │
 └─────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────┐
-│  ACTION ITEMS (Datta owns as Scrum Master)   │
+│  ACTION ITEMS ({{ADVISOR}} owns as Scrum Master)   │
 ├─────────────────────────────────────────────┤
 │  [AI-001] Add dependency check to Wed standup │
-│    Owner: Datta | Due: Sprint S-04 Day 1      │
+│    Owner: {{ADVISOR}} | Due: Sprint S-04 Day 1      │
 │    Status: NEW                                │
 │                                               │
 │  [AI-002] Add AC walkthrough to Mon kickoff   │
-│    Owner: Datta | Due: Sprint S-04 Day 1      │
+│    Owner: {{ADVISOR}} | Due: Sprint S-04 Day 1      │
 │    Status: NEW                                │
 │                                               │
 │  [AI-003] QA within 24hr of staging deploy    │
-│    Owner: Datta | Due: Ongoing                │
+│    Owner: {{ADVISOR}} | Due: Ongoing                │
 │    Status: NEW                                │
 │                                               │
 │  [AI-004] Burndown: flag "at risk" when       │
 │    dependency exists and blocker unresolved    │
-│    Owner: Datta → PO implements | Due: S-04   │
+│    Owner: {{ADVISOR}} → PO implements | Due: S-04   │
 │    Status: NEW                                │
 └─────────────────────────────────────────────┘
 
@@ -175,39 +175,39 @@ Action items persist across sprints until resolved. Tracked in `sprints/action-i
 
 ```markdown
 # Action Items — Running Tracker
-# Owner: Datta (Scrum Master)
+# Owner: {{ADVISOR}} (Scrum Master)
 # Updated: every retro
 
 | ID | Action | Owner | Created | Due | Status |
 |---|---|---|---|---|---|
-| AI-001 | Add dependency check to Wed standup | Datta | S-03 | S-04 Day 1 | NEW |
-| AI-002 | Add AC walkthrough to Mon kickoff | Datta | S-03 | S-04 Day 1 | NEW |
-| AI-003 | QA within 24hr of staging deploy | Datta | S-03 | Ongoing | NEW |
-| AI-004 | Burndown flags dependency risks | Datta→PO | S-03 | S-04 | NEW |
-| AI-prev-001 | Reduce standup verbosity | Datta | S-02 | S-03 | DONE |
+| AI-001 | Add dependency check to Wed standup | {{ADVISOR}} | S-03 | S-04 Day 1 | NEW |
+| AI-002 | Add AC walkthrough to Mon kickoff | {{ADVISOR}} | S-03 | S-04 Day 1 | NEW |
+| AI-003 | QA within 24hr of staging deploy | {{ADVISOR}} | S-03 | Ongoing | NEW |
+| AI-004 | Burndown flags dependency risks | {{ADVISOR}}→PO | S-03 | S-04 | NEW |
+| AI-prev-001 | Reduce standup verbosity | {{ADVISOR}} | S-02 | S-03 | DONE |
 | AI-prev-002 | Add token usage to daily report | PO | S-02 | S-03 | DONE |
 ```
 
 **Rules:**
-- Datta owns ALL action items (as Scrum Master)
-- Datta can delegate implementation (e.g., "PO implements burndown change")
+- {{ADVISOR}} owns ALL action items (as Scrum Master)
+- {{ADVISOR}} can delegate implementation (e.g., "PO implements burndown change")
 - Action items are reviewed at the START of every retro (what was done, what's still open)
 - If an action item is open for 3+ sprints, it's escalated in the retro as a recurring problem
 - Action items that change Agile methodology are applied by updating the Project Bible + relevant spec
 
 ### 4. Continuous Methodology Evolution
 
-Datta has the authority to evolve the Agile methodology at any time. Changes flow:
+{{ADVISOR}} has the authority to evolve the Agile methodology at any time. Changes flow:
 
 ```
-Retro finding → Action item → Datta decides change
+Retro finding → Action item → {{ADVISOR}} decides change
   → Update Project Bible (source of truth)
   → Update relevant spec (PLAT-006, coding-standards, etc.)
   → PO announces change in next Sprint Planning
   → Team follows updated process from next sprint onward
 ```
 
-**What Datta can change:**
+**What {{ADVISOR}} can change:**
 - Ceremony timing, format, or frequency
 - Story point rules or capacity calculations
 - Definition of Ready / Definition of Done
@@ -229,18 +229,18 @@ which only happens if speaking honestly is safe. Two non-negotiable rules:
 - Post-mortems and retro notes cite ROLES (Lead Dev, PO, Associate), never
   individual humans, even when only one human exists.
 - "The Lead Dev role missed the dependency" — OK.
-- "Datta missed the dependency" — NOT OK in written retro artifacts.
+- "{{ADVISOR}} missed the dependency" — NOT OK in written retro artifacts.
 - Action items address process gaps ("add a Wednesday dependency check"),
   never assign blame ("X needs to pay more attention").
 - If a recurring problem traces to one role, the fix is a process change
   (a checklist, a hook, a ceremony), not a personal call-out.
-- This applies even when Datta is the only human. Future contributors will
+- This applies even when {{ADVISOR}} is the only human. Future contributors will
   read these retros — keep them blameless from day one.
 
 **Vegas Rule — what's said in retro stays in retro.**
 - Discussion content during the retro window (gripes, frustrations, half-formed
   ideas, "this is annoying" comments) is NOT quoted outside `#specag-dev` retro
-  context. Not in standups, not in PRs, not in Slack DMs to Datta later.
+  context. Not in standups, not in PRs, not in Slack DMs to {{ADVISOR}} later.
 - The WRITTEN retro summary (what-went-well, what-improved, action items) IS
   public — it goes into `sprints/S-NN/retro.md` and is part of the audit trail.
 - The distinction: action items are public, raw venting is not.
@@ -326,7 +326,7 @@ scope at the PC level. PO updates it every Saturday at retro close.
 - (track every scope addition; mid-PC removals also tracked)
 
 ## Risks to Burndown
-- S04 blocked_by: Datta project documentation delivery (cascading SLA active if T+1)
+- S04 blocked_by: {{ADVISOR}} project documentation delivery (cascading SLA active if T+1)
 - DeepSeek quota saturation could downgrade to emergency tier (slower output)
 ```
 
@@ -335,7 +335,7 @@ scope at the PC level. PO updates it every Saturday at retro close.
 - "Total Scope" includes ALL approved epics in the PC manifest as of that Saturday — both original and any added mid-PC.
 - "Added Mid-PC" column makes scope changes visible. PO is required to log a one-line reason for every addition.
 - Forecast line ("on track" / "at risk" / "behind") goes into the daily report on Sundays.
-- A burndown that shows "behind" for 2 consecutive sprints triggers a mid-PC re-plan conversation in `#specag-planning` — Datta decides to descope, extend, or accept.
+- A burndown that shows "behind" for 2 consecutive sprints triggers a mid-PC re-plan conversation in `#specag-planning` — {{ADVISOR}} decides to descope, extend, or accept.
 - Burndown is forecast, not contract. The point is to surface drift early, not to lock in commitments.
 
 ### 8. Estimation Calibration — `sprints/estimation-log.md`
@@ -361,7 +361,7 @@ systematically over- or under-estimate, and adjust our planning accordingly.
 ```
 
 **Rules:**
-- PO logs every closed epic — estimated vs actual story points — at the moment Datta accepts the epic.
+- PO logs every closed epic — estimated vs actual story points — at the moment {{ADVISOR}} accepts the epic.
 - Drift % = `(actual - estimated) / estimated × 100`. Negative means we over-estimated.
 - At retro, PO computes the **median absolute drift** for the last sprint and reports it: "Median estimation drift this sprint: 12% (target: <25%)."
 - If median absolute drift exceeds **25%** in any single sprint, the retro MUST include a calibration discussion: which category (Story, Tech Maintenance, Blocker, etc.) is drifting, and what about the estimation process needs to change.
@@ -381,7 +381,7 @@ PO tracks these sprint-over-sprint to measure improvement:
 | Action item closure | % of action items closed within 2 sprints | ≥80% |
 | [skip-spec] usage | Times used per sprint | ≤3 |
 | Fallback events | Times Tier 2/3 was needed per sprint | Decreasing |
-| QA turnaround | Hours between staging deploy and Datta QA | ≤24 hours |
+| QA turnaround | Hours between staging deploy and {{ADVISOR}} QA | ≤24 hours |
 
 ### Files Touched
 - `sprints/S-NN/retro.md` — per-sprint retro (enhanced format)
@@ -393,7 +393,7 @@ PO tracks these sprint-over-sprint to measure improvement:
 - `specag_project_bible.md` — updated when methodology changes
 
 ## [STANDARDS]
-- Every retro MUST have input from ALL team members (Lead Dev, Associate, PO, Datta)
+- Every retro MUST have input from ALL team members (Lead Dev, Associate, PO, {{ADVISOR}})
 - Retros are BLAMELESS — written artifacts cite roles, never individuals; action items address process gaps, never assign personal blame
 - Vegas Rule — raw retro discussion is not quoted outside the retro; only the written summary and action items are public
 - Action items MUST have an owner, due date, and status
@@ -412,7 +412,7 @@ AC-001: Given it is Saturday retro time, when each agent posts their input, then
         blockers from every team member.
 
 AC-002: Given PO compiles the retro summary, then it includes action items with
-        owner (Datta), due date, and status.
+        owner ({{ADVISOR}}), due date, and status.
 
 AC-003: Given action item AI-001 was created in Sprint S-03, when Sprint S-04
         retro starts, then AI-001 status is reviewed (done/in-progress/open).
@@ -420,7 +420,7 @@ AC-003: Given action item AI-001 was created in Sprint S-03, when Sprint S-04
 AC-004: Given an action item has been open for 3+ sprints, then PO flags it
         as "recurring problem" in the retro summary.
 
-AC-005: Given Datta decides to change a methodology rule (e.g., add Wednesday
+AC-005: Given {{ADVISOR}} decides to change a methodology rule (e.g., add Wednesday
         check-in), then Project Bible and relevant spec are updated before
         the next sprint starts.
 
@@ -446,9 +446,9 @@ AC-010: Given Saturday retro close, when PO updates `year-{year}/PC-{pc}/burndow
 
 AC-011: Given the PC burndown shows "behind" for 2 consecutive sprints, when
         the second sprint closes, then PO opens a mid-PC re-plan thread in
-        `#specag-planning` and tags Datta for a descope/extend/accept decision.
+        `#specag-planning` and tags {{ADVISOR}} for a descope/extend/accept decision.
 
-AC-012: Given an epic is accepted by Datta, when PO closes it, then a row is
+AC-012: Given an epic is accepted by {{ADVISOR}}, when PO closes it, then a row is
         appended to `sprints/estimation-log.md` with estimated vs actual points
         and computed drift %.
 

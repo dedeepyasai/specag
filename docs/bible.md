@@ -1,7 +1,7 @@
 # SpecAg AI Development Ecosystem
 ## Project Bible & System Design Document
 
-**Roles:** Datta (Advisor/Admin) | Lead Dev Agent (Claude Sonnet 4.6) | Associate Dev Agent (GPT-4.1) | PO Agent (GPT-4o mini)
+**Roles:** {{ADVISOR}} (Advisor/Admin) | Lead Dev Agent (Claude Sonnet 4.6) | Associate Dev Agent (GPT-4.1) | PO Agent (GPT-4o mini)
 
 **Version 1.8 | April 2026 | Dallas, TX**
 
@@ -66,7 +66,7 @@ This document is long. That is deliberate, and it is a tradeoff the reader shoul
 
 Every Agile framework is built around serving a customer. This scaffolding does not yet have one.
 
-- **During scaffolding phase (PC-01):** There is no end customer. The "customer" is the future user of the template — Datta or whoever adopts this repo. Sprint Reviews demonstrate framework features (rollback, cancellation, hooks) to Datta, not end users.
+- **During scaffolding phase (PC-01):** There is no end customer. The "customer" is the future user of the template — {{ADVISOR}} or whoever adopts this repo. Sprint Reviews demonstrate framework features (rollback, cancellation, hooks) to {{ADVISOR}}, not end users.
 - **During real project phases (PC-02+):** Once a real product is being built on this scaffolding, the customer is the end user of that product. PO Agent represents the customer's interests. Sprint Reviews must include user-facing demos once real users exist. This section will be updated at PC-02 kickoff to name the actual customer and their feedback channel.
 - **Gap acknowledged:** A customer feedback loop (user testing, analytics, support channels, interviews) is NOT yet defined. This is intentional — defining it before a real product exists produces make-believe process. It will be added in the first real project PC when there is something to get feedback on.
 
@@ -81,19 +81,19 @@ Every Agile framework is built around serving a customer. This scaffolding does 
 | Runtime | Mac Mini — always-on, cron-driven CrewAI orchestration |
 | Framework | SDD (Spec-Driven Development) + GitHub + Slack |
 | Year cadence | 11 PCs × 5 sprints (10 regular) + 1 closing PC × 2 sprints = 52 sprints/year |
-| Total roles | 4 — Lead Dev Agent, Associate Dev Agent, PO Agent, Datta (Advisor) |
+| Total roles | 4 — Lead Dev Agent, Associate Dev Agent, PO Agent, {{ADVISOR}} (Advisor) |
 | Providers | Anthropic (Claude Sonnet 4.6) + OpenAI (GPT-4.1 + GPT-4o mini) |
-| Datta's involvement | Decision gates only — not in the daily operational loop |
+| {{ADVISOR}}'s involvement | Decision gates only — not in the daily operational loop |
 
 ---
 
 ## 2. Roles & Responsibilities
 
-The ecosystem has four distinct roles. Two are developers (both AI), one is the orchestration agent (AI), and one is the human advisor (Datta). Each has a clearly bounded authority scope.
+The ecosystem has four distinct roles. Two are developers (both AI), one is the orchestration agent (AI), and one is the human advisor ({{ADVISOR}}). Each has a clearly bounded authority scope.
 
-### 2.1 Datta — Advisor / Admin
+### 2.1 {{ADVISOR}} — Advisor / Admin
 
-> **Datta is not in the daily operational loop. He is consulted exclusively at defined decision gates. The system runs autonomously between those gates.**
+> **{{ADVISOR}} is not in the daily operational loop. He is consulted exclusively at defined decision gates. The system runs autonomously between those gates.**
 
 | Responsibility | Detail |
 |---|---|
@@ -118,7 +118,7 @@ The ecosystem has four distinct roles. Two are developers (both AI), one is the 
 | Context scope | Reads full spec files, sprint retros, architecture docs, `coding-standards.md` |
 | PR authority | Reviews ALL PRs from Associate. Can veto with documented reason in `status.log` |
 | Design meeting | Prepares 1-page recommendation doc every 2 sprints (file heat-map + split/stay rationale) |
-| Escalation | Escalates to Datta only: repo split approval, S1 notifications, PC close review |
+| Escalation | Escalates to {{ADVISOR}} only: repo split approval, S1 notifications, PC close review |
 | Token provider | Anthropic — tracked in `anthropic_usage.db` |
 
 ### 2.3 Associate Dev Agent — GPT-4.1 (OpenAI)
@@ -176,24 +176,24 @@ The year is divided into **Project Contexts (PCs)**. Each PC is a self-contained
 
 | Sprint | Focus & Key Activities |
 |---|---|
-| Sprint 1 | Kick-off: Datta writes MVP + epic seeds. PO runs severity triage, assigns epics. Agents onboard to `pc.manifest.yaml`. Feature build begins. |
-| Sprint 2 | Full velocity: both agents at capacity. Design meeting after Sprint 2 (Lead Dev recommends, Datta approves repo split or stay). Tech-upgrade scan. |
-| Sprint 3 | Feature build + QA: Datta QA pass on all Sprint 1–2 epics. Bug fixes. Green flags issued per epic. |
+| Sprint 1 | Kick-off: {{ADVISOR}} writes MVP + epic seeds. PO runs severity triage, assigns epics. Agents onboard to `pc.manifest.yaml`. Feature build begins. |
+| Sprint 2 | Full velocity: both agents at capacity. Design meeting after Sprint 2 (Lead Dev recommends, {{ADVISOR}} approves repo split or stay). Tech-upgrade scan. |
+| Sprint 3 | Feature build + QA: {{ADVISOR}} QA pass on all Sprint 1–2 epics. Bug fixes. Green flags issued per epic. |
 | Sprint 4 | Hardening: edge cases, performance, mobile build optimisation. Second design meeting. Sonar scan. |
-| Sprint 5 (PC close) | PO writes `context-summary.md` (max 200 lines) distilling all retros. Datta reviews + approves next PC seeds. `INDEX.md` frozen for archive. |
+| Sprint 5 (PC close) | PO writes `context-summary.md` (max 200 lines) distilling all retros. {{ADVISOR}} reviews + approves next PC seeds. `INDEX.md` frozen for archive. |
 
 ### 3.2 Closing PC Structure (PC-11)
 
 | Sprint | Focus & Key Activities |
 |---|---|
 | Sprint 51 (S1 of PC-11) | Dependency audit: scan `package.json` + `requirements.txt` vs npm/pypi. Write `dep-audit.md`. Lead Dev implements approved upgrades. All CI green. |
-| Sprint 52 (S2 of PC-11) | Full test suite post-upgrades. PO reads all 10 `context-summary.md` files sequentially (one at a time). Writes `year-retro.md` (1 page). Datta signs off. `upgrade-plan.md` seeds next year's PC-01. |
+| Sprint 52 (S2 of PC-11) | Full test suite post-upgrades. PO reads all 10 `context-summary.md` files sequentially (one at a time). Writes `year-retro.md` (1 page). {{ADVISOR}} signs off. `upgrade-plan.md` seeds next year's PC-01. |
 
 ### 3.3 PC Handoff Rules
 
 | What carries over | What resets |
 |---|---|
-| `context-summary.md` from prev PC (PO reads this one file on Day 1) | Epic backlog — Datta writes fresh for each PC |
+| `context-summary.md` from prev PC (PO reads this one file on Day 1) | Epic backlog — {{ADVISOR}} writes fresh for each PC |
 | Open bug list from `status.log` entries | Token budget counters — reset at PC start |
 | `tech-upgrades/suggestions.md` (appended, never rewritten) | Sprint retro files — archived, not carried forward |
 | Rollover epics (re-evaluated for severity) | Assignment table — PO rebuilds from scratch each PC |
@@ -202,11 +202,11 @@ The year is divided into **Project Contexts (PCs)**. Each PC is a self-contained
 
 ## 4. MVP Definition & Epic Generation
 
-Every PC has exactly one **MVP target** — a clear, scoped deliverable that all epics in the PC contribute toward. The MVP is defined by Datta and decomposed by the PO agent into actionable epics.
+Every PC has exactly one **MVP target** — a clear, scoped deliverable that all epics in the PC contribute toward. The MVP is defined by {{ADVISOR}} and decomposed by the PO agent into actionable epics.
 
 ### 4.1 MVP Definition Flow
 
-1. **MVP session:** Datta writes a 3-sentence MVP statement into `pc.manifest.yaml`. Example: *"Users can create, schedule, and receive reminders on all platforms. The reminder system supports recurring patterns, push notifications, and cross-device sync. Auth, onboarding, and settings are complete."*
+1. **MVP session:** {{ADVISOR}} writes a 3-sentence MVP statement into `pc.manifest.yaml`. Example: *"Users can create, schedule, and receive reminders on all platforms. The reminder system supports recurring patterns, push notifications, and cross-device sync. Auth, onboarding, and settings are complete."*
 2. **PO reads** `pc.manifest.yaml` + prev `context-summary.md` (one file). Acknowledges MVP scope.
 3. **Epic decomposition:** PO breaks MVP into Business Epics (user-facing features) and Technical Epics (infra, perf, security). Each gets a one-line description, type label, and complexity estimate (S/M/L).
 4. **Interrupt slots reserved:** PO pre-reserves 2–3 blank GitHub Issues per sprint with labels only — no spec yet. These absorb prod bugs and Sonar findings without disrupting the planned board.
@@ -233,7 +233,7 @@ Priority is not fixed — it is **severity-scored** at the start of each PC by t
 
 | Severity | Label | Definition | PO Action |
 |---|---|---|---|
-| S1 — Critical | `p1` | Production broken, data loss risk, security breach, or blocks both developers simultaneously | Pause all lower-severity assignments. Alert Datta immediately via Slack @mention. Lead Dev drops everything. |
+| S1 — Critical | `p1` | Production broken, data loss risk, security breach, or blocks both developers simultaneously | Pause all lower-severity assignments. Alert {{ADVISOR}} immediately via Slack @mention. Lead Dev drops everything. |
 | S2 — High | `p2` | High CVE (CVSS >= 7), blocking epic (other dev waiting on contract/schema), rollover that now blocks new sprint work | Lead Dev picks next after any active S1. Associate continues planned work uninterrupted. |
 | S3 — Medium | `p3` | Business epics (MVP features), non-blocking rollovers, medium CVEs (CVSS 4–6.9) | Normal sprint work. PO assigns in sequence. Both developers work in parallel without collision. |
 | S4 — Low | `p4` | Tech debt, low CVEs (CVSS < 4), refactors, documentation, minor enhancements | Fills remaining sprint capacity after S1–S3 assigned. Often deferred to Closing PC if sprint is full. |
@@ -243,8 +243,8 @@ Priority is not fixed — it is **severity-scored** at the start of each PC by t
 - A rollover automatically gets +1 severity bump if it was blocked by a prod bug — the delay was not the dev's fault.
 - A rollover that becomes blocking another dev's epic is immediately re-scored to S2 regardless of original score.
 - Sonar severity follows CVSS: >= 9 = S1, 7–8.9 = S2, 4–6.9 = S3, < 4 = S4.
-- PO re-runs triage every Monday. Re-evaluation note appended to epic's `status.log`. Datta sees the diff in weekly Slack summary.
-- PO can suggest severity changes but cannot promote above S2 without Lead Dev confirmation, and cannot set S1 without Datta awareness.
+- PO re-runs triage every Monday. Re-evaluation note appended to epic's `status.log`. {{ADVISOR}} sees the diff in weekly Slack summary.
+- PO can suggest severity changes but cannot promote above S2 without Lead Dev confirmation, and cannot set S1 without {{ADVISOR}} awareness.
 
 ### 5.2 Rollover Protocol
 
@@ -273,10 +273,10 @@ year-2026/
 
   PC-01/                             # active PC
     pc.manifest.yaml                 # PC number, sprint range, MVP statement, prev context path
-    mvp-statement.md                 # 3-sentence MVP definition from Datta
+    mvp-statement.md                 # 3-sentence MVP definition from {{ADVISOR}}
     context-summary.md               # written at PC close by PO (max 200 lines)
     design-meetings/
-      PC-01-S02-agenda.md            # Lead Dev recommendation + Datta decision
+      PC-01-S02-agenda.md            # Lead Dev recommendation + {{ADVISOR}} decision
       PC-01-S04-agenda.md
     sprints/
       S01/retro.md  S02/retro.md  ...  S05/retro.md
@@ -333,7 +333,7 @@ Each `spec.md` has labeled sections so agents receive a targeted instruction to 
 
 ## [SUMMARY] — all agents read this section
 - App: SpecAg
-- Epic owner: Datta + PO Agent
+- Epic owner: {{ADVISOR}} + PO Agent
 - Status: IN PROGRESS
 - Sprint: PC-01 Sprint 1
 - Related specs: specs/api/ROOT-041.api.md, specs/ui/ROOT-041.ui.md
@@ -435,7 +435,7 @@ The `pr-validation.yml` GitHub Actions workflow enforces all of the following be
 
 ## 8. Epic Acceptance & Demo Flow
 
-No epic is marked DONE until it passes the PO's demo script AND Datta's QA review.
+No epic is marked DONE until it passes the PO's demo script AND {{ADVISOR}}'s QA review.
 
 | Stage | Who + What |
 |---|---|
@@ -444,8 +444,8 @@ No epic is marked DONE until it passes the PO's demo script AND Datta's QA revie
 | 3. Slack notification | PO sends Slack message: `"ROOT-NNN merged. Preview: specag-staging.app/[path]"` |
 | 4. PO demo script | PO agent reads `demo-script.md` and executes it against staging. Logs pass/fail per step. |
 | 5. PO acceptance gate | If demo passes: PO marks epic as `DEMO_PASSED` in `status.log`. If fail: creates bug sub-task. |
-| 6. Datta QA | Datta tests web + iOS sim + Android sim against `acceptance-criteria.md`. Issues green flag or flags issues. |
-| 7. Epic ACCEPTED | PO updates `status.log`: `"ACCEPTED [date] — Datta QA green flag"`. `INDEX.md` updated to `finished/`. |
+| 6. {{ADVISOR}} QA | {{ADVISOR}} tests web + iOS sim + Android sim against `acceptance-criteria.md`. Issues green flag or flags issues. |
+| 7. Epic ACCEPTED | PO updates `status.log`: `"ACCEPTED [date] — {{ADVISOR}} QA green flag"`. `INDEX.md` updated to `finished/`. |
 | 8. Next sprint unlock | PO's next morning check: if all current sprint epics accepted, unlocks next sprint epic assignments. |
 
 ### 8.1 Acceptance Criteria Format
@@ -567,7 +567,7 @@ tracker:
 
 | Condition | System Response |
 |---|---|
-| Anthropic daily cap hit (Lead Dev) | PO pauses all S1/S2 assignments for the day. No automatic failover to OpenAI — arch decisions must not run on a different model mid-task. Datta gets Slack ping. Resumes at midnight reset. |
+| Anthropic daily cap hit (Lead Dev) | PO pauses all S1/S2 assignments for the day. No automatic failover to OpenAI — arch decisions must not run on a different model mid-task. {{ADVISOR}} gets Slack ping. Resumes at midnight reset. |
 | OpenAI daily cap hit (Associate) | PO marks Associate as paused. In-progress epic stays in `in-dev` state with `status.log` entry. Lead Dev continues independently. No cross-provider fallback. |
 | OpenAI daily cap hit (PO) | PO queues all pending assignments to `agents/po_queue.json`. At midnight reset, PO processes queue in severity order. No work lost — just deferred. |
 | Transient rate limit (429, any provider) | Exponential backoff: 5s, 15s, 45s, then notify PO. Delay logged to `status.log`. Does not count against token budget. Retries transparently. |
@@ -586,7 +586,7 @@ tracker:
 | In Dev | Agent has picked up the epic, opened a branch, and is actively coding. Branch: `feat/ROOT-NNN`. |
 | Interrupt | Prod bug or Sonar CVE that entered mid-sprint. Assigned to Lead Dev. Gets its own `interrupt/` spec file. |
 | PR / Review | Code complete. PR raised. `pr-validation.yml` running. Lead Dev reviewing Associate's work. |
-| QA / Done | PR merged. Deployed to staging. Awaiting Datta's green flag. After green flag: ACCEPTED. |
+| QA / Done | PR merged. Deployed to staging. Awaiting {{ADVISOR}}'s green flag. After green flag: ACCEPTED. |
 
 ### 11.2 PO Collision Check Protocol
 
@@ -606,7 +606,7 @@ Runs before every single epic assignment. Prevents two agents from ever writing 
 | Trigger | Automatically after Sprint 2 and Sprint 4 of each PC. PO creates agenda file. |
 | Lead Dev prepares | Reads `specs/INDEX.md` + last 2 sprint retros only. Writes 1-page recommendation: file ownership heat-map, build time trend, domain boundary signals, split/stay recommendation with rationale. |
 | Decoupling triggers | Any one of: (a) two devs touched same file in 3+ PRs, (b) build time > 8 min, (c) clear domain boundary emerging. |
-| Datta's role | Reads recommendation doc only (not retros, not specs). Approves, defers, or asks one clarifying question. Decision logged to agenda file. |
+| {{ADVISOR}}'s role | Reads recommendation doc only (not retros, not specs). Approves, defers, or asks one clarifying question. Decision logged to agenda file. |
 | If split approved | PO creates `Repo split` epic (ROOT-NNN, S2 severity), assigns to Lead Dev next sprint. Associate continues in original repo until split complete. |
 | Interface contract first | Before any repo split PR: `interface-contract.md` filed in `specs/backlog/`. Defines API surface, event contracts, shared types. Both sides read this — nothing else. |
 
@@ -623,7 +623,7 @@ app:
   repo: "https://github.com/your-org/specag"
 
 team:
-  admin: "Datta"
+  admin: "{{ADVISOR}}"
   slack_channel: "#specag-dev"
   po_report_time: "18:00"      # 6pm CST daily cron
   timezone: "America/Chicago"
@@ -680,7 +680,7 @@ infrastructure:
 
 ## 13. PO Agent — Daily Slack Report Format
 
-Sent every weekday at 6pm CST to `#specag-dev`. Structured so Datta can scan it in under 60 seconds.
+Sent every weekday at 6pm CST to `#specag-dev`. Structured so {{ADVISOR}} can scan it in under 60 seconds.
 
 ```
 *PO Daily Report — [Day, Date]*
@@ -702,13 +702,13 @@ Sent every weekday at 6pm CST to `#specag-dev`. Structured so Datta can scan it 
 - Anthropic: 52% daily / 41% weekly
 - OpenAI: 68% daily / 55% weekly
 
-*Datta action needed:*
+*{{ADVISOR}} action needed:*
 - QA ROOT-041 on staging: specag-staging.app/reminders
 - QA ROOT-039 on staging: specag-staging.app/settings
 - No decisions required today
 ```
 
-> When Datta action IS required (decision gate or S1 escalation), the PO uses `@datta` mention and adds a **URGENT** prefix to the message.
+> When {{ADVISOR}} action IS required (decision gate or S1 escalation), the PO uses `@datta` mention and adds a **URGENT** prefix to the message.
 
 ---
 
@@ -730,8 +730,8 @@ The architecture is designed to scale without workflow disruption. The core inva
 |---|---|
 | Squad (2–10 agents) | 1 Lead Dev Agent + N Associate Dev Agents + 1 Squad PO Agent. Squad PO owns assignment within squad. All members follow the same SDD file discipline. |
 | Domain (2–5 squads) | Domain PO coordinates between squads. Owns the domain repo's `INDEX.md`. Routes cross-squad blocking epics. Handles repo split decisions within domain. |
-| Project (all domains) | Master PO Agent (GPT-4o mini) reads domain context-summaries only — never individual epic specs. Reports to Datta. The information pyramid compresses correctly upward. |
-| Datta (Advisor) | Same role regardless of team size — decision gates only. Workload does not increase with team size. Still reads one PO summary per evening. |
+| Project (all domains) | Master PO Agent (GPT-4o mini) reads domain context-summaries only — never individual epic specs. Reports to {{ADVISOR}}. The information pyramid compresses correctly upward. |
+| {{ADVISOR}} (Advisor) | Same role regardless of team size — decision gates only. Workload does not increase with team size. Still reads one PO summary per evening. |
 
 ### 14.3 Repo Decoupling Trigger Criteria
 
@@ -780,7 +780,7 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 
 1. Lead Dev runs dep-audit agent: scans `package.json` and `requirements.txt` vs npm/pypi latest versions.
 2. `dep-audit.md` generated — lists all outdated packages with CVSS scores and breaking-change risk.
-3. Datta reviews `upgrade-plan.md` (derived from `dep-audit`). Approves which upgrades to implement.
+3. {{ADVISOR}} reviews `upgrade-plan.md` (derived from `dep-audit`). Approves which upgrades to implement.
 4. Lead Dev and Associate implement approved upgrades. All CI green before Sprint 52 begins.
 
 ### 16.2 Sprint 52 — Retrospective & Year Seeding
@@ -788,7 +788,7 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 1. Full test suite run post-upgrades. Any regressions fixed before year-retro begins.
 2. PO reads all 10 `context-summary.md` files sequentially — one at a time, rolling summary approach. Never holds all 10 in memory simultaneously.
 3. PO writes `year-retro.md` (maximum 1 page). Contains: shipped features summary, recurring blockers, tech debt resolved, upgrade history, top insights.
-4. Datta reviews `year-retro.md` and signs off.
+4. {{ADVISOR}} reviews `year-retro.md` and signs off.
 5. `upgrade-plan.md` entries that were deferred become seed epics for next year's PC-01.
 6. All PC folders for the year are archived. New `year-YYYY/` root created. Ready for PC-01 kickoff.
 
@@ -805,15 +805,15 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 | Epics per sprint? | ~6 (3 per developer) |
 | Who assigns epics? | PO Agent only — no self-assignment |
 | Who reviews PRs? | Lead Dev Agent — always |
-| Who approves repo splits? | Lead Dev recommends, Datta approves |
-| Who defines the MVP? | Datta (3-sentence statement per PC) |
+| Who approves repo splits? | Lead Dev recommends, {{ADVISOR}} approves |
+| Who defines the MVP? | {{ADVISOR}} (3-sentence statement per PC) |
 | Who runs severity triage? | PO Agent at PC start + every Monday |
 | What is INDEX.md? | The routing table all agents read first — routes to exact spec file |
 | What is context-summary.md? | Max 200-line PC close summary — the only file agents read from prev PC |
 | Lead Dev model? | Claude Sonnet 4.6 (Anthropic) |
 | Associate model? | GPT-4.1 (OpenAI) |
 | PO model? | GPT-4o mini (OpenAI) |
-| Token alert threshold? | 80% of daily/weekly cap — Slack alert to Datta |
+| Token alert threshold? | 80% of daily/weekly cap — Slack alert to {{ADVISOR}} |
 | What triggers a rollover? | Epic not completed in sprint — PO labels and re-queues |
 | What triggers a design meeting? | Every 2 sprints automatically (after S2 and S4) |
 | Estimated cost per year? | ~$350-500 (VPS + APIs + fallback) |
@@ -826,37 +826,37 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 | Sprint runs? | Saturday to Friday (7-day cycle, AI agents work all 7 days) |
 | When is Sprint Review + Deploy? | Saturday 3:00 PM (sprint end) |
 | When is Sprint Retro? | Saturday 3:30 PM |
-| When is Sprint Planning? | Saturday 4:00 PM (PO assigns, Datta approves) |
-| When is Sunday Kickoff? | Sunday 10:00-11:00 AM (tech spec grooming, Datta participates) |
+| When is Sprint Planning? | Saturday 4:00 PM (PO assigns, {{ADVISOR}} approves) |
+| When is Sunday Kickoff? | Sunday 10:00-11:00 AM (tech spec grooming, {{ADVISOR}} participates) |
 | When is Daily Standup? | Every day 8:05 AM (7 days/week) |
-| Why weekends for ceremonies? | Datta works day job weekdays — weekends let him attend all major events |
+| Why weekends for ceremonies? | {{ADVISOR}} works day job weekdays — weekends let him attend all major events |
 | Slack channels? | `#specag-dev` (daily ops) + `#specag-planning` (planning + kickoff) |
 | Definition of Ready? | Business spec + tech spec approved + points assigned + ACs defined |
-| Definition of Done? | Code + tests + PR + review + deploy + demo + Datta QA green flag |
+| Definition of Done? | Code + tests + PR + review + deploy + demo + {{ADVISOR}} QA green flag |
 | Single backlog rule? | ONE backlog, PO owns it, epics enter sprint only via Saturday planning |
-| Blocker epic? | Impediment → assigned to Datta, cascading 1/3/7 day SLA, BLOCK-NNN prefix |
+| Blocker epic? | Impediment → assigned to {{ADVISOR}}, cascading 1/3/7 day SLA, BLOCK-NNN prefix |
 | Blocker SLA cascade? | T+1 nudge → T+3 priority bump + downstream impact report → T+7 HARD PAUSE (zero LLM spend) |
 | What happens at T+7 hard pause? | Dependent epics frozen, token tracker rejects LLM calls on those paths, agents reassigned or idle |
 | Dev environment URL? | `dev.specag.app` (auto-deploy on merge to main) |
-| Prod environment URL? | `specag.app` (manual promotion, Datta approves) |
+| Prod environment URL? | `specag.app` (manual promotion, {{ADVISOR}} approves) |
 | QA delay? | 1-sprint — Sprint N features QA'd in Sprint N+1, promoted end of N+1 |
 | Versioning? | Semantic: vMAJOR.MINOR.PATCH (MAJOR=PC, MINOR=sprint, PATCH=hotfix) |
-| Rollback trigger? | Datta types `rollback production` in Slack — never automatic |
+| Rollback trigger? | {{ADVISOR}} types `rollback production` in Slack — never automatic |
 | Sprint 0? | Infra-only sprint before S01 — VPS, environments, CI/CD, no feature code |
-| Retro action items owned by? | Datta (as Scrum Master) — tracked in `sprints/action-items.md` |
+| Retro action items owned by? | {{ADVISOR}} (as Scrum Master) — tracked in `sprints/action-items.md` |
 | Action item stale threshold? | Open 3+ sprints = escalated as recurring problem |
-| Who can cancel a sprint? | Datta only — Slack `cancel sprint` is user-ID restricted (PLAT-013) |
+| Who can cancel a sprint? | {{ADVISOR}} only — Slack `cancel sprint` is user-ID restricted (PLAT-013) |
 | Max sprint cancellations per PC? | 1 — second requires PC viability review |
 | Cancelled sprint velocity? | NOT counted in rolling velocity average |
 | Mid-sprint scope swap rule? | 1-in-1-out, equal-or-smaller points, outgoing epic must have zero commits (Section 28.3) |
 | Max swaps per sprint? | 2 — a third indicates bad planning, triggers retro action item |
 | Who decides technical architecture? | Lead Dev |
 | Who decides product scope? | PO Agent |
-| Who decides everything else? | Datta (escalation target, final say) — see Section 29.2 |
-| Escalation SLA? | Level 2 (owner) 4h, Level 3 (Datta) 24h |
+| Who decides everything else? | {{ADVISOR}} (escalation target, final say) — see Section 29.2 |
+| Escalation SLA? | Level 2 (owner) 4h, Level 3 ({{ADVISOR}}) 24h |
 | Decision log location? | `sprints/S-NN/decisions.md` — every Level 3 escalation logged |
 | Empirical process control? | Decisions cite data first; gut calls are labelled and revisited next retro (§29.9) |
-| Sustainable pace ceiling? | AI 35 hrs/sprint, human 30 hrs/sprint, Datta ≤10 hrs/week — overtime is never the fix (§21.5) |
+| Sustainable pace ceiling? | AI 35 hrs/sprint, human 30 hrs/sprint, {{ADVISOR}} ≤10 hrs/week — overtime is never the fix (§21.5) |
 | Definition of Done (canonical)? | Bible §30 — 14-item checklist + category additions + anti-patterns |
 | Definition of Ready (canonical)? | Bible §31 — 12-item checklist + DoR gate pseudocode |
 | Who is the customer? | Placeholder during scaffolding phase — to be set at PC-02 kickoff (§1.2) |
@@ -880,7 +880,7 @@ The following specs were created during the infrastructure planning phase (April
 
 | Spec ID | Title | Location | Priority | Owner |
 |---|---|---|---|---|
-| INFRA-001 | VPS Infrastructure Setup | `specs/infrastructure/INFRA-001-vps-setup.spec.md` | S2 | Datta |
+| INFRA-001 | VPS Infrastructure Setup | `specs/infrastructure/INFRA-001-vps-setup.spec.md` | S2 | {{ADVISOR}} |
 | PLAT-001 | Token Usage Monitoring & Alerts | `specs/platform/PLAT-001-token-monitoring.spec.md` | S2 | Lead Dev |
 | PLAT-002 | Tiered Model Fallback System | `specs/platform/PLAT-002-model-fallback.spec.md` | S2 | Lead Dev |
 | PLAT-003 | Slack Command Interface & Agent Communication | `specs/platform/PLAT-003-slack-commands.spec.md` | S2 | Lead Dev |
@@ -890,7 +890,7 @@ The following specs were created during the infrastructure planning phase (April
 | PLAT-007 | New Hire Onboarding System | `specs/platform/PLAT-007-onboarding.spec.md` | S2 | PO Agent |
 | PLAT-008 | Epic Categorization System | `specs/platform/PLAT-008-epic-categories.spec.md` | S2 | PO Agent |
 | PLAT-009 | Testing Standards & SonarQube Quality Gate | `specs/platform/PLAT-009-testing-quality.spec.md` | S2 | Lead Dev |
-| PLAT-010 | Continuous Improvement & Enhanced Retrospective | `specs/platform/PLAT-010-continuous-improvement.spec.md` | S1 | Datta/PO |
+| PLAT-010 | Continuous Improvement & Enhanced Retrospective | `specs/platform/PLAT-010-continuous-improvement.spec.md` | S1 | {{ADVISOR}}/PO |
 | PLAT-011 | Environment Strategy & Deployment Pipeline | `specs/platform/PLAT-011-environments.spec.md` | S1 | Lead Dev |
 | PLAT-012 | Rollback Mechanism | `specs/platform/PLAT-012-rollback.spec.md` | S1 | Lead Dev |
 
@@ -937,7 +937,7 @@ git log --oneline -- src/api/reminders.ts    # which epics touched a file
 | Tier | Models | Cost | Quality | Trigger |
 |---|---|---|---|---|
 | Tier 1 (Primary) | Sonnet 4.6 + GPT-4.1 + GPT-4o mini | ~$250/yr | 100% | Default |
-| Tier 2 (Fallback) | DeepSeek-V3 + Gemini Flash | ~$30/yr | 80-85% | Datta command or daily cap hit |
+| Tier 2 (Fallback) | DeepSeek-V3 + Gemini Flash | ~$30/yr | 80-85% | {{ADVISOR}} command or daily cap hit |
 | Tier 3 (Emergency) | Qwen2.5-Coder-7B (local Ollama) | $0 | 60-70% | All cloud APIs down |
 
 ### 18.5 Annual Budget Estimate
@@ -956,12 +956,12 @@ git log --oneline -- src/api/reminders.ts    # which epics touched a file
 
 ## 19. Project File Structure
 
-The project has two layers: a **planning layer** (this machine) and a **runtime layer** (VPS + GitHub). The runtime layer's PCs, epics, and timeline are NOT pre-scaffolded — they are created when Datta provides project documentation (tech diagrams, workflows, business docs) and approves the PC scope.
+The project has two layers: a **planning layer** (this machine) and a **runtime layer** (VPS + GitHub). The runtime layer's PCs, epics, and timeline are NOT pre-scaffolded — they are created when {{ADVISOR}} provides project documentation (tech diagrams, workflows, business docs) and approves the PC scope.
 
 ```
 Project Crew/                            # Planning & reference (this machine)
 ├── specag_project_bible.md             # This document
-├── Datta Project Crew.pdf               # Original PDF
+├── {{ADVISOR}} Project Crew.pdf               # Original PDF
 └── specs/                               # Platform & infra specs (shared across all PCs)
     ├── infrastructure/
     │   └── INFRA-001-vps-setup.spec.md
@@ -981,9 +981,9 @@ Project Crew/                            # Planning & reference (this machine)
 │   └── workflows/                       # CI/CD pipelines
 ├── .env.template
 ├── .gitignore
-└── PC-NN/                               # Created when Datta provides project docs
+└── PC-NN/                               # Created when {{ADVISOR}} provides project docs
     ├── pc.manifest.yaml                 # PC scope, sprint goals, deliverables
-    ├── mvp-statement.md                 # Datta's 3-sentence MVP
+    ├── mvp-statement.md                 # {{ADVISOR}}'s 3-sentence MVP
     ├── context-summary.md               # Written at PC close (max 200 lines)
     ├── design-meetings/
     ├── sprints/S01/retro.md ... SNN/retro.md
@@ -997,7 +997,7 @@ Project Crew/                            # Planning & reference (this machine)
     └── tech-upgrades/suggestions.md
 ```
 
-**How a PC starts:** Datta provides project documentation (business requirements, tech diagrams, workflows) → PO + Lead Dev decompose into epics → PO creates `pc.manifest.yaml` with sprint goals → Datta approves → Sprint 0 (infra setup if first PC) → Sprint 1 begins.
+**How a PC starts:** {{ADVISOR}} provides project documentation (business requirements, tech diagrams, workflows) → PO + Lead Dev decompose into epics → PO creates `pc.manifest.yaml` with sprint goals → {{ADVISOR}} approves → Sprint 0 (infra setup if first PC) → Sprint 1 begins.
 
 ---
 
@@ -1009,21 +1009,21 @@ The system follows a complete Agile/Scrum framework adapted for AI + human teams
 
 | Day | Time | Ceremony | Channel | Participants |
 |---|---|---|---|---|
-| **Saturday** (sprint end) | 3:00 PM | Sprint Review + Demos + Deploy | `#specag-dev` | PO presents, Datta reviews |
-| **Saturday** (sprint end) | 3:30 PM | Sprint Retrospective | `#specag-dev` | All team, Datta owns action items |
-| **Saturday** (sprint end) | 4:00 PM | Sprint Planning (next sprint) | `#specag-planning` | PO assigns, Datta approves |
-| **Sunday** (sprint start) | 10:00–11:00 AM | Sunday Kickoff (tech spec grooming) | `#specag-planning` | All agents + Datta |
-| **Every day** | 8:05 AM | Daily Standup | `#specag-dev` | All agents post, Datta reads |
+| **Saturday** (sprint end) | 3:00 PM | Sprint Review + Demos + Deploy | `#specag-dev` | PO presents, {{ADVISOR}} reviews |
+| **Saturday** (sprint end) | 3:30 PM | Sprint Retrospective | `#specag-dev` | All team, {{ADVISOR}} owns action items |
+| **Saturday** (sprint end) | 4:00 PM | Sprint Planning (next sprint) | `#specag-planning` | PO assigns, {{ADVISOR}} approves |
+| **Sunday** (sprint start) | 10:00–11:00 AM | Sunday Kickoff (tech spec grooming) | `#specag-planning` | All agents + {{ADVISOR}} |
+| **Every day** | 8:05 AM | Daily Standup | `#specag-dev` | All agents post, {{ADVISOR}} reads |
 | **Every day** | 6:00 PM | Daily Report + Burndown | `#specag-dev` | PO posts |
 
-**Why weekends for ceremonies?** Datta (Advisor) works a separate day job on weekdays. Saturday/Sunday ceremonies let him participate in all major Agile events — reviews, retros, planning, and grooming. AI agents work all 7 days of the sprint.
+**Why weekends for ceremonies?** {{ADVISOR}} (Advisor) works a separate day job on weekdays. Saturday/Sunday ceremonies let him participate in all major Agile events — reviews, retros, planning, and grooming. AI agents work all 7 days of the sprint.
 
 ### 20.2 Sprint Planning Flow (Saturday 4:00 PM)
 
 1. **PO prepares** — selects epics from single backlog, writes business spec per epic, proposes sprint goal
 2. **PO posts to `#specag-planning`** — sprint goal, epic table (ID, title, points, owner), total points vs trailing velocity
 3. **Lead Dev reviews** — validates technical feasibility, flags >5pt epics for splitting, confirms dependency order
-4. **Datta reviews** — confirms sprint goal aligns with PC MVP, approves or adjusts
+4. **{{ADVISOR}} reviews** — confirms sprint goal aligns with PC MVP, approves or adjusts
 5. **PO finalizes** — updates INDEX.md, creates spec skeletons, posts final sprint forecast (a forecast, not a commitment — modern Scrum language)
 
 ### 20.3 Sunday Kickoff / Technical Grooming (Sunday 10:00–11:00 AM)
@@ -1031,7 +1031,7 @@ The system follows a complete Agile/Scrum framework adapted for AI + human teams
 1. Each agent reads their assigned epics' business spec (from Saturday planning)
 2. Each agent writes/updates the technical spec (≤1 hour)
 3. Lead Dev reviews ALL tech specs — approves or requests changes
-4. Datta participates — approves direction, asks clarifying questions
+4. {{ADVISOR}} participates — approves direction, asks clarifying questions
 5. PO approves business alignment
 6. **No agent writes code until tech spec is approved by Lead Dev AND PO**
 
@@ -1056,7 +1056,7 @@ PO follows with burndown summary:
 
 ### 20.5 Sprint Review (Saturday 3:00 PM)
 
-PO posts completed epics with demo links, rolled-over epics with reasons, velocity achieved vs planned, and burndown chart. Datta reviews and issues green flags for completed work.
+PO posts completed epics with demo links, rolled-over epics with reasons, velocity achieved vs planned, and burndown chart. {{ADVISOR}} reviews and issues green flags for completed work.
 
 ### 20.6 Single Backlog Rule
 
@@ -1070,7 +1070,7 @@ PO posts completed epics with demo links, rolled-over epics with reasons, veloci
 
 | Channel | Purpose |
 |---|---|
-| `#specag-dev` | Standups, daily reports, reviews, retros, alerts, Datta commands |
+| `#specag-dev` | Standups, daily reports, reviews, retros, alerts, {{ADVISOR}} commands |
 | `#specag-planning` | Sprint planning (Saturday), Sunday kickoff, tech spec reviews, epic discussions |
 
 ---
@@ -1096,7 +1096,7 @@ Total: 5 effective hours/day × 7 days = 35 hours/sprint
 ### 21.2 Human Agent Work Schedule — 6 hours/day
 - Flexible schedule, no enforced blocks
 - 6 hours/day when actively developing, 30 hours/sprint
-- Primary role (Datta) remains Advisor — develops only when choosing to
+- Primary role ({{ADVISOR}}) remains Advisor — develops only when choosing to
 
 ### 21.3 Story Point Scale
 
@@ -1127,7 +1127,7 @@ This framework enforces that principle with hard rules, not hopes.
 |---|---|---|
 | AI agent | 5 hrs/day × 7 days = 35 hrs/sprint | Token tracker HARD-STOPS calls past this. No overtime. |
 | Human developer | 6 hrs/day flex = 30 hrs/sprint | Self-reported, honor system — but enforced by the rules below. |
-| Datta (Advisor) | ≤10 hrs/week on framework work | Beyond this is a flag — your day job and life come first. |
+| {{ADVISOR}} (Advisor) | ≤10 hrs/week on framework work | Beyond this is a flag — your day job and life come first. |
 
 **Anti-crunch rules (load-bearing):**
 
@@ -1141,11 +1141,11 @@ This framework enforces that principle with hard rules, not hopes.
 
 3. **Weekend work is a warning, not a badge.** If a human developer logs weekend hours more than twice in a PC, retro flags it as a recurring problem. Either scope is too aggressive or estimates are too optimistic. Data goes in the estimation calibration log (PLAT-010).
 
-4. **"Vacation" is not a dirty word.** Datta or any human developer can declare themselves unavailable for N days. The scheduler treats those days as zero capacity. Sprint scope shrinks accordingly. No guilt, no make-up.
+4. **"Vacation" is not a dirty word.** {{ADVISOR}} or any human developer can declare themselves unavailable for N days. The scheduler treats those days as zero capacity. Sprint scope shrinks accordingly. No guilt, no make-up.
 
 5. **Agents have rest too — it's called the breaks.** The 1-hour-on / 3-hour-off pattern exists for a reason: it caps token burn and makes the system predictable. Removing breaks to "get more done" is a foot-gun. The pattern is locked unless changed in a retro via a data-backed proposal.
 
-6. **Token cap is the final guardrail.** When an agent hits daily cap, it stops. No "just one more call." PLAT-001 enforces this; no one can override without a Slack command logged by Datta.
+6. **Token cap is the final guardrail.** When an agent hits daily cap, it stops. No "just one more call." PLAT-001 enforces this; no one can override without a Slack command logged by {{ADVISOR}}.
 
 **Why this matters for the template:**
 A starter template that quietly allows crunch will eventually be used by a solo founder pulling 80-hour weeks, blaming themselves for not keeping up. The rules above exist to make overwork visibly wrong, not quietly normal.
@@ -1162,17 +1162,17 @@ These are now sprint-level gates enforced by PO Agent. Every epic must pass Sect
 
 ```
 SATURDAY (Sprint close + Planning):
-  3:00 PM  Sprint Review (PO presents, Datta reviews + green flags)
-  3:30 PM  Sprint Retro (all team, Datta owns action items)
+  3:00 PM  Sprint Review (PO presents, {{ADVISOR}} reviews + green flags)
+  3:30 PM  Sprint Retro (all team, {{ADVISOR}} owns action items)
   4:00 PM  Sprint Planning for next sprint
   PO selects from backlog → proposes in #specag-planning
-  Lead Dev validates feasibility → Datta approves sprint goal
+  Lead Dev validates feasibility → {{ADVISOR}} approves sprint goal
   PO assigns, writes business specs, updates INDEX.md
 
 SUNDAY (Kickoff — 10:00-11:00 AM):
   Agent reads business spec → writes technical spec (≤1 hour)
   Lead Dev reviews + approves tech spec
-  Datta participates in grooming
+  {{ADVISOR}} participates in grooming
   PO approves business alignment
   Status: READY FOR DEV
 
@@ -1185,7 +1185,7 @@ MON–THU (Development — work blocks):
 
 THU–FRI (Demo + Acceptance):
   PO runs demo script → DEMO_PASSED or bug sub-task
-  Datta QA on staging → green flag
+  {{ADVISOR}} QA on staging → green flag
   PO moves spec to finished/ → DONE
 
 FRIDAY (Sprint Close):
@@ -1203,7 +1203,7 @@ Every role (AI or human) has a dedicated onboarding guide at `.sdd/onboarding/{r
 
 | Role | Guide File | Read Scope | First Action |
 |---|---|---|---|
-| Advisor (Datta) | `onboarding/advisor.md` | PC manifest, INDEX.md, PO report, budget | Review current sprint, QA staged epics |
+| Advisor ({{ADVISOR}}) | `onboarding/advisor.md` | PC manifest, INDEX.md, PO report, budget | Review current sprint, QA staged epics |
 | PO Agent | `onboarding/po-agent.md` | Full config, all specs, INDEX.md | Run severity triage, post daily report |
 | Senior Developer | `onboarding/senior-developer.md` | Architecture, standards, all tech specs, retros | Review open PRs, verify INDEX.md |
 | Associate Developer | `onboarding/associate-developer.md` | Own epic spec ONLY, INDEX.md, standards | Read assigned epic, write tech spec |
@@ -1233,7 +1233,7 @@ All work is classified into exactly one of 6 categories. This replaces the previ
 | **Story** | `story` | 5 | No (sprint end) | NO (document) | Lead Dev preferred |
 | **Prod Issue** | `prod-issue` | 5 | **YES (mandatory)** | YES (hotfix) | **Lead Dev always** |
 | **TechMain** | `tech-maintenance` | 5 | No (sprint end) | YES | Lead Dev preferred |
-| **Blocker** | `blocker` | 3 | **YES (≤3 days)** | Usually NO | **Datta always** |
+| **Blocker** | `blocker` | 3 | **YES (≤3 days)** | Usually NO | **{{ADVISOR}} always** |
 | **Feature** | `feature` | **>10 (container)** | Optional | YES (children) | Split across team |
 
 ### 23.2 Key Rules
@@ -1242,7 +1242,7 @@ All work is classified into exactly one of 6 categories. This replaces the previ
 - **Story:** Analysis/research only. Produces a document or decision, NOT code. Often precedes a Task.
 - **Prod Issue:** Production bug. **Must have a due date.** S1: same day. S2: 2 business days. S3: within sprint. Lead Dev always owns.
 - **TechMain:** Tech debt, dependency upgrades, CVE fixes. Usually S4, elevated to S2 if CVSS ≥ 7.
-- **Blocker:** Impediment that blocks a developer or PO. **Always assigned to Datta.** Due date ≤3 calendar days from creation. Datta resolves (decision, access, clarification). If unresolved in 3 days, Datta must provide a workaround. Flagged in retro if recurring.
+- **Blocker:** Impediment that blocks a developer or PO. **Always assigned to {{ADVISOR}}.** Due date ≤3 calendar days from creation. {{ADVISOR}} resolves (decision, access, clarification). If unresolved in 3 days, {{ADVISOR}} must provide a workaround. Flagged in retro if recurring.
 - **Feature:** Container for multiple child epics. Total can exceed 10 pts, but each child epic is ≤5 pts and independently deliverable. Can span sprints.
 
 ### 23.3 Feature Decomposition Example
@@ -1327,7 +1327,7 @@ Every PR must pass automated testing and SonarQube quality gate before merge.
 
 ## 25. Continuous Improvement & Retrospective System
 
-The retrospective is the feedback loop that improves everything else. Datta serves as both Advisor AND Scrum Master — he owns all action items from retros.
+The retrospective is the feedback loop that improves everything else. {{ADVISOR}} serves as both Advisor AND Scrum Master — he owns all action items from retros.
 
 ### 25.1 Enhanced Retro Format (Saturday 3:30 PM)
 
@@ -1337,7 +1337,7 @@ PO compiles into a summary with categorized findings and action items.
 ### 25.2 Action Item Tracking
 
 - Action items persist across sprints in `sprints/action-items.md`
-- Every action item has: ID (AI-NNN), owner (Datta), due date, status
+- Every action item has: ID (AI-NNN), owner ({{ADVISOR}}), due date, status
 - Reviewed at START of every retro
 - Open for 3+ sprints = escalated as recurring problem
 - Methodology changes are applied by updating Project Bible + relevant spec
@@ -1351,7 +1351,7 @@ PO compiles into a summary with categorized findings and action items.
 | Rollover rate | ≤15% |
 | Blocker frequency | Decreasing |
 | Action item closure (within 2 sprints) | ≥80% |
-| QA turnaround (staging deploy → Datta QA) | ≤24 hours |
+| QA turnaround (staging deploy → {{ADVISOR}} QA) | ≤24 hours |
 
 **Full spec:** `specs/platform/PLAT-010-continuous-improvement.spec.md`
 
@@ -1365,13 +1365,13 @@ PO compiles into a summary with categorized findings and action items.
 |---|---|---|
 | URL | `dev.specag.app` | `specag.app` |
 | API | `api-dev.specag.app` | `api.specag.app` |
-| Deploy trigger | Auto on merge to `main` | Manual — Datta approves promotion |
+| Deploy trigger | Auto on merge to `main` | Manual — {{ADVISOR}} approves promotion |
 | Git branch | `main` | `release/vN.N.N` (tagged) |
 | Database | Seed/test data, can be wiped | Real user data, never wiped |
 
 ### 26.2 1-Sprint QA Delay
 
-Code deploys to Dev in Sprint N → Datta QA's in Sprint N+1 → promotes to Production end of Sprint N+1. This delay is ALWAYS maintained — no shortcuts except the S1 hotfix path.
+Code deploys to Dev in Sprint N → {{ADVISOR}} QA's in Sprint N+1 → promotes to Production end of Sprint N+1. This delay is ALWAYS maintained — no shortcuts except the S1 hotfix path.
 
 ### 26.3 Semantic Versioning
 
@@ -1384,7 +1384,7 @@ vMAJOR.MINOR.PATCH
 
 ### 26.4 Hotfix Path (bypasses delay for S1 prod bugs)
 
-Fix on `hotfix/ROOT-NNN` → fast-track PR → deploy to Dev → quick Datta QA (within hours) → cherry-pick to release branch → deploy to Prod → tag vX.X.PATCH.
+Fix on `hotfix/ROOT-NNN` → fast-track PR → deploy to Dev → quick {{ADVISOR}} QA (within hours) → cherry-pick to release branch → deploy to Prod → tag vX.X.PATCH.
 
 **Full spec:** `specs/platform/PLAT-011-environments.spec.md`
 
@@ -1394,7 +1394,7 @@ Fix on `hotfix/ROOT-NNN` → fast-track PR → deploy to Dev → quick Datta QA 
 
 ### 27.1 Philosophy
 
-Every production promotion creates a restore point. Rollback = revert to the previous release tag. Datta always approves — no automatic rollbacks.
+Every production promotion creates a restore point. Rollback = revert to the previous release tag. {{ADVISOR}} always approves — no automatic rollbacks.
 
 ### 27.2 Rollback by Layer
 
@@ -1407,9 +1407,9 @@ Every production promotion creates a restore point. Rollback = revert to the pre
 
 ### 27.3 Triggers
 
-- **Slack command:** Datta types `rollback production` → confirmation dialog → `confirm rollback`
-- **Health check alert:** Automated post-deploy check alerts Datta if web/API return non-200
-- **Critical bug report:** Datta decides after user report
+- **Slack command:** {{ADVISOR}} types `rollback production` → confirmation dialog → `confirm rollback`
+- **Health check alert:** Automated post-deploy check alerts {{ADVISOR}} if web/API return non-200
+- **Critical bug report:** {{ADVISOR}} decides after user report
 
 ### 27.4 Key Rules
 
@@ -1432,7 +1432,7 @@ Mid-sprint interruptions fall into two distinct categories. Picking the wrong on
 | | **Sprint Cancellation** | **Scope Swap** |
 |---|---|---|
 | Used when | Sprint goal is invalid, dependency broken, >60% scope blocked | A single urgent epic needs to enter mid-sprint |
-| Authority | Datta only | PO Agent (with Datta notified) |
+| Authority | {{ADVISOR}} only | PO Agent (with {{ADVISOR}} notified) |
 | Scope | Whole sprint halts | One epic in, one epic out |
 | Velocity impact | Excluded from average | Counted normally |
 | Ceremony impact | No demo, no review, post-mortem only | Normal Saturday ceremonies |
@@ -1440,12 +1440,12 @@ Mid-sprint interruptions fall into two distinct categories. Picking the wrong on
 
 ### 28.2 Sprint Cancellation (summary — full spec in PLAT-013)
 
-- **Authority:** Datta only. Slack command `cancel sprint` is user-ID restricted.
-- **Valid triggers:** sprint goal obsolete, critical dependency broken, S1 prod incident eating >2 days, scope collapse (>60% blocked), weekly token cap halt, Datta unavailable >3 days when gates are needed.
+- **Authority:** {{ADVISOR}} only. Slack command `cancel sprint` is user-ID restricted.
+- **Valid triggers:** sprint goal obsolete, critical dependency broken, S1 prod incident eating >2 days, scope collapse (>60% blocked), weekly token cap halt, {{ADVISOR}} unavailable >3 days when gates are needed.
 - **Invalid triggers:** single blocker (use Blocker epic), underestimation (use swap), one agent underperforming (reassign), priority reshuffle (use swap).
-- **Flow:** recommendation in `#specag-planning` → Datta accept/decline within 4h → PO halts agents → epics return to backlog → post-mortem within 24h → no demo/review/retro.
+- **Flow:** recommendation in `#specag-planning` → {{ADVISOR}} accept/decline within 4h → PO halts agents → epics return to backlog → post-mortem within 24h → no demo/review/retro.
 - **Velocity rule:** cancelled sprints are excluded from the rolling velocity average.
-- **Max cancellations per PC:** 1. A second requires Datta to also review PC viability.
+- **Max cancellations per PC:** 1. A second requires {{ADVISOR}} to also review PC viability.
 
 See `specs/platform/PLAT-013-sprint-cancellation.spec.md` for triggers, Slack command flows, post-mortem template, and audit trail format.
 
@@ -1455,8 +1455,8 @@ A swap is the ONLY way to add new scope to an in-flight sprint. You cannot add w
 
 **Rules:**
 1. **Equal or smaller points.** The incoming epic's story points must be ≤ the outgoing epic's story points. Never swap a 2-point epic out for a 5-point epic.
-2. **Outgoing epic must be untouched.** If work has started on an epic (any commit against it), it cannot be swapped out — it must be finished, extended into next sprint, or explicitly cancelled by Datta.
-3. **Same category preferred.** Swap Task→Task, Story→Story. Cross-category swaps (e.g., Task→Prod Issue) require Datta's approval.
+2. **Outgoing epic must be untouched.** If work has started on an epic (any commit against it), it cannot be swapped out — it must be finished, extended into next sprint, or explicitly cancelled by {{ADVISOR}}.
+3. **Same category preferred.** Swap Task→Task, Story→Story. Cross-category swaps (e.g., Task→Prod Issue) require {{ADVISOR}}'s approval.
 4. **Sprint goal unaffected.** If the swap would change the sprint goal, it is not a swap — it is a cancellation (Section 28.2).
 5. **Max 2 swaps per sprint.** A third swap request indicates the sprint was poorly planned; trigger a retrospective action item instead.
 6. **No swaps in the last 2 days** of a sprint. Use next sprint's planning instead.
@@ -1472,7 +1472,7 @@ Step 2 — PO VALIDATION (within 2 hours)
   PO Agent checks:
     ✓ Incoming points ≤ outgoing points
     ✓ Outgoing epic has zero commits against it
-    ✓ Same category (or flag for Datta)
+    ✓ Same category (or flag for {{ADVISOR}})
     ✓ Sprint goal unaffected
     ✓ Swap count < 2 for this sprint
     ✓ Not in the last 2 days of sprint
@@ -1481,8 +1481,8 @@ Step 2 — PO VALIDATION (within 2 hours)
 
 Step 3 — DATTA NOTIFICATION (not approval — notification)
   PO posts to #specag-planning:
-    "Swap approved: <in> replaces <out>. Capacity unchanged. @Datta FYI."
-  Datta has 1 hour to veto. Silence = confirmed.
+    "Swap approved: <in> replaces <out>. Capacity unchanged. @{{ADVISOR}} FYI."
+  {{ADVISOR}} has 1 hour to veto. Silence = confirmed.
 
 Step 4 — EXECUTION
   PO updates INDEX.md:
@@ -1495,7 +1495,7 @@ Step 4 — EXECUTION
       in: <id> (N pts)
       out: <id> (N pts)
       reason: <text>
-      approved_by: PO Agent (auto) | Datta (cross-category)
+      approved_by: PO Agent (auto) | {{ADVISOR}} (cross-category)
 ```
 
 ### 28.4 What a Swap Is NOT
@@ -1530,18 +1530,18 @@ Every decision has exactly one owner. Disagreements are resolved by the owner, n
 | **Product scope** (what ships, what doesn't, feature priorities) | PO Agent | "Reminders before categories, or after?" |
 | **Epic assignment** (who works on what, when) | PO Agent | "Give PLAT-004 to Associate, not Lead Dev." |
 | **Sprint scope** (what's in the sprint, what's out) | PO Agent | "Can we add PLAT-014 this sprint?" |
-| **Sprint cancellation** | Datta | "Is this sprint still viable?" |
-| **Cross-category swaps** | Datta | "Swap a Task for a Prod Issue?" |
-| **PC goals & MVP definition** | Datta | "Is push notifications in scope for PC-01?" |
-| **Budget / token limits** | Datta | "Raise daily token cap?" |
-| **Tech stack additions** (new dependency, new service) | Lead Dev proposes, Datta approves | "Add Redis?" |
+| **Sprint cancellation** | {{ADVISOR}} | "Is this sprint still viable?" |
+| **Cross-category swaps** | {{ADVISOR}} | "Swap a Task for a Prod Issue?" |
+| **PC goals & MVP definition** | {{ADVISOR}} | "Is push notifications in scope for PC-01?" |
+| **Budget / token limits** | {{ADVISOR}} | "Raise daily token cap?" |
+| **Tech stack additions** (new dependency, new service) | Lead Dev proposes, {{ADVISOR}} approves | "Add Redis?" |
 | **Agent model choices** (Sonnet vs GPT-4.1 vs Ollama) | Lead Dev | "Switch Associate to DeepSeek?" |
 | **Deadlines** | PO Agent | "Sprint goal due Friday." |
-| **Rollback trigger** | Datta | "Rollback prod now?" |
-| **Hiring / role changes** | Datta | "Bring in a second human dev?" |
+| **Rollback trigger** | {{ADVISOR}} | "Rollback prod now?" |
+| **Hiring / role changes** | {{ADVISOR}} | "Bring in a second human dev?" |
 | **Repo structure & branching** | Lead Dev | "Monorepo vs split?" |
-| **External integrations** (Slack, GitHub, Vercel settings) | Datta | "Change Slack webhook?" |
-| **Retrospective action items** | Datta (Scrum Master role) | "Assign AI-007 to whom?" |
+| **External integrations** (Slack, GitHub, Vercel settings) | {{ADVISOR}} | "Change Slack webhook?" |
+| **Retrospective action items** | {{ADVISOR}} (Scrum Master role) | "Assign AI-007 to whom?" |
 
 ### 29.3 Escalation Path
 
@@ -1558,18 +1558,18 @@ Level 2 — OWNER DECIDES (≤4 hours)
   Work resumes.
 
 Level 3 — DATTA OVERRIDE (≤24 hours)
-  Any agent can escalate to Datta if they believe the owner's decision
+  Any agent can escalate to {{ADVISOR}} if they believe the owner's decision
   violates the Project Bible or will harm the MVP.
   Escalation format in #specag-planning:
-    "Escalation to Datta. Decision: <what>. Owner: <who>. My concern: <why>.
+    "Escalation to {{ADVISOR}}. Decision: <what>. Owner: <who>. My concern: <why>.
      Bible reference: <section or spec>."
-  Datta decides within 24 hours.
-  Datta's decision is final and is logged as an ADR-like entry in
+  {{ADVISOR}} decides within 24 hours.
+  {{ADVISOR}}'s decision is final and is logged as an ADR-like entry in
   sprints/S-NN/decisions.md.
 
 Level 4 — DOES NOT EXIST
-  There is no level above Datta. If Datta is unavailable and a decision is
-  blocking, create a Blocker epic (PLAT-008) assigned to Datta. The Blocker
+  There is no level above {{ADVISOR}}. If {{ADVISOR}} is unavailable and a decision is
+  blocking, create a Blocker epic (PLAT-008) assigned to {{ADVISOR}}. The Blocker
   follows the cascading 1/3/7 day SLA (see Section 29.8). Work on the blocked
   item pauses; team works on other epics where possible, and at T+7 the
   dependent epics are hard-paused with zero LLM spend.
@@ -1593,19 +1593,19 @@ When you disagree with an owner's decision:
 1. **Disagree before the decision, not after.** Once the owner has posted the decision, you commit — even if you disagree.
 2. **Escalate only for Bible or MVP violations.** Not for taste or style preferences.
 3. **Bring evidence, not feelings.** "This violates PLAT-009 AC-004" is valid. "I don't like it" is not.
-4. **Escalate in public.** Never in DMs to Datta. Datta wants the full context visible.
-5. **Accept the final decision.** Once Datta rules at Level 3, the decision is final for this PC. You can propose it again at the next PC planning.
+4. **Escalate in public.** Never in DMs to {{ADVISOR}}. {{ADVISOR}} wants the full context visible.
+5. **Accept the final decision.** Once {{ADVISOR}} rules at Level 3, the decision is final for this PC. You can propose it again at the next PC planning.
 
 ### 29.6 Tie-Breaker Rules for Edge Cases
 
 | Situation | Resolution |
 |---|---|
 | Decision falls between two owners (e.g., architecture vs product) | Post in `#specag-planning`, both owners tag each other, the one whose domain is *more* affected decides |
-| Owner is unavailable (out, token-capped, etc.) | Escalate directly to Datta — skip Level 2 |
-| Decision is urgent (S1 prod incident, <1 hour SLA) | Lead Dev decides immediately, tells Datta after |
+| Owner is unavailable (out, token-capped, etc.) | Escalate directly to {{ADVISOR}} — skip Level 2 |
+| Decision is urgent (S1 prod incident, <1 hour SLA) | Lead Dev decides immediately, tells {{ADVISOR}} after |
 | Decision contradicts Project Bible | Bible wins. Owner must update Bible FIRST before making the contradicting decision |
-| Decision affects budget >$50/month | Escalate to Datta regardless of owner |
-| Decision is irreversible (delete data, ship to App Store) | Always requires Datta approval regardless of owner |
+| Decision affects budget >$50/month | Escalate to {{ADVISOR}} regardless of owner |
+| Decision is irreversible (delete data, ship to App Store) | Always requires {{ADVISOR}} approval regardless of owner |
 
 ### 29.7 Decision Log
 
@@ -1617,7 +1617,7 @@ Every Level 3 escalation produces an entry in `sprints/S-NN/decisions.md`:
 - **Date:** YYYY-MM-DD
 - **Escalated by:** <who>
 - **Owner who made the disputed call:** <who>
-- **Decision:** <what Datta decided>
+- **Decision:** <what {{ADVISOR}} decided>
 - **Rationale:** <one paragraph>
 - **Bible reference:** <section or spec>
 - **Reversible?** yes | no
@@ -1634,7 +1634,7 @@ decision-maker responds — LLM spend on dependent paths goes to zero.
 
 | Window | When | Action | Priority |
 |---|---|---|---|
-| **T+0** | Blocker / escalation raised | PO creates BLOCK-NNN, auto-assigns to owner (Datta or blocking party), due date = T+7. Immediate Slack ping. | P3 |
+| **T+0** | Blocker / escalation raised | PO creates BLOCK-NNN, auto-assigns to owner ({{ADVISOR}} or blocking party), due date = T+7. Immediate Slack ping. | P3 |
 | **T+1 day** | 24h elapsed with no response | PO posts reminder in `#specag-planning` tagging the owner. No priority change. | P3 |
 | **T+3 days** | 72h elapsed with no resolution | PO computes downstream impact (dependent epics + sprints), broadcasts an impact report to the team. Priority bumped P3 → P2. Dependent epics flagged `at risk`. | **P2** |
 | **T+7 days** | 1 week elapsed with no resolution | PO hard-pauses all dependent epics. Agents stop all LLM calls on those paths (token tracker rejects them). Priority bumped P2 → P1. If the sprint goal is now unachievable, PO recommends sprint cancellation per PLAT-013. | **P1** |
@@ -1648,8 +1648,8 @@ the blockage visible.
 
 **Three situations that share this SLA:**
 1. **Blocker epics** (PLAT-008) — developer or PO is impeded by a missing decision, access, or input
-2. **Level 3 escalations** (Section 29.3) — formal disagreement escalated to Datta
-3. **Dependency waits** — e.g., PC-01 S04 waiting on Datta to deliver project documentation
+2. **Level 3 escalations** (Section 29.3) — formal disagreement escalated to {{ADVISOR}}
+3. **Dependency waits** — e.g., PC-01 S04 waiting on {{ADVISOR}} to deliver project documentation
 
 All three use the same tracker, same notification cadence, same hard-pause behavior at T+7. The token tracker (PLAT-001) is the enforcement point: it rejects LLM calls tagged to hard-paused epics.
 
@@ -1699,7 +1699,7 @@ Every epic — Task, Story, Prod Issue, TechMain, Blocker, Feature child — mus
 ☐ 9.  Auto-deploy to dev environment succeeded (PLAT-011)
 ☐ 10. Deployed artifact passes post-deploy health check (PLAT-012)
 ☐ 11. Demo script executed; all acceptance criteria demonstrated as passing
-☐ 12. Owner QA approved (Datta for scaffolding; PO for Story epics)
+☐ 12. Owner QA approved ({{ADVISOR}} for scaffolding; PO for Story epics)
 ☐ 13. Spec moved from `in-progress/` to `finished/` in INDEX.md
 ☐ 14. Epic status log updated: DONE, with timestamp and accepting party
 ```
@@ -1734,7 +1734,7 @@ These are common fakes. None of them count as Done.
 ### 30.5 Enforcement
 
 - **Automated checks** (CI + GitHub branch protection) cover rules 1–9
-- **Manual checks** (Lead Dev review, Datta QA, demo script) cover rules 7, 10, 11, 12
+- **Manual checks** (Lead Dev review, {{ADVISOR}} QA, demo script) cover rules 7, 10, 11, 12
 - **PO Agent audit** covers rules 13, 14 — PO refuses to move an epic to `finished/` without a DONE entry in the status log
 - A Definition-of-Done violation discovered after move = the epic is clawed back to `in-progress/` and the missing items are completed. This is NOT punitive — it is the empirical process control principle (§29.9) applied to "done."
 
@@ -1779,7 +1779,7 @@ Every epic must satisfy ALL items before PO Agent accepts it into a sprint at Sa
 | **Story** | Deliverable format explicit: "recommendation doc", "design doc", "analysis" — never "we'll figure it out" |
 | **Prod Issue** | Severity set by PO (not guessed); reproduction steps documented; hotfix due date computed from severity table (PLAT-008) |
 | **TechMain** | CVSS score if security-related; baseline metric captured if performance-related |
-| **Blocker** | Owner identified (Datta or blocking party); cascading SLA start date noted; dependent epics listed |
+| **Blocker** | Owner identified ({{ADVISOR}} or blocking party); cascading SLA start date noted; dependent epics listed |
 | **Feature (parent)** | Child epics already drafted (even if not yet Ready individually); first child is Ready |
 
 ### 31.4 The Ready Gate at Saturday Planning
@@ -1825,12 +1825,12 @@ This section (§31) is load-bearing for Saturday Planning. When updated, the PO 
 
 ---
 
-*Version 1.8 | April 2026 | Confidential — Datta Advisor Copy*
+*Version 1.8 | April 2026 | Confidential — {{ADVISOR}} Advisor Copy*
 *v1.1: Added Sections 18–19 (Infrastructure specs, platform specs, project file structure, budget estimates)*
 *v1.2: Added Sections 20–21 (Sprint ceremonies, story points, work schedules, Definition of Ready/Done, epic lifecycle)*
 *v1.3: Added Sections 22–24 (Onboarding, epic categorization, testing standards, SonarQube quality gate)*
 *v1.4: Added Sections 25–27 (Continuous improvement & retro, environment strategy, rollback mechanism)*
-*v1.5: Sprint schedule changed to Saturday–Friday (ceremonies on weekends for Datta). Added Blocker epic category. Removed pre-built year structure — PCs/epics/timeline set from Datta's project documentation.*
+*v1.5: Sprint schedule changed to Saturday–Friday (ceremonies on weekends for {{ADVISOR}}). Added Blocker epic category. Removed pre-built year structure — PCs/epics/timeline set from {{ADVISOR}}'s project documentation.*
 *v1.6: Added Sections 28–29 (Sprint cancellation protocol, mid-sprint scope swap rules, conflict resolution & escalation matrix). New spec PLAT-013 created for sprint cancellation.*
 *v1.7: Replaced flat 3-day Blocker SLA with cascading 1/3/7 day policy (Section 29.8). T+1 nudge, T+3 priority bump + downstream impact report, T+7 hard pause with zero LLM spend on dependent epics. Token tracker (PLAT-001) enforces the pause.*
 *v1.8: Agile golden-rules audit pass (G-01..G-15). Added §1.1 Working Software Is the Point and §1.2 Customer placeholder. Added §21.5 Sustainable Pace ceiling + 6 anti-crunch rules. Added §29.9 Empirical Process Control. Added canonical §30 Definition of Done and §31 Definition of Ready. Bible Section 17 Quick Reference expanded with 15 new entries. Forecast vs commitment language sweep. PLAT-006 §3.6.5 added async backlog refinement. PLAT-010 expanded with §5 Blameless + Vegas, §6 velocity tracking JSON, §7 PC-level burndown, §8 estimation calibration log. New templates: `year-{year}/.sdd/templates/demo-script.md` and `year-{year}/tech-debt.md`.*

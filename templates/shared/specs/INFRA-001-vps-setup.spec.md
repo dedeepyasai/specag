@@ -2,13 +2,13 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Datta
+- Epic owner: {{ADVISOR}}
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1 (pre-requisite — must be complete before agents go live)
 - Related specs: INFRA-002, PLAT-001, PLAT-002, PLAT-003
 
 ## [STORY]
-As Datta (Advisor), I need a reliable, always-on VPS that runs the full agent ecosystem —
+As {{ADVISOR}} (Advisor), I need a reliable, always-on VPS that runs the full agent ecosystem —
 orchestration, builds, tests, CI/CD, Slack bot, and database — so that the 3 AI agents
 can operate autonomously within a controlled budget.
 
@@ -97,7 +97,7 @@ ollama pull qwen2.5-coder:7b
 │   ├── model_router.py          # Tiered fallback routing
 │   ├── agent_state.json         # Current pause/resume/fallback state
 │   ├── slack_bot.py             # Slack listener (24/7 process)
-│   ├── slack_commands.py        # Datta's command handler
+│   ├── slack_commands.py        # {{ADVISOR}}'s command handler
 │   ├── midnight_reset.py        # Auto-resume at midnight
 │   └── token_usage.db           # SQLite — all provider usage
 ├── year-2026/                   # Shared repo (all agents read/write)

@@ -51,7 +51,7 @@ Updated by: Slack commands, token monitor, midnight reset, manual override
 ### State Transitions
 ```
                     ┌──────────┐
-          resume    │          │  pause (Datta command)
+          resume    │          │  pause ({{ADVISOR}} command)
        ┌───────────►│  ACTIVE  ├──────────────┐
        │            │          │               │
        │            └────┬─────┘               ▼
@@ -111,7 +111,7 @@ Runs at 00:00 daily:
 
 ## [ACCEPTANCE CRITERIA]
 ```
-AC-001: Given Lead Dev is active, when Datta types "pause lead", then
+AC-001: Given Lead Dev is active, when {{ADVISOR}} types "pause lead", then
         agent_state.json shows status="paused" and paused_until is set to
         tomorrow 08:00 CST within 2 seconds.
 

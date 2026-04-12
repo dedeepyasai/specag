@@ -25,7 +25,7 @@ Guides are structured in 4 phases: Context → Setup → First Day → Ongoing.
 
 | Role | File | Read Scope | First Action |
 |---|---|---|---|
-| Advisor (Datta) | `onboarding/advisor.md` | Project Bible, MVP, budget, decision gates | Review current PC manifest, read PO daily report |
+| Advisor ({{ADVISOR}}) | `onboarding/advisor.md` | Project Bible, MVP, budget, decision gates | Review current PC manifest, read PO daily report |
 | PO Agent | `onboarding/po-agent.md` | Full system config, all specs, INDEX.md | Run severity triage, post first daily report |
 | Senior Developer (Lead) | `onboarding/senior-developer.md` | Architecture, coding standards, all tech specs, retros | Review open PRs, verify INDEX.md, prepare design meeting |
 | Associate Developer | `onboarding/associate-developer.md` | Assigned epic spec ONLY, INDEX.md, coding standards | Read assigned epic, write tech spec, start coding |
@@ -124,7 +124,7 @@ AC-002: Given a new human developer joins, when they follow onboarding/human-dev
 AC-003: Given a new PO Agent is initialized, when it reads onboarding/po-agent.md,
         then it can run severity triage and post a daily report on its first day.
 
-AC-004: Given Datta onboards to a new PC, when he reads onboarding/advisor.md,
+AC-004: Given {{ADVISOR}} onboards to a new PC, when he reads onboarding/advisor.md,
         then he knows current sprint goal, pending QA items, and next decision gate
         within 30 minutes.
 

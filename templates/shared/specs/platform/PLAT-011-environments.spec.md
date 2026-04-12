@@ -2,7 +2,7 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Lead Dev (implementation), Datta (QA gate between envs)
+- Epic owner: Lead Dev (implementation), {{ADVISOR}} (QA gate between envs)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0
 - Related specs: INFRA-001 (VPS), PLAT-009 (testing), PLAT-012 (rollback)
@@ -10,7 +10,7 @@
 
 ## [STORY]
 As the team, we need separate Development and Production environments with a 1-sprint
-delay between them — code deploys to Dev in Sprint N, Datta QA's in Sprint N+1, and
+delay between them — code deploys to Dev in Sprint N, {{ADVISOR}} QA's in Sprint N+1, and
 only after approval does it promote to Production. This ensures no untested code
 reaches real users.
 
@@ -37,24 +37,24 @@ reaches real users.
 │           │  PO runs demo script against Dev env            │
 │           │  PO accepts epic (DEMO_PASSED)                  │
 │           ▼                                                 │
-│  Epic status: DEMO_PASSED — waiting for Datta QA           │
+│  Epic status: DEMO_PASSED — waiting for {{ADVISOR}} QA           │
 └──────────────────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────────────────┐
 │                    SPRINT N+1                               │
 │                                                            │
-│  Datta QA's Sprint N's work on Dev environment             │
+│  {{ADVISOR}} QA's Sprint N's work on Dev environment             │
 │       │                                                    │
 │       ├── Green flag → Epic ACCEPTED                       │
 │       │                                                    │
-│       └── Bug found → Datta creates Prod Issue epic        │
+│       └── Bug found → {{ADVISOR}} creates Prod Issue epic        │
 │           (assigned to agent in current sprint)             │
 │                                                            │
 │  End of Sprint N+1 (Saturday):                              │
 │       │                                                    │
 │       ▼                                                    │
 │  ┌──────────────────┐                                      │
-│  │   PRODUCTION      │  ← manual promotion (Datta approves)│
+│  │   PRODUCTION      │  ← manual promotion ({{ADVISOR}} approves)│
 │  │   ENVIRONMENT     │                                      │
 │  │                    │  Web: specag.app                    │
 │  │                    │  API: api.specag.app                │
@@ -68,12 +68,12 @@ reaches real users.
 
 | Field | Development | Production |
 |---|---|---|
-| **Purpose** | Agent testing, PO demos, Datta QA | Real users |
+| **Purpose** | Agent testing, PO demos, {{ADVISOR}} QA | Real users |
 | **Web URL** | `dev.specag.app` | `specag.app` |
 | **API URL** | `api-dev.specag.app` | `api.specag.app` |
 | **Mobile** | Expo Dev build (internal) | App Store + Play Store |
 | **Database** | PostgreSQL (dev instance) | PostgreSQL (prod instance, separate) |
-| **Deploy trigger** | Auto on merge to `main` | Manual — Datta approves promotion |
+| **Deploy trigger** | Auto on merge to `main` | Manual — {{ADVISOR}} approves promotion |
 | **Who tests** | PO (demo script), agents (integration tests) | End users |
 | **Data** | Seed data + test data | Real user data |
 | **Hosting** | Vercel (preview) + Expo EAS (dev) | Vercel (production) + App Store/Play |
@@ -93,15 +93,15 @@ SPRINT 1 (first feature sprint):
 
 SPRINT 2:
   Agents build Sprint 2 features → deploy to DEV
-  Datta QA's Sprint 1 features on DEV environment
+  {{ADVISOR}} QA's Sprint 1 features on DEV environment
     ├── Green flag: Epic marked ACCEPTED
-    └── Bug found: Datta creates bug epic (fixed in Sprint 2)
+    └── Bug found: {{ADVISOR}} creates bug epic (fixed in Sprint 2)
   End of Sprint 2: Sprint 1 features (all accepted) → promoted to PRODUCTION
   Release tag: v1.0.0
 
 SPRINT 3:
   Agents build Sprint 3 features → deploy to DEV
-  Datta QA's Sprint 2 features on DEV
+  {{ADVISOR}} QA's Sprint 2 features on DEV
   End of Sprint 3: Sprint 2 features → promoted to PRODUCTION
   Release tag: v1.1.0
 
@@ -110,7 +110,7 @@ SPRINT 3:
 
 ### 4. The 1-Sprint QA Delay
 
-| Sprint | What deploys to DEV | What Datta QA's | What goes to PROD |
+| Sprint | What deploys to DEV | What {{ADVISOR}} QA's | What goes to PROD |
 |---|---|---|---|
 | S-01 | S-01 features | Nothing (first sprint) | Nothing |
 | S-02 | S-02 features | S-01 features | S-01 features (end of S-02) |
@@ -119,11 +119,11 @@ SPRINT 3:
 | S-05 | S-05 features | S-04 features | S-04 features (end of S-05) |
 | S-01 (next PC) | New features | S-05 features | S-05 features |
 
-### 5. Datta's QA Process (Sprint N+1)
+### 5. {{ADVISOR}}'s QA Process (Sprint N+1)
 
 ```
 Sunday–Saturday of Sprint N+1:
-  Datta receives list of Sprint N epics to QA (posted by PO on Saturday)
+  {{ADVISOR}} receives list of Sprint N epics to QA (posted by PO on Saturday)
   For each epic:
     1. Open Dev environment (dev.specag.app)
     2. Test against acceptance criteria (AC-001, AC-002, etc.)
@@ -138,19 +138,19 @@ Sunday–Saturday of Sprint N+1:
                  → PO creates Prod Issue epic
                  → Assigned to developer in CURRENT sprint
                  → Must be fixed before end of sprint
-                 → Datta re-tests after fix deployed to DEV
+                 → {{ADVISOR}} re-tests after fix deployed to DEV
 
 Saturday of Sprint N+1:
   All Sprint N epics either ACCEPTED or bug-fixed and re-tested
   PO prepares promotion list
-  Datta approves production deployment
+  {{ADVISOR}} approves production deployment
   PO/Lead Dev runs promotion script
 ```
 
 ### 6. Production Promotion Process
 
 ```bash
-# Only runs on Saturday after Datta approval
+# Only runs on Saturday after {{ADVISOR}} approval
 # Creates a release branch + tag from current main
 
 # Step 1: Create release tag
@@ -197,7 +197,7 @@ S1 bug reported in PRODUCTION
   → Lead Dev fixes on hotfix/ROOT-NNN branch
   → Fast-track PR review (Lead Dev self-reviews if alone)
   → Merge to main → auto-deploy to DEV
-  → Quick Datta QA on DEV (within hours, not next sprint)
+  → Quick {{ADVISOR}} QA on DEV (within hours, not next sprint)
   → If green: cherry-pick to release branch
   → Deploy to PRODUCTION immediately
   → Tag: v1.1.1 (patch version)
@@ -210,9 +210,9 @@ S1 bug reported in PRODUCTION
 |---|---|---|
 | Host | Same VPS (Docker, port 5432) | Same VPS (Docker, port 5433) OR separate managed DB |
 | Data | Seed data + test data, can be wiped | Real user data, never wiped |
-| Migrations | Run automatically on deploy | Run manually after Datta approval |
+| Migrations | Run automatically on deploy | Run manually after {{ADVISOR}} approval |
 | Backups | Weekly (VPS snapshot) | Daily automated + before every promotion |
-| Access | All agents + Datta | Read: PO (reports). Write: deploy script only |
+| Access | All agents + {{ADVISOR}} | Read: PO (reports). Write: deploy script only |
 
 ### 10. GitHub Actions — Environment Deploy Config
 
@@ -262,28 +262,28 @@ jobs:
 - `CHANGELOG.md` — release notes per version
 
 ## [STANDARDS]
-- Dev deploys are automatic (merge to main). Prod deploys are manual (Datta approves).
+- Dev deploys are automatic (merge to main). Prod deploys are manual ({{ADVISOR}} approves).
 - 1-sprint QA delay is ALWAYS maintained — no shortcuts except S1 hotfix path
 - Every production promotion gets a semantic version tag
-- Database migrations to prod require Datta approval
+- Database migrations to prod require {{ADVISOR}} approval
 - Production database backups run before every promotion
-- Hotfixes bypass the delay but still require Datta QA (within hours, not next sprint)
+- Hotfixes bypass the delay but still require {{ADVISOR}} QA (within hours, not next sprint)
 
 ## [ACCEPTANCE CRITERIA]
 ```
 AC-001: Given an agent merges a PR to main, then code auto-deploys to Dev
         environment within 5 minutes and Slack is notified.
 
-AC-002: Given Datta QA's Sprint 1 features during Sprint 2, when all epics
+AC-002: Given {{ADVISOR}} QA's Sprint 1 features during Sprint 2, when all epics
         get green flags, then PO prepares promotion list for end of Sprint 2.
 
-AC-003: Given Datta approves production promotion, when Lead Dev tags v1.1.0
+AC-003: Given {{ADVISOR}} approves production promotion, when Lead Dev tags v1.1.0
         and pushes, then production deploys automatically and Slack is notified.
 
-AC-004: Given Datta finds a bug during QA, when he types "bug ROOT-NNN: description"
+AC-004: Given {{ADVISOR}} finds a bug during QA, when he types "bug ROOT-NNN: description"
         in Slack, then PO creates a Prod Issue epic assigned in the current sprint.
 
-AC-005: Given an S1 production bug, when Lead Dev fixes and Datta QA's on Dev,
+AC-005: Given an S1 production bug, when Lead Dev fixes and {{ADVISOR}} QA's on Dev,
         then the fix is cherry-picked to release branch and deployed to prod
         within hours (bypasses 1-sprint delay).
 

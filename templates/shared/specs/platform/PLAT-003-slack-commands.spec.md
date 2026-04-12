@@ -2,14 +2,14 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Datta (design), Lead Dev (implementation)
+- Epic owner: {{ADVISOR}} (design), Lead Dev (implementation)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
 - Related specs: PLAT-001, PLAT-002, PLAT-004
-- Priority: S2 — Slack is Datta's only interface to the system
+- Priority: S2 — Slack is {{ADVISOR}}'s only interface to the system
 
 ## [STORY]
-As Datta (Advisor), I need to control my entire 3-agent dev team from a single
+As {{ADVISOR}} (Advisor), I need to control my entire 3-agent dev team from a single
 Slack channel using simple text commands — pause agents, switch models, check status,
 approve decisions, and QA epics — without ever SSH-ing into the VPS.
 
@@ -19,7 +19,7 @@ approve decisions, and QA epics — without ever SSH-ing into the VPS.
 | Field | Value |
 |---|---|
 | App name | SpecAg Dev Bot |
-| Workspace | Datta's Slack workspace |
+| Workspace | {{ADVISOR}}'s Slack workspace |
 | Channel | `#specag-dev` |
 | Bot token scope | `chat:write`, `channels:read`, `channels:history`, `users:read` |
 | Event subscriptions | `message.channels` (listens to all messages in channel) |
@@ -27,7 +27,7 @@ approve decisions, and QA epics — without ever SSH-ing into the VPS.
 | Process | Runs 24/7 as systemd service on VPS |
 
 ### Agent Identities in Slack
-Each agent posts as a distinct identity so Datta sees a "team":
+Each agent posts as a distinct identity so {{ADVISOR}} sees a "team":
 
 | Agent | Display Name | Icon |
 |---|---|---|
@@ -37,7 +37,7 @@ Each agent posts as a distinct identity so Datta sees a "team":
 | Token Monitor | Token Monitor | :bell: |
 | System | SpecAg System | :gear: |
 
-### Command Reference — Datta's Full Control Panel
+### Command Reference — {{ADVISOR}}'s Full Control Panel
 
 #### Agent Control
 | Command | Action | Response |
@@ -111,7 +111,7 @@ Each agent posts as a distinct identity so Datta sees a "team":
 PO or Lead Dev posts a decision gate question:
   → "@datta — Repo split recommended for notifications domain. Approve? (yes/no)"
 
-Datta replies:
+{{ADVISOR}} replies:
   → "approved" or "yes" or "approve"
 
 System processes:
@@ -155,10 +155,10 @@ WantedBy=multi-user.target
 
 ## [ACCEPTANCE CRITERIA]
 ```
-AC-001: Given Datta types "pause all" in #specag-dev, when the bot processes it,
+AC-001: Given {{ADVISOR}} types "pause all" in #specag-dev, when the bot processes it,
         then all 3 agents are paused and confirmation is posted within 5 seconds.
 
-AC-002: Given Datta types "status", when the bot processes it, then a formatted
+AC-002: Given {{ADVISOR}} types "status", when the bot processes it, then a formatted
         table showing all agents' state and today's token usage is posted.
 
 AC-003: Given Lead Dev finishes a PR review, when it posts to Slack, then the
@@ -167,13 +167,13 @@ AC-003: Given Lead Dev finishes a PR review, when it posts to Slack, then the
 AC-004: Given PO Agent sends the 6 PM daily report, then the report follows
         the exact format defined in Project Bible Section 13.
 
-AC-005: Given Datta types "green flag ROOT-041", when processed, then PO marks
+AC-005: Given {{ADVISOR}} types "green flag ROOT-041", when processed, then PO marks
         the epic as ACCEPTED in status.log and moves spec to finished/.
 
 AC-006: Given the Slack bot crashes, when systemd detects the exit, then the
         bot restarts within 10 seconds automatically.
 
-AC-007: Given Datta types an unknown command, then the bot responds with
+AC-007: Given {{ADVISOR}} types an unknown command, then the bot responds with
         "Unknown command. Type `help` for available commands."
 ```
 

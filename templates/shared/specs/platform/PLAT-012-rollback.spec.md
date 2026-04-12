@@ -2,7 +2,7 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Lead Dev (implementation), Datta (approval gate)
+- Epic owner: Lead Dev (implementation), {{ADVISOR}} (approval gate)
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 0
 - Related specs: PLAT-011 (environments), INFRA-001 (VPS)
@@ -12,7 +12,7 @@
 As the team, we need a reliable rollback mechanism so that if a production deployment
 introduces critical bugs, we can revert to the previous working version within minutes.
 The rollback must cover all layers — web app, API, mobile builds, and database — and
-be triggerable via a simple Slack command by Datta.
+be triggerable via a simple Slack command by {{ADVISOR}}.
 
 ## [TECH SPEC]
 
@@ -35,12 +35,12 @@ Rollback Target:    v1.0.0
 
 | Trigger | Who | When |
 |---|---|---|
-| **Slack command** | Datta types `rollback production` | Any time after a bad deploy |
+| **Slack command** | {{ADVISOR}} types `rollback production` | Any time after a bad deploy |
 | **Failed health check** | Automated (GitHub Actions) | Within 5 min of deploy |
-| **Critical bug in prod** | Datta decides after user report | During business hours |
+| **Critical bug in prod** | {{ADVISOR}} decides after user report | During business hours |
 
-**Rollback does NOT happen automatically** — Datta always approves, even if health
-check fails. The system alerts Datta, and he decides.
+**Rollback does NOT happen automatically** — {{ADVISOR}} always approves, even if health
+check fails. The system alerts {{ADVISOR}}, and he decides.
 
 ### 3. Rollback Scope — What Gets Reverted
 
@@ -161,7 +161,7 @@ systemctl start specag-api
 ```bash
 #!/bin/bash
 # scripts/rollback-production.sh
-# Called by Lead Dev after Datta approves rollback
+# Called by Lead Dev after {{ADVISOR}} approves rollback
 # Usage: ./rollback-production.sh v1.1.0
 
 set -euo pipefail
@@ -222,7 +222,7 @@ echo "  Tagged as $ROLLBACK_VERSION"
 echo "[6/6] Notifying Slack..."
 curl -X POST "$SLACK_WEBHOOK" \
   -H 'Content-Type: application/json' \
-  -d "{\"text\": \"⚠️ PRODUCTION ROLLBACK: $CURRENT_TAG → $ROLLBACK_TAG (tagged $ROLLBACK_VERSION). Reason: Datta-approved rollback.\"}"
+  -d "{\"text\": \"⚠️ PRODUCTION ROLLBACK: $CURRENT_TAG → $ROLLBACK_TAG (tagged $ROLLBACK_VERSION). Reason: {{ADVISOR}}-approved rollback.\"}"
 
 echo ""
 echo "=== ROLLBACK COMPLETE ==="
@@ -233,7 +233,7 @@ echo "Rollback tagged as: $ROLLBACK_VERSION"
 ### 8. Slack Commands for Rollback
 
 ```
-Datta types: "rollback production"
+{{ADVISOR}} types: "rollback production"
   → Bot responds:
     ┌──────────────────────────────────────┐
     │  ⚠️ ROLLBACK CONFIRMATION            │
@@ -251,11 +251,11 @@ Datta types: "rollback production"
     │  Type "cancel" to abort               │
     └──────────────────────────────────────┘
 
-Datta types: "confirm rollback"
+{{ADVISOR}} types: "confirm rollback"
   → Bot runs rollback script
   → Bot posts results to Slack
 
-Datta types: "rollback status"
+{{ADVISOR}} types: "rollback status"
   → Bot responds with current production version + rollback target
 ```
 
@@ -278,7 +278,7 @@ Datta types: "rollback status"
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "WEB HEALTH CHECK FAILED: HTTP $HTTP_STATUS"
             curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
-              -d '{"text": "🚨 PRODUCTION HEALTH CHECK FAILED — web returned HTTP '$HTTP_STATUS'. @Datta: type `rollback production` to revert."}'
+              -d '{"text": "🚨 PRODUCTION HEALTH CHECK FAILED — web returned HTTP '$HTTP_STATUS'. @{{ADVISOR}}: type `rollback production` to revert."}'
             exit 1
           fi
 
@@ -288,7 +288,7 @@ Datta types: "rollback status"
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "API HEALTH CHECK FAILED: HTTP $HTTP_STATUS"
             curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
-              -d '{"text": "🚨 PRODUCTION HEALTH CHECK FAILED — API returned HTTP '$HTTP_STATUS'. @Datta: type `rollback production` to revert."}'
+              -d '{"text": "🚨 PRODUCTION HEALTH CHECK FAILED — API returned HTTP '$HTTP_STATUS'. @{{ADVISOR}}: type `rollback production` to revert."}'
             exit 1
           fi
 
@@ -302,11 +302,11 @@ Datta types: "rollback status"
 
 | Situation | Severity | Action |
 |---|---|---|
-| Web returns 5xx after deploy | S1 | Alert Datta → rollback if confirmed |
-| API health check fails | S1 | Alert Datta → rollback if confirmed |
-| Critical user-facing bug | S1 | Datta decides: rollback OR hotfix |
+| Web returns 5xx after deploy | S1 | Alert {{ADVISOR}} → rollback if confirmed |
+| API health check fails | S1 | Alert {{ADVISOR}} → rollback if confirmed |
+| Critical user-facing bug | S1 | {{ADVISOR}} decides: rollback OR hotfix |
 | Minor UI bug | S3 | Do NOT rollback — fix in next sprint |
-| Performance degradation (>2x latency) | S2 | Alert Datta → investigate → maybe rollback |
+| Performance degradation (>2x latency) | S2 | Alert {{ADVISOR}} → investigate → maybe rollback |
 | Database migration failed | S1 | Restore from pre-deploy backup |
 | Mobile app crash on launch | S1 | Push OTA rollback immediately |
 
@@ -325,7 +325,7 @@ Every rollback is logged in `CHANGELOG.md` and `sprints/S-NN/rollback-log.md`:
 - **Reason:** API health check failed — /api/tasks returning 500
 - **Root cause:** Migration 0005 had a typo in column name
 - **Time to rollback:** 4 minutes
-- **Approved by:** Datta
+- **Approved by:** {{ADVISOR}}
 - **Executed by:** Lead Dev
 - **Post-mortem:** Fix migration, re-test, re-promote in Sprint S-04
 ```
@@ -338,14 +338,14 @@ Every rollback is logged in `CHANGELOG.md` and `sprints/S-NN/rollback-log.md`:
 - `/app/agents/slack_commands.py` — rollback Slack commands
 
 ## [STANDARDS]
-- Rollback ALWAYS requires Datta's approval (no automatic rollbacks)
+- Rollback ALWAYS requires {{ADVISOR}}'s approval (no automatic rollbacks)
 - Pre-deploy database backup is mandatory before every promotion (PLAT-011)
 - Pre-rollback database backup is taken before executing rollback (safety net)
 - Every migration MUST have a `down()` function for reverse migration
 - Rollback is tagged with a PATCH version increment (v1.2.0 → v1.2.1)
 - Rollback events are logged in CHANGELOG.md and sprint rollback log
 - Health check runs automatically after every production deploy
-- Health check failure alerts Datta but does NOT auto-rollback
+- Health check failure alerts {{ADVISOR}} but does NOT auto-rollback
 
 ## [ACCEPTANCE CRITERIA]
 ```
@@ -353,11 +353,11 @@ AC-001: Given a production deploy just completed, when health checks run within
         5 minutes, then web and API endpoints are verified and Slack is notified
         of pass/fail.
 
-AC-002: Given a health check fails, when Datta is alerted in Slack, then he can
+AC-002: Given a health check fails, when {{ADVISOR}} is alerted in Slack, then he can
         type "rollback production" and the bot shows confirmation with current
         version and rollback target.
 
-AC-003: Given Datta confirms rollback, when the rollback script runs, then web,
+AC-003: Given {{ADVISOR}} confirms rollback, when the rollback script runs, then web,
         API, and mobile are reverted to the previous release tag within 5 minutes.
 
 AC-004: Given a rollback involves database changes, when reverse migration runs,

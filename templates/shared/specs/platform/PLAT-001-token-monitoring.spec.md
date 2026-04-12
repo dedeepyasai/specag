@@ -2,14 +2,14 @@
 
 ## [SUMMARY]
 - App: SpecAg
-- Epic owner: Datta + PO Agent
+- Epic owner: {{ADVISOR}} + PO Agent
 - Status: BACKLOG
 - Sprint: PC-01 Sprint 1
 - Related specs: INFRA-001, PLAT-002, PLAT-003
 - Priority: S2 — must be live before agents start working
 
 ## [STORY]
-As Datta (Advisor), I need real-time visibility into token usage across all providers
+As {{ADVISOR}} (Advisor), I need real-time visibility into token usage across all providers
 and agents so I can make informed decisions about pausing, switching to fallback models,
 or letting agents continue — all from a single Slack channel.
 
@@ -228,14 +228,14 @@ paused_epics:
   - epic_id: "ROOT-055"
     blocker_id: "BLOCK-001"
     paused_at: "2026-05-18T09:00:00-05:00"
-    reason: "BLOCK-001 hard-pause — waiting on Datta decision on auth provider"
-    owner: "Datta"
+    reason: "BLOCK-001 hard-pause — waiting on {{ADVISOR}} decision on auth provider"
+    owner: "{{ADVISOR}}"
     dependent_epics: ["ROOT-056", "ROOT-057"]
   - epic_id: "ROOT-056"
     blocker_id: "BLOCK-001"
     paused_at: "2026-05-18T09:00:00-05:00"
     reason: "Dependent on ROOT-055 (hard-paused)"
-    owner: "Datta"
+    owner: "{{ADVISOR}}"
 ```
 
 **Rules:**
@@ -277,7 +277,7 @@ pre_call_hooks:
 
 ### Hook Decision Logging
 
-Every rejected or downgraded call is logged to a new table so Datta can audit
+Every rejected or downgraded call is logged to a new table so {{ADVISOR}} can audit
 what was suppressed and why:
 
 ```sql
@@ -321,7 +321,7 @@ Hook downgrades today: 12 (12 × pc_mode)
 - Every successful API call MUST log to `usage` table before returning the response to the agent
 - Cost calculation MUST use exact per-model pricing from agent_limits.yaml
 - Alerts MUST deduplicate — same threshold level for same agent not re-sent within 1 hour
-- Weekly cap hit = full halt, no override except manual `resume` command from Datta
+- Weekly cap hit = full halt, no override except manual `resume` command from {{ADVISOR}}
 - Hook implementations are pluggable via `hooks.yaml` — core tracker code MUST NOT hard-code project-specific paths or epic ID formats
 - Paused registry path MUST be configurable — default `agents/state/paused-epics.yaml`, template users may point elsewhere
 - token_usage.db MUST be backed up with weekly VPS snapshot
