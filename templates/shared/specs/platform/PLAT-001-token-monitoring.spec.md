@@ -92,7 +92,7 @@ providers:
 
 alerts:
   thresholds: [50, 80, 100]
-  slack_channel: "#rootine-dev"
+  slack_channel: "#specag-dev"
   mention_at: ["@datta"]
 ```
 
@@ -332,7 +332,7 @@ AC-001: Given an agent makes an API call, when the call completes, then the
         usage (provider, model, tokens, cost) is logged to token_usage.db.
 
 AC-002: Given Lead Dev usage hits 80% daily cap, when token_monitor.py runs,
-        then a WARNING alert is posted to #rootine-dev with @datta mention.
+        then a WARNING alert is posted to #specag-dev with @datta mention.
 
 AC-003: Given Associate usage hits 100% daily cap, when token_monitor.py runs,
         then a LIMIT REACHED alert is posted with pause/fallback commands.
@@ -341,7 +341,7 @@ AC-004: Given weekly cap is hit for a provider, when token_monitor.py detects it
         then all agents on that provider are halted until Monday 08:00 CST.
 
 AC-005: Given it is Sunday 11 PM, when weekly_cost_report.py runs, then a
-        formatted cost summary is posted to #rootine-dev showing all agents.
+        formatted cost summary is posted to #specag-dev showing all agents.
 
 AC-006: Given the same threshold was already alerted within the last hour, when
         token_monitor.py runs again, then no duplicate alert is sent.

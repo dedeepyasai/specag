@@ -147,7 +147,7 @@ The ecosystem has four distinct roles. Two are developers (both AI), one is the 
 | Severity triage | Runs S1–S4 severity scoring at PC start and every Monday morning |
 | Collision check | Runs file-tree comparison before every assignment; writes no-collision note to `status.log` |
 | Sprint loading | Distributes epics across 5 sprints; balances Lead Dev (arch-heavy) vs Associate (parallel features) |
-| Daily Slack report | Sends structured report to `#rootine-dev` at 6pm every weekday via cron |
+| Daily Slack report | Sends structured report to `#specag-dev` at 6pm every weekday via cron |
 | Rollover handling | Labels rolled-over epics, re-evaluates severity, moves spec to `in-progress` |
 | Tech upgrades scan | Weekly scan of `tech-stack.yaml` vs npm/pypi latest; writes to `tech-upgrades/suggestions.md` |
 | PO queue fallback | If token cap hit mid-day, queues assignments to `agents/po_queue.json` for next reset |
@@ -441,7 +441,7 @@ No epic is marked DONE until it passes the PO's demo script AND Datta's QA revie
 |---|---|
 | 1. Code complete | Developer agent raises PR. All CI checks pass. Branch merged to main. |
 | 2. Staging deploy | GitHub Actions automatically deploys merged code to staging environment. |
-| 3. Slack notification | PO sends Slack message: `"ROOT-NNN merged. Preview: rootine-staging.app/[path]"` |
+| 3. Slack notification | PO sends Slack message: `"ROOT-NNN merged. Preview: specag-staging.app/[path]"` |
 | 4. PO demo script | PO agent reads `demo-script.md` and executes it against staging. Logs pass/fail per step. |
 | 5. PO acceptance gate | If demo passes: PO marks epic as `DEMO_PASSED` in `status.log`. If fail: creates bug sub-task. |
 | 6. Datta QA | Datta tests web + iOS sim + Android sim against `acceptance-criteria.md`. Issues green flag or flags issues. |
@@ -547,7 +547,7 @@ providers:
 enforcement:
   on_daily_80pct:
     action: "slack_alert"
-    channel: "#rootine-dev"
+    channel: "#specag-dev"
     mention: "@datta"
   on_daily_100pct:
     action: "pause_agent_and_notify"
@@ -620,11 +620,11 @@ Runs before every single epic assignment. Prevents two agents from ever writing 
 app:
   name: "SpecAg"
   type: ["web", "ios", "android"]
-  repo: "https://github.com/your-org/rootine"
+  repo: "https://github.com/your-org/specag"
 
 team:
   admin: "Datta"
-  slack_channel: "#rootine-dev"
+  slack_channel: "#specag-dev"
   po_report_time: "18:00"      # 6pm CST daily cron
   timezone: "America/Chicago"
 
@@ -680,7 +680,7 @@ infrastructure:
 
 ## 13. PO Agent — Daily Slack Report Format
 
-Sent every weekday at 6pm CST to `#rootine-dev`. Structured so Datta can scan it in under 60 seconds.
+Sent every weekday at 6pm CST to `#specag-dev`. Structured so Datta can scan it in under 60 seconds.
 
 ```
 *PO Daily Report — [Day, Date]*
@@ -703,8 +703,8 @@ Sent every weekday at 6pm CST to `#rootine-dev`. Structured so Datta can scan it
 - OpenAI: 68% daily / 55% weekly
 
 *Datta action needed:*
-- QA ROOT-041 on staging: rootine-staging.app/reminders
-- QA ROOT-039 on staging: rootine-staging.app/settings
+- QA ROOT-041 on staging: specag-staging.app/reminders
+- QA ROOT-039 on staging: specag-staging.app/settings
 - No decisions required today
 ```
 
@@ -762,7 +762,7 @@ The Lead Dev monitors these signals and writes a recommendation when any one is 
 | Schedule | Job |
 |---|---|
 | Daily 08:00 CST | PO agent work window opens — agents active (7 days/week) |
-| Daily 18:00 CST | PO sends daily Slack report to `#rootine-dev` (7 days/week) |
+| Daily 18:00 CST | PO sends daily Slack report to `#specag-dev` (7 days/week) |
 | Daily 22:00 CST | Agent work window closes — no new task assignments |
 | Every Monday 08:00 | PO runs severity re-triage on all active epics |
 | Every Sunday night | Token budget counters reset (weekly caps refresh) |
@@ -830,15 +830,15 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 | When is Sunday Kickoff? | Sunday 10:00-11:00 AM (tech spec grooming, Datta participates) |
 | When is Daily Standup? | Every day 8:05 AM (7 days/week) |
 | Why weekends for ceremonies? | Datta works day job weekdays — weekends let him attend all major events |
-| Slack channels? | `#rootine-dev` (daily ops) + `#rootine-planning` (planning + kickoff) |
+| Slack channels? | `#specag-dev` (daily ops) + `#specag-planning` (planning + kickoff) |
 | Definition of Ready? | Business spec + tech spec approved + points assigned + ACs defined |
 | Definition of Done? | Code + tests + PR + review + deploy + demo + Datta QA green flag |
 | Single backlog rule? | ONE backlog, PO owns it, epics enter sprint only via Saturday planning |
 | Blocker epic? | Impediment → assigned to Datta, cascading 1/3/7 day SLA, BLOCK-NNN prefix |
 | Blocker SLA cascade? | T+1 nudge → T+3 priority bump + downstream impact report → T+7 HARD PAUSE (zero LLM spend) |
 | What happens at T+7 hard pause? | Dependent epics frozen, token tracker rejects LLM calls on those paths, agents reassigned or idle |
-| Dev environment URL? | `dev.rootine.app` (auto-deploy on merge to main) |
-| Prod environment URL? | `rootine.app` (manual promotion, Datta approves) |
+| Dev environment URL? | `dev.specag.app` (auto-deploy on merge to main) |
+| Prod environment URL? | `specag.app` (manual promotion, Datta approves) |
 | QA delay? | 1-sprint — Sprint N features QA'd in Sprint N+1, promoted end of N+1 |
 | Versioning? | Semantic: vMAJOR.MINOR.PATCH (MAJOR=PC, MINOR=sprint, PATCH=hotfix) |
 | Rollback trigger? | Datta types `rollback production` in Slack — never automatic |
@@ -861,7 +861,7 @@ The Closing PC is structurally different from regular PCs. It contains no featur
 | Definition of Ready (canonical)? | Bible §31 — 12-item checklist + DoR gate pseudocode |
 | Who is the customer? | Placeholder during scaffolding phase — to be set at PC-02 kickoff (§1.2) |
 | Sprint commitment vs forecast? | We use FORECAST language — sprint scope is a forecast, not a contract (§31, PLAT-006) |
-| Backlog refinement cadence? | Async — PO posts a refinement batch every Wednesday 14:00 CST in `#rootine-planning` (PLAT-006 §3.6.5) |
+| Backlog refinement cadence? | Async — PO posts a refinement batch every Wednesday 14:00 CST in `#specag-planning` (PLAT-006 §3.6.5) |
 | Retro rule — blameless? | Written retros cite ROLES, never individuals (PLAT-010 §5) |
 | Retro rule — Vegas? | Raw retro discussion stays in retro; only the written summary + action items are public (PLAT-010 §5) |
 | Velocity tracking file? | `sprints/velocity.json` — append-only, cancelled sprints excluded from rolling avg (PLAT-010 §6) |
@@ -960,7 +960,7 @@ The project has two layers: a **planning layer** (this machine) and a **runtime 
 
 ```
 Project Crew/                            # Planning & reference (this machine)
-├── rootine_project_bible.md             # This document
+├── specag_project_bible.md             # This document
 ├── Datta Project Crew.pdf               # Original PDF
 └── specs/                               # Platform & infra specs (shared across all PCs)
     ├── infrastructure/
@@ -1009,19 +1009,19 @@ The system follows a complete Agile/Scrum framework adapted for AI + human teams
 
 | Day | Time | Ceremony | Channel | Participants |
 |---|---|---|---|---|
-| **Saturday** (sprint end) | 3:00 PM | Sprint Review + Demos + Deploy | `#rootine-dev` | PO presents, Datta reviews |
-| **Saturday** (sprint end) | 3:30 PM | Sprint Retrospective | `#rootine-dev` | All team, Datta owns action items |
-| **Saturday** (sprint end) | 4:00 PM | Sprint Planning (next sprint) | `#rootine-planning` | PO assigns, Datta approves |
-| **Sunday** (sprint start) | 10:00–11:00 AM | Sunday Kickoff (tech spec grooming) | `#rootine-planning` | All agents + Datta |
-| **Every day** | 8:05 AM | Daily Standup | `#rootine-dev` | All agents post, Datta reads |
-| **Every day** | 6:00 PM | Daily Report + Burndown | `#rootine-dev` | PO posts |
+| **Saturday** (sprint end) | 3:00 PM | Sprint Review + Demos + Deploy | `#specag-dev` | PO presents, Datta reviews |
+| **Saturday** (sprint end) | 3:30 PM | Sprint Retrospective | `#specag-dev` | All team, Datta owns action items |
+| **Saturday** (sprint end) | 4:00 PM | Sprint Planning (next sprint) | `#specag-planning` | PO assigns, Datta approves |
+| **Sunday** (sprint start) | 10:00–11:00 AM | Sunday Kickoff (tech spec grooming) | `#specag-planning` | All agents + Datta |
+| **Every day** | 8:05 AM | Daily Standup | `#specag-dev` | All agents post, Datta reads |
+| **Every day** | 6:00 PM | Daily Report + Burndown | `#specag-dev` | PO posts |
 
 **Why weekends for ceremonies?** Datta (Advisor) works a separate day job on weekdays. Saturday/Sunday ceremonies let him participate in all major Agile events — reviews, retros, planning, and grooming. AI agents work all 7 days of the sprint.
 
 ### 20.2 Sprint Planning Flow (Saturday 4:00 PM)
 
 1. **PO prepares** — selects epics from single backlog, writes business spec per epic, proposes sprint goal
-2. **PO posts to `#rootine-planning`** — sprint goal, epic table (ID, title, points, owner), total points vs trailing velocity
+2. **PO posts to `#specag-planning`** — sprint goal, epic table (ID, title, points, owner), total points vs trailing velocity
 3. **Lead Dev reviews** — validates technical feasibility, flags >5pt epics for splitting, confirms dependency order
 4. **Datta reviews** — confirms sprint goal aligns with PC MVP, approves or adjusts
 5. **PO finalizes** — updates INDEX.md, creates spec skeletons, posts final sprint forecast (a forecast, not a commitment — modern Scrum language)
@@ -1070,8 +1070,8 @@ PO posts completed epics with demo links, rolled-over epics with reasons, veloci
 
 | Channel | Purpose |
 |---|---|
-| `#rootine-dev` | Standups, daily reports, reviews, retros, alerts, Datta commands |
-| `#rootine-planning` | Sprint planning (Saturday), Sunday kickoff, tech spec reviews, epic discussions |
+| `#specag-dev` | Standups, daily reports, reviews, retros, alerts, Datta commands |
+| `#specag-planning` | Sprint planning (Saturday), Sunday kickoff, tech spec reviews, epic discussions |
 
 ---
 
@@ -1165,7 +1165,7 @@ SATURDAY (Sprint close + Planning):
   3:00 PM  Sprint Review (PO presents, Datta reviews + green flags)
   3:30 PM  Sprint Retro (all team, Datta owns action items)
   4:00 PM  Sprint Planning for next sprint
-  PO selects from backlog → proposes in #rootine-planning
+  PO selects from backlog → proposes in #specag-planning
   Lead Dev validates feasibility → Datta approves sprint goal
   PO assigns, writes business specs, updates INDEX.md
 
@@ -1317,7 +1317,7 @@ Every PR must pass automated testing and SonarQube quality gate before merge.
 ### 24.6 SonarQube Setup
 - Runs on VPS as Docker container (3 GB RAM allocated)
 - PR-level scan: every PR via GitHub Actions
-- Weekly full scan: Friday 5 PM — PO posts results to `#rootine-dev`
+- Weekly full scan: Friday 5 PM — PO posts results to `#specag-dev`
 - CVSS scores from vulnerability findings feed into PO's severity triage
 
 ### 24.7 Integration Test Rule
@@ -1363,8 +1363,8 @@ PO compiles into a summary with categorized findings and action items.
 
 | Field | Development | Production |
 |---|---|---|
-| URL | `dev.rootine.app` | `rootine.app` |
-| API | `api-dev.rootine.app` | `api.rootine.app` |
+| URL | `dev.specag.app` | `specag.app` |
+| API | `api-dev.specag.app` | `api.specag.app` |
 | Deploy trigger | Auto on merge to `main` | Manual — Datta approves promotion |
 | Git branch | `main` | `release/vN.N.N` (tagged) |
 | Database | Seed/test data, can be wiped | Real user data, never wiped |
@@ -1443,7 +1443,7 @@ Mid-sprint interruptions fall into two distinct categories. Picking the wrong on
 - **Authority:** Datta only. Slack command `cancel sprint` is user-ID restricted.
 - **Valid triggers:** sprint goal obsolete, critical dependency broken, S1 prod incident eating >2 days, scope collapse (>60% blocked), weekly token cap halt, Datta unavailable >3 days when gates are needed.
 - **Invalid triggers:** single blocker (use Blocker epic), underestimation (use swap), one agent underperforming (reassign), priority reshuffle (use swap).
-- **Flow:** recommendation in `#rootine-planning` → Datta accept/decline within 4h → PO halts agents → epics return to backlog → post-mortem within 24h → no demo/review/retro.
+- **Flow:** recommendation in `#specag-planning` → Datta accept/decline within 4h → PO halts agents → epics return to backlog → post-mortem within 24h → no demo/review/retro.
 - **Velocity rule:** cancelled sprints are excluded from the rolling velocity average.
 - **Max cancellations per PC:** 1. A second requires Datta to also review PC viability.
 
@@ -1464,7 +1464,7 @@ A swap is the ONLY way to add new scope to an in-flight sprint. You cannot add w
 **Flow:**
 ```
 Step 1 — REQUEST
-  Requester posts in #rootine-planning:
+  Requester posts in #specag-planning:
     "Swap request: IN = <new-epic-id> (N pts), OUT = <existing-epic-id> (N pts).
      Reason: <justification>. Sprint goal impact: <none | minor | major>."
 
@@ -1480,7 +1480,7 @@ Step 2 — PO VALIDATION (within 2 hours)
   If any fail → reject with reason, suggest correct protocol.
 
 Step 3 — DATTA NOTIFICATION (not approval — notification)
-  PO posts to #rootine-planning:
+  PO posts to #specag-planning:
     "Swap approved: <in> replaces <out>. Capacity unchanged. @Datta FYI."
   Datta has 1 hour to veto. Silence = confirmed.
 
@@ -1553,14 +1553,14 @@ Level 1 — DIRECT DISCUSSION (≤30 min)
 
 Level 2 — OWNER DECIDES (≤4 hours)
   The owner from Section 29.2 makes the call.
-  Posts decision in #rootine-planning with one-line rationale.
+  Posts decision in #specag-planning with one-line rationale.
   Decision is final unless escalated to Level 3.
   Work resumes.
 
 Level 3 — DATTA OVERRIDE (≤24 hours)
   Any agent can escalate to Datta if they believe the owner's decision
   violates the Project Bible or will harm the MVP.
-  Escalation format in #rootine-planning:
+  Escalation format in #specag-planning:
     "Escalation to Datta. Decision: <what>. Owner: <who>. My concern: <why>.
      Bible reference: <section or spec>."
   Datta decides within 24 hours.
@@ -1582,7 +1582,7 @@ When you're the owner of a decision:
 1. **Listen before deciding.** Read all arguments. Ask clarifying questions.
 2. **Decide within the SLA.** 4 hours for most decisions; 24 hours for strategic.
 3. **Explain in one sentence.** "We're going with X because Y." No essays.
-4. **Post publicly.** In `#rootine-planning`, not in DMs. Everyone learns.
+4. **Post publicly.** In `#specag-planning`, not in DMs. Everyone learns.
 5. **Don't punt.** "Let's discuss more" is not a decision. If you need more info, name what info and by when.
 6. **You can be wrong.** Reverse decisions when evidence shows you were wrong — that's not weakness, that's data-driven. Log the reversal.
 
@@ -1600,7 +1600,7 @@ When you disagree with an owner's decision:
 
 | Situation | Resolution |
 |---|---|
-| Decision falls between two owners (e.g., architecture vs product) | Post in `#rootine-planning`, both owners tag each other, the one whose domain is *more* affected decides |
+| Decision falls between two owners (e.g., architecture vs product) | Post in `#specag-planning`, both owners tag each other, the one whose domain is *more* affected decides |
 | Owner is unavailable (out, token-capped, etc.) | Escalate directly to Datta — skip Level 2 |
 | Decision is urgent (S1 prod incident, <1 hour SLA) | Lead Dev decides immediately, tells Datta after |
 | Decision contradicts Project Bible | Bible wins. Owner must update Bible FIRST before making the contradicting decision |
@@ -1635,7 +1635,7 @@ decision-maker responds — LLM spend on dependent paths goes to zero.
 | Window | When | Action | Priority |
 |---|---|---|---|
 | **T+0** | Blocker / escalation raised | PO creates BLOCK-NNN, auto-assigns to owner (Datta or blocking party), due date = T+7. Immediate Slack ping. | P3 |
-| **T+1 day** | 24h elapsed with no response | PO posts reminder in `#rootine-planning` tagging the owner. No priority change. | P3 |
+| **T+1 day** | 24h elapsed with no response | PO posts reminder in `#specag-planning` tagging the owner. No priority change. | P3 |
 | **T+3 days** | 72h elapsed with no resolution | PO computes downstream impact (dependent epics + sprints), broadcasts an impact report to the team. Priority bumped P3 → P2. Dependent epics flagged `at risk`. | **P2** |
 | **T+7 days** | 1 week elapsed with no resolution | PO hard-pauses all dependent epics. Agents stop all LLM calls on those paths (token tracker rejects them). Priority bumped P2 → P1. If the sprint goal is now unachievable, PO recommends sprint cancellation per PLAT-013. | **P1** |
 
@@ -1714,7 +1714,7 @@ Some categories have additional items layered on top of the universal list.
 | **Story** | Deliverable is a document (analysis, design, recommendation), stored at agreed location, reviewed by Lead Dev for technical accuracy |
 | **Prod Issue** | Deployed to PRODUCTION (not just dev); verified in prod with a reproduction test; post-mortem entry added if severity ≥ S2 |
 | **TechMain** | No regression in existing tests; performance baseline unchanged or improved (whichever is targeted); CVE database rescan passes if security-related |
-| **Blocker** | Resolution notice posted in `#rootine-planning`; dependent epics unblocked and resumed; any affected paused-epic registry entries removed (PLAT-001 hook) |
+| **Blocker** | Resolution notice posted in `#specag-planning`; dependent epics unblocked and resumed; any affected paused-epic registry entries removed (PLAT-001 hook) |
 | **Feature (parent)** | All child epics individually Done; feature-level integration tests green; end-to-end demo covers the whole flow |
 
 ### 30.4 What "Done" Is NOT

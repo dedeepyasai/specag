@@ -114,7 +114,7 @@ Trailing 3-sprint average used for next sprint loading:
 | Field | Value |
 |---|---|
 | When | Saturday 4:00 PM CST (last day of current sprint) |
-| Where | Slack `#rootine-planning` channel |
+| Where | Slack `#specag-planning` channel |
 | Who | PO (facilitates), Lead Dev, Datta |
 | Duration | ~30-45 minutes (async Slack, not a call) |
 | Output | Sprint forecast set, epics assigned, sprint goal agreed |
@@ -125,7 +125,7 @@ Step 1 — PO prepares (before the meeting)
   • PO reviews single backlog, selects candidate epics for next sprint
   • PO writes business spec for each candidate epic
   • PO proposes sprint goal (1 sentence)
-  • PO posts to #rootine-planning:
+  • PO posts to #specag-planning:
 
     "*Sprint S-04 Planning — PC-01*
     
@@ -151,7 +151,7 @@ Step 2 — Lead Dev reviews
   • Flags if any epic is >5 pts and needs splitting
   • Flags dependency order (e.g., ROOT-051 must finish before ROOT-052)
   • Confirms or suggests reassignment
-  • Posts response in #rootine-planning
+  • Posts response in #specag-planning
 
 Step 3 — Datta reviews
   • Confirms sprint goal aligns with PC MVP
@@ -171,7 +171,7 @@ Step 4 — PO finalizes
 | Field | Value |
 |---|---|
 | When | Sunday 10:00–11:00 AM CST (sprint start) |
-| Where | Slack `#rootine-planning` channel |
+| Where | Slack `#specag-planning` channel |
 | Who | Lead Dev, Associate, PO, Datta |
 | Duration | ≤1 hour |
 | Output | Technical specs ready for all assigned epics |
@@ -182,7 +182,7 @@ Step 1 — Each agent reads their assigned epics' business spec (written by PO o
 
 Step 2 — Each agent writes/updates the technical spec:
   • [TECH SPEC] section: endpoints, DB changes, files touched, dependencies
-  • Posts to #rootine-planning: "ROOT-051 tech spec ready for review"
+  • Posts to #specag-planning: "ROOT-051 tech spec ready for review"
 
 Step 3 — Lead Dev reviews ALL tech specs (own + Associate's)
   • Checks for architecture alignment
@@ -204,7 +204,7 @@ Step 5 — Agents begin coding (second work block onward)
 | Field | Value |
 |---|---|
 | When | Every day 08:05 CST (7 days/week) |
-| Where | Slack `#rootine-dev` |
+| Where | Slack `#specag-dev` |
 | Who | All agents post, Datta reads |
 | Duration | Auto-posted, <1 minute to read |
 
@@ -237,7 +237,7 @@ Step 5 — Agents begin coding (second work block onward)
 | Field | Value |
 |---|---|
 | When | Every day 6:00 PM CST (7 days/week) |
-| Where | Slack `#rootine-dev` |
+| Where | Slack `#specag-dev` |
 | Who | PO posts |
 | Format | Existing format from Project Bible Section 13 |
 
@@ -264,7 +264,7 @@ Step 5 — Agents begin coding (second work block onward)
   OpenAI: 68% daily / 55% weekly
 
 *Datta action needed:*
-  - QA ROOT-051 on staging: rootine-staging.app/api/push
+  - QA ROOT-051 on staging: specag-staging.app/api/push
 ```
 
 #### 3.5 Sprint Review (Saturday 3:00 PM — before Planning)
@@ -272,7 +272,7 @@ Step 5 — Agents begin coding (second work block onward)
 | Field | Value |
 |---|---|
 | When | Saturday 3:00 PM CST (last day of sprint) |
-| Where | Slack `#rootine-dev` |
+| Where | Slack `#specag-dev` |
 | Who | PO presents, Datta reviews |
 | Duration | ~15 minutes to read |
 
@@ -309,7 +309,7 @@ Step 5 — Agents begin coding (second work block onward)
 | Field | Value |
 |---|---|
 | When | Continuous, async — PO posts a refinement batch every Wednesday 14:00 CST |
-| Where | Slack `#rootine-planning` thread per batch |
+| Where | Slack `#specag-planning` thread per batch |
 | Who | PO drives, Lead Dev + Associate respond async, Datta reads |
 | Duration | No meeting — async responses by Thursday 12:00 CST |
 | Output | Backlog epics groomed, sized, and READY (per DoR §31) for the next 1–2 sprints |
@@ -323,7 +323,7 @@ stalls or genuinely needs a discussion (escalated to Saturday Planning).
 
 **Flow:**
 ```
-Step 1 — Wednesday 14:00 CST: PO posts a refinement batch to #rootine-planning
+Step 1 — Wednesday 14:00 CST: PO posts a refinement batch to #specag-planning
   • PO selects 4–8 backlog epics that are likely to enter the next 1–2 sprints
   • For each, PO posts a thread with: business spec link, current size, open questions
   • PO tags @lead-dev and @associate with specific questions (not blanket pings)
@@ -357,7 +357,7 @@ Step 4 — Saturday Planning consumes only READY epics
 | Field | Value |
 |---|---|
 | When | Saturday 3:30 PM CST (after Review) |
-| Where | Saved to `sprints/S-NN/retro.md` + posted to `#rootine-dev` |
+| Where | Saved to `sprints/S-NN/retro.md` + posted to `#specag-dev` |
 | Who | PO facilitates, all agents contribute, Datta participates |
 | Duration | Auto-generated |
 
@@ -381,8 +381,8 @@ Step 4 — Saturday Planning consumes only READY epics
 
 | Channel | Purpose | Who posts |
 |---|---|---|
-| `#rootine-dev` | Daily standups, daily reports, sprint reviews, retros, alerts | All agents, Datta reads |
-| `#rootine-planning` | Sprint planning, kickoff, tech spec reviews, epic discussions | PO, Lead Dev, Datta |
+| `#specag-dev` | Daily standups, daily reports, sprint reviews, retros, alerts | All agents, Datta reads |
+| `#specag-planning` | Sprint planning, kickoff, tech spec reviews, epic discussions | PO, Lead Dev, Datta |
 
 ---
 
@@ -483,7 +483,7 @@ Thu–Fri (Demo + Acceptance):
 - `/app/agents/work_block_pause.py` — Pause agents during break periods
 - `/app/agents/work_block_resume.py` — Resume agents for work blocks
 - `/app/config/agent_limits.yaml` — work block schedules
-- `#rootine-planning` Slack channel — new channel for planning + kickoff
+- `#specag-planning` Slack channel — new channel for planning + kickoff
 
 ## [STANDARDS]
 - No code is written until tech spec is approved by Lead Dev AND PO
@@ -498,14 +498,14 @@ Thu–Fri (Demo + Acceptance):
 ## [ACCEPTANCE CRITERIA]
 ```
 AC-001: Given it is Saturday 4:00 PM, when sprint_planning.py runs, then PO posts
-        the next sprint's proposed backlog to #rootine-planning with sprint goal,
+        the next sprint's proposed backlog to #specag-planning with sprint goal,
         epic list, points, and owners.
 
 AC-002: Given it is Sunday 10:00 AM, when kickoff_reminder.py runs, then each agent
         receives a reminder to groom their assigned epics and write tech specs.
 
 AC-003: Given an agent completes tech spec grooming, when Lead Dev reviews it,
-        then approval/rejection is posted to #rootine-planning within the Sunday
+        then approval/rejection is posted to #specag-planning within the Sunday
         10:00-11:00 grooming window.
 
 AC-004: Given an epic is estimated at 7 points, when PO tries to add it to sprint,
@@ -515,7 +515,7 @@ AC-005: Given it is 09:00 CST (end of work block 1), when work_block_pause.py ru
         then all AI agents are paused until 12:00 CST (next work block).
 
 AC-006: Given it is Saturday 3:00 PM, when sprint_review.py runs, then a formatted
-        review with completed epics, velocity, and burndown is posted to #rootine-dev.
+        review with completed epics, velocity, and burndown is posted to #specag-dev.
 
 AC-007: Given daily standup runs at 08:05, then each agent posts yesterday/today/blockers
         and PO posts burndown summary within 5 minutes.

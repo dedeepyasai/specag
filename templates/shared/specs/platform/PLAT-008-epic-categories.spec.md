@@ -138,8 +138,8 @@ until Datta responds (no LLM spend on blocked paths).
 
 | Window | When | Priority | Action | Notification |
 |---|---|---|---|---|
-| **T+0** | Blocker created | P3 | BLOCK-NNN created, auto-assigned to Datta (or blocking party), due date = T+7 | PO posts in `#rootine-planning` tagging owner; Datta gets direct Slack ping |
-| **T+1 day — Response window** | No response in 24h | P3 | PO bumps reminder in `#rootine-planning` | "@datta BLOCK-NNN awaiting first response — 24h elapsed" |
+| **T+0** | Blocker created | P3 | BLOCK-NNN created, auto-assigned to Datta (or blocking party), due date = T+7 | PO posts in `#specag-planning` tagging owner; Datta gets direct Slack ping |
+| **T+1 day — Response window** | No response in 24h | P3 | PO bumps reminder in `#specag-planning` | "@datta BLOCK-NNN awaiting first response — 24h elapsed" |
 | **T+3 days — Escalation window** | No resolution in 72h | **P2** (bumped) | PO broadcasts downstream impact to team | Impact report: "BLOCK-NNN will delay epics [IDs] and sprints [S-NN+1, S-NN+2]. Dependent agents may pause LLM usage if not resolved by T+7." |
 | **T+7 days — Hard pause** | Still unresolved after 1 week | **P1** (bumped) | PO hard-pauses all dependent epics. Agents stop LLM work on those paths. Sprint may need cancellation (PLAT-013) | "🛑 BLOCK-NNN HARD PAUSE. Dependent epics [IDs] frozen. Agents idle on these paths. Waiting for Datta. No further LLM spend until resolved." |
 
@@ -152,7 +152,7 @@ reassigned to unblocked epics if any exist.
 **Blocker creation flow:**
 ```
 Developer, PO, or Lead Dev encounters impediment they cannot resolve
-  → Posts in #rootine-dev: "blocker ROOT-NNN: [description]"
+  → Posts in #specag-dev: "blocker ROOT-NNN: [description]"
   → PO creates Blocker epic (BLOCK-NNN) in specs/interrupt/
   → Auto-assigned to Datta (or blocking party)
   → Due date = T+7 (hard pause threshold)
@@ -161,12 +161,12 @@ Developer, PO, or Lead Dev encounters impediment they cannot resolve
   → Datta resolves blocker at any point → PO marks BLOCK-NNN as DONE → dependent epics resume
 
 If T+1 passes with no response:
-  → PO posts reminder in #rootine-planning tagging Datta
+  → PO posts reminder in #specag-planning tagging Datta
   → Priority unchanged (P3)
 
 If T+3 passes with no response:
   → PO computes downstream impact (which epics and sprints depend on this)
-  → PO posts impact report in #rootine-planning and #rootine-dev
+  → PO posts impact report in #specag-planning and #specag-dev
   → Priority bumped P3 → P2
   → Dependent epics flagged "at risk" in INDEX.md
   → If the blocker owner is someone other than Datta, Datta is also notified
@@ -177,7 +177,7 @@ If T+7 passes with no response:
   → Agents are instructed to stop ALL LLM calls on paused epics
   → Agents reassigned to any unblocked work, otherwise idle
   → Priority bumped P2 → P1
-  → PO posts hard-pause notice in #rootine-dev and #rootine-planning
+  → PO posts hard-pause notice in #specag-dev and #specag-planning
   → Blocker is flagged in the next retro as a critical process failure
   → If paused epics would cause the sprint goal to become unachievable,
     PO recommends sprint cancellation per PLAT-013
@@ -332,7 +332,7 @@ AC-007: Given a developer posts "blocker ROOT-055: waiting on Datta decision for
         three wake-ups at T+1, T+3, and T+7.
 
 AC-008: Given BLOCK-001 reaches T+1 (24h) with no response, when the tracker
-        fires, then PO posts a reminder in #rootine-planning tagging the owner.
+        fires, then PO posts a reminder in #specag-planning tagging the owner.
         Priority remains P3.
 
 AC-009: Given BLOCK-001 reaches T+3 (72h) with no resolution, when the tracker
@@ -352,7 +352,7 @@ AC-011: Given epics are in PAUSED-BLOCKED state, when an agent attempts an LLM
 
 AC-012: Given a hard-paused blocker makes the current sprint goal unachievable,
         when PO assesses viability, then PO recommends sprint cancellation per
-        PLAT-013 in #rootine-planning.
+        PLAT-013 in #specag-planning.
 ```
 
 ## [CHANGE LOG]

@@ -6,7 +6,7 @@
 >
 > **Owner:** Whoever delivered the epic (Lead Dev or Associate).
 > **Audience:** Datta (acceptance), PO (verification), other agents (awareness).
-> **When:** Before the epic moves to ACCEPTED. Posted to `#rootine-dev`.
+> **When:** Before the epic moves to ACCEPTED. Posted to `#specag-dev`.
 > **Format:** Slack post + linked staging/screenshots/cURL transcript.
 > **Length cap:** 5 minutes to read or watch. If it takes longer, you're showing too much.
 

@@ -20,7 +20,7 @@ approve decisions, and QA epics — without ever SSH-ing into the VPS.
 |---|---|
 | App name | SpecAg Dev Bot |
 | Workspace | Datta's Slack workspace |
-| Channel | `#rootine-dev` |
+| Channel | `#specag-dev` |
 | Bot token scope | `chat:write`, `channels:read`, `channels:history`, `users:read` |
 | Event subscriptions | `message.channels` (listens to all messages in channel) |
 | Library | `slack-bolt` (Python) |
@@ -79,7 +79,7 @@ Each agent posts as a distinct identity so Datta sees a "team":
 |---|---|
 | 08:05 daily | Morning triage summary — assignments for today |
 | On epic assignment | "ROOT-NNN assigned to [Lead Dev/Associate]. Collision check: PASSED." |
-| On PR merge | "ROOT-NNN merged. Preview: rootine-staging.app/[path]" |
+| On PR merge | "ROOT-NNN merged. Preview: specag-staging.app/[path]" |
 | 18:00 daily | Full daily report (see Project Bible Section 13) |
 | On rollover | "ROOT-NNN rolled over to next sprint. Reason: [reason]. Re-evaluated: S[N]." |
 
@@ -127,14 +127,14 @@ System processes:
 
 ### Systemd Service (keeps Slack bot alive 24/7)
 ```ini
-# /etc/systemd/system/rootine-slack.service
+# /etc/systemd/system/specag-slack.service
 [Unit]
 Description=SpecAg Slack Bot
 After=network.target
 
 [Service]
 Type=simple
-User=rootine
+User=specag
 WorkingDirectory=/app
 ExecStart=/app/venv/bin/python /app/agents/slack_bot.py
 Restart=always
@@ -146,7 +146,7 @@ WantedBy=multi-user.target
 ```
 
 ## [STANDARDS]
-- All Slack messages must be posted to `#rootine-dev` only — no DMs, no other channels
+- All Slack messages must be posted to `#specag-dev` only — no DMs, no other channels
 - Agent identities must be visually distinct (different display names + icons)
 - Commands are case-insensitive
 - Unknown commands receive: "Unknown command. Type `help` for available commands."
@@ -155,7 +155,7 @@ WantedBy=multi-user.target
 
 ## [ACCEPTANCE CRITERIA]
 ```
-AC-001: Given Datta types "pause all" in #rootine-dev, when the bot processes it,
+AC-001: Given Datta types "pause all" in #specag-dev, when the bot processes it,
         then all 3 agents are paused and confirmation is posted within 5 seconds.
 
 AC-002: Given Datta types "status", when the bot processes it, then a formatted

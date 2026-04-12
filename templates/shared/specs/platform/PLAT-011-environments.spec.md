@@ -28,8 +28,8 @@ reaches real users.
 │  ┌──────────────────┐                                      │
 │  │   DEVELOPMENT     │  ← auto-deploy on merge to main    │
 │  │   ENVIRONMENT     │                                      │
-│  │                    │  Web: dev.rootine.app               │
-│  │                    │  API: api-dev.rootine.app           │
+│  │                    │  Web: dev.specag.app               │
+│  │                    │  API: api-dev.specag.app           │
 │  │                    │  Mobile: Expo Dev build              │
 │  │                    │  DB: PostgreSQL (dev)                │
 │  └────────┬─────────┘                                      │
@@ -56,8 +56,8 @@ reaches real users.
 │  ┌──────────────────┐                                      │
 │  │   PRODUCTION      │  ← manual promotion (Datta approves)│
 │  │   ENVIRONMENT     │                                      │
-│  │                    │  Web: rootine.app                    │
-│  │                    │  API: api.rootine.app                │
+│  │                    │  Web: specag.app                    │
+│  │                    │  API: api.specag.app                │
 │  │                    │  Mobile: App Store / Play Store      │
 │  │                    │  DB: PostgreSQL (prod)               │
 │  └──────────────────┘                                      │
@@ -69,8 +69,8 @@ reaches real users.
 | Field | Development | Production |
 |---|---|---|
 | **Purpose** | Agent testing, PO demos, Datta QA | Real users |
-| **Web URL** | `dev.rootine.app` | `rootine.app` |
-| **API URL** | `api-dev.rootine.app` | `api.rootine.app` |
+| **Web URL** | `dev.specag.app` | `specag.app` |
+| **API URL** | `api-dev.specag.app` | `api.specag.app` |
 | **Mobile** | Expo Dev build (internal) | App Store + Play Store |
 | **Database** | PostgreSQL (dev instance) | PostgreSQL (prod instance, separate) |
 | **Deploy trigger** | Auto on merge to `main` | Manual — Datta approves promotion |
@@ -125,7 +125,7 @@ SPRINT 3:
 Sunday–Saturday of Sprint N+1:
   Datta receives list of Sprint N epics to QA (posted by PO on Saturday)
   For each epic:
-    1. Open Dev environment (dev.rootine.app)
+    1. Open Dev environment (dev.specag.app)
     2. Test against acceptance criteria (AC-001, AC-002, etc.)
     3. Test on web browser
     4. Test on iOS (Expo Dev build or TestFlight)
@@ -233,7 +233,7 @@ jobs:
       - name: Notify Slack
         run: |
           curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
-            -d '{"text": "Deployed to DEV: dev.rootine.app — commit: ${{ github.sha }}"}'
+            -d '{"text": "Deployed to DEV: dev.specag.app — commit: ${{ github.sha }}"}'
 
 # .github/workflows/deploy-prod.yml
 name: Deploy to Production
@@ -251,7 +251,7 @@ jobs:
       - name: Notify Slack
         run: |
           curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
-            -d '{"text": "🚀 PRODUCTION DEPLOY: rootine.app — ${{ github.ref_name }}"}'
+            -d '{"text": "🚀 PRODUCTION DEPLOY: specag.app — ${{ github.ref_name }}"}'
 ```
 
 ### Files Touched

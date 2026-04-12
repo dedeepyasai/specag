@@ -119,8 +119,8 @@ services:
     image: postgres:16
     restart: always
     environment:
-      POSTGRES_DB: rootine
-      POSTGRES_USER: rootine
+      POSTGRES_DB: specag
+      POSTGRES_USER: specag
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data

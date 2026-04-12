@@ -135,6 +135,6 @@ def _copy_templates(cwd: Path, tier: str) -> None:
     if not demo_script.exists():
         demo_script.write_text(
             "# Demo Script Template\n\n"
-            "See https://github.com/YOUR_USERNAME/rootine/blob/main/templates/shared/.sdd/templates/demo-script.md\n"
+            f"See https://github.com/dedeepyasai/specag/blob/main/templates/shared/.sdd/templates/demo-script.md\n"
         )
         console.print(f"  [green]created[/green] .sdd/templates/demo-script.md")

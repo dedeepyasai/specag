@@ -133,18 +133,18 @@ npx drizzle-kit check
 
 ```bash
 # Pre-deploy backup is ALWAYS taken (PLAT-011 requirement)
-# Backup file: /opt/rootine/backups/pre-deploy-v1.2.0-20260425.sql
+# Backup file: /opt/specag/backups/pre-deploy-v1.2.0-20260425.sql
 
 # Step 1: Stop API to prevent new writes
-systemctl stop rootine-api
+systemctl stop specag-api
 
 # Step 2: Restore from backup
-pg_restore -h localhost -p 5433 -U rootine_prod -d rootine_prod \
+pg_restore -h localhost -p 5433 -U specag_prod -d specag_prod \
   --clean --if-exists \
-  /opt/rootine/backups/pre-deploy-v1.2.0-20260425.sql
+  /opt/specag/backups/pre-deploy-v1.2.0-20260425.sql
 
 # Step 3: Restart API (now pointing to rolled-back data)
-systemctl start rootine-api
+systemctl start specag-api
 ```
 
 #### Which strategy to use:
@@ -182,8 +182,8 @@ fi
 
 # Step 2: Pre-rollback database backup (safety net for the rollback itself)
 echo "[1/6] Taking pre-rollback database backup..."
-BACKUP_FILE="/opt/rootine/backups/pre-rollback-$(date +%Y%m%d-%H%M%S).sql"
-pg_dump -h localhost -p 5433 -U rootine_prod rootine_prod > "$BACKUP_FILE"
+BACKUP_FILE="/opt/specag/backups/pre-rollback-$(date +%Y%m%d-%H%M%S).sql"
+pg_dump -h localhost -p 5433 -U specag_prod specag_prod > "$BACKUP_FILE"
 echo "  Backup saved: $BACKUP_FILE"
 
 # Step 3: Rollback web/API (Vercel)
@@ -274,7 +274,7 @@ Datta types: "rollback status"
 
       - name: Health check — web
         run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://rootine.app)
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://specag.app)
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "WEB HEALTH CHECK FAILED: HTTP $HTTP_STATUS"
             curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
@@ -284,7 +284,7 @@ Datta types: "rollback status"
 
       - name: Health check — API
         run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://api.rootine.app/health)
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://api.specag.app/health)
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "API HEALTH CHECK FAILED: HTTP $HTTP_STATUS"
             curl -X POST ${{ secrets.SLACK_WEBHOOK }} \

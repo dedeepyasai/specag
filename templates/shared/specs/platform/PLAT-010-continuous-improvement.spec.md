@@ -29,7 +29,7 @@ what the retro reveals. Action items are HIS responsibility to resolve.
 ### 2. Enhanced Retrospective Format
 
 **When:** Saturday — after Sprint Review (3:00 PM), before Sprint Planning (4:00 PM)
-**Where:** `#rootine-dev` (Slack) + saved to `sprints/S-NN/retro.md`
+**Where:** `#specag-dev` (Slack) + saved to `sprints/S-NN/retro.md`
 **Who:** ALL team members contribute. PO facilitates. Datta owns action items.
 
 #### Step 1 — Each team member posts their retro input
@@ -239,7 +239,7 @@ which only happens if speaking honestly is safe. Two non-negotiable rules:
 
 **Vegas Rule — what's said in retro stays in retro.**
 - Discussion content during the retro window (gripes, frustrations, half-formed
-  ideas, "this is annoying" comments) is NOT quoted outside `#rootine-dev` retro
+  ideas, "this is annoying" comments) is NOT quoted outside `#specag-dev` retro
   context. Not in standups, not in PRs, not in Slack DMs to Datta later.
 - The WRITTEN retro summary (what-went-well, what-improved, action items) IS
   public — it goes into `sprints/S-NN/retro.md` and is part of the audit trail.
@@ -335,7 +335,7 @@ scope at the PC level. PO updates it every Saturday at retro close.
 - "Total Scope" includes ALL approved epics in the PC manifest as of that Saturday — both original and any added mid-PC.
 - "Added Mid-PC" column makes scope changes visible. PO is required to log a one-line reason for every addition.
 - Forecast line ("on track" / "at risk" / "behind") goes into the daily report on Sundays.
-- A burndown that shows "behind" for 2 consecutive sprints triggers a mid-PC re-plan conversation in `#rootine-planning` — Datta decides to descope, extend, or accept.
+- A burndown that shows "behind" for 2 consecutive sprints triggers a mid-PC re-plan conversation in `#specag-planning` — Datta decides to descope, extend, or accept.
 - Burndown is forecast, not contract. The point is to surface drift early, not to lock in commitments.
 
 ### 8. Estimation Calibration — `sprints/estimation-log.md`
@@ -390,7 +390,7 @@ PO tracks these sprint-over-sprint to measure improvement:
 - `sprints/estimation-log.md` — estimated vs actual points per epic (PO writes at epic close)
 - `year-{year}/PC-{pc}/burndown.md` — PC-level burndown table (PO writes weekly)
 - `/app/agents/sprint_retro.py` — retro facilitation script
-- `rootine_project_bible.md` — updated when methodology changes
+- `specag_project_bible.md` — updated when methodology changes
 
 ## [STANDARDS]
 - Every retro MUST have input from ALL team members (Lead Dev, Associate, PO, Datta)
@@ -446,7 +446,7 @@ AC-010: Given Saturday retro close, when PO updates `year-{year}/PC-{pc}/burndow
 
 AC-011: Given the PC burndown shows "behind" for 2 consecutive sprints, when
         the second sprint closes, then PO opens a mid-PC re-plan thread in
-        `#rootine-planning` and tags Datta for a descope/extend/accept decision.
+        `#specag-planning` and tags Datta for a descope/extend/accept decision.
 
 AC-012: Given an epic is accepted by Datta, when PO closes it, then a row is
         appended to `sprints/estimation-log.md` with estimated vs actual points

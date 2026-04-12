@@ -83,5 +83,5 @@ def kickoff_sprint() -> None:
     console.print("[bold]Sprint Kickoff[/bold]")
     console.print()
     console.print("[yellow]Sprint state machine not yet implemented (v0.2.0).[/yellow]")
-    console.print("For now, validate your specs with [bold]rootine sprint prepare[/bold]")
+    console.print(f"For now, validate your specs with [bold]{NAME_LOWER} sprint prepare[/bold]")
     console.print("and begin work manually.")

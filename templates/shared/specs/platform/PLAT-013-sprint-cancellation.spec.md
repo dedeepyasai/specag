@@ -34,7 +34,7 @@ before its scheduled Saturday end. It is different from a normal sprint end:
 ### 2. Who Can Cancel
 
 **Datta is the sole authority.** Lead Dev, PO Agent, and Associate Developer
-can *recommend* cancellation in `#rootine-planning` but cannot execute it.
+can *recommend* cancellation in `#specag-planning` but cannot execute it.
 Slack command `cancel sprint` is restricted to Datta's user ID.
 
 ### 3. Valid Cancellation Triggers
@@ -58,12 +58,12 @@ Cancellation is **not** appropriate for:
 
 ```
 Step 1 — TRIGGER
-  Someone surfaces the trigger in #rootine-planning with justification.
+  Someone surfaces the trigger in #specag-planning with justification.
   Format:
     "Recommend sprint cancellation. Trigger: <trigger>. Evidence: <facts>."
 
 Step 2 — DATTA DECISION (within 4 hours of recommendation)
-  Datta replies in #rootine-planning:
+  Datta replies in #specag-planning:
     ✅ "Cancelling sprint. Reason: <reason>."
        → proceed to Step 3
     ❌ "Declined. Continue sprint. Action: <alternative>."
@@ -71,7 +71,7 @@ Step 2 — DATTA DECISION (within 4 hours of recommendation)
 
 Step 3 — HALT
   PO Agent executes `cancel sprint` Slack command.
-  PO Agent posts to #rootine-dev:
+  PO Agent posts to #specag-dev:
     "🛑 SPRINT S-NN CANCELLED by Datta. All agents: stop work on assigned
      epics and push WIP. Do NOT open new PRs until next sprint kickoff."
   All agents commit/push work-in-progress to their feature branches.
@@ -171,7 +171,7 @@ Datta: "cancel sprint"
 
 Datta: "confirm cancel <reason text>"
   → Bot runs cancellation flow (Steps 3–4)
-  → Bot posts cancellation notice to #rootine-dev
+  → Bot posts cancellation notice to #specag-dev
   → Bot creates sprints/S-NN/cancellation-postmortem.md stub
   → Bot schedules post-mortem reminder in 24 hours
 
@@ -230,7 +230,7 @@ Every cancellation leaves a permanent record in:
 - `sprints/S-NN/cancellation-postmortem.md`
 - `sprints/S-NN/burndown.json` (status: CANCELLED)
 - `CHANGELOG.md` (entry: "Sprint S-NN cancelled — <reason>")
-- `#rootine-planning` Slack thread (pinned)
+- `#specag-planning` Slack thread (pinned)
 - `pc.manifest.yaml` cancellation log (appended):
 
 ```yaml
@@ -253,7 +253,7 @@ cancellation_log:
 
 ### Files Touched
 - `specs/platform/PLAT-013-sprint-cancellation.spec.md` — this spec
-- `rootine_project_bible.md` — Section 17 Quick Reference entry
+- `specag_project_bible.md` — Section 17 Quick Reference entry
 - `app/agents/slack_commands.py` — `cancel sprint` / `confirm cancel` handlers
 - `app/agents/po_agent.py` — cancellation orchestration
 - `sprints/S-NN/cancellation-postmortem.md` — created on cancellation
@@ -273,7 +273,7 @@ cancellation_log:
 ## [ACCEPTANCE CRITERIA]
 ```
 AC-001: Given a cancellation trigger from Section 3, when a team member posts
-        a recommendation in #rootine-planning with justification, then Datta
+        a recommendation in #specag-planning with justification, then Datta
         responds within 4 hours with accept or decline.
 
 AC-002: Given Datta types "cancel sprint", when the bot responds with the
@@ -305,7 +305,7 @@ AC-007: Given a cancellation has occurred in the current PC, when a second
 AC-008: Given a Slack user who is NOT Datta types "cancel sprint", when the
         bot receives the command, then the command is rejected with
         "Only Datta can cancel a sprint. Post a recommendation in
-        #rootine-planning instead."
+        #specag-planning instead."
 ```
 
 ## [CHANGE LOG]

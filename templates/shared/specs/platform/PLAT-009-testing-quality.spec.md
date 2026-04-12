@@ -256,7 +256,7 @@ volumes:
 
 #### sonar-project.properties
 ```properties
-sonar.projectKey=rootine
+sonar.projectKey=specag
 sonar.projectName=SpecAg
 sonar.sources=src
 sonar.tests=src
@@ -276,7 +276,7 @@ Full scan checks:
 - Overall project coverage (not just new code)
 - All existing code smells, bugs, vulnerabilities
 - CVSS scoring on vulnerabilities → feeds into PO severity triage
-- Results posted to `#rootine-dev` by PO:
+- Results posted to `#specag-dev` by PO:
 
 ```
 *SonarQube Weekly Report — Friday, Apr 18*
@@ -364,7 +364,7 @@ AC-006: Given a PR introduces 1 new code smell, when SonarQube scans it, then
         the PR is BLOCKED until the code smell is resolved.
 
 AC-007: Given it is Friday 5 PM, when the weekly full scan runs, then PO posts
-        the SonarQube report to #rootine-dev with metrics and action items.
+        the SonarQube report to #specag-dev with metrics and action items.
 
 AC-008: Given a Prod Issue hotfix PR, then it must include a regression test
         that specifically covers the bug being fixed.

@@ -79,7 +79,7 @@ Date: YYYY-MM-DD
 
 ### Phase 2: Setup
 - [ ] Repo access (GitHub)
-- [ ] Slack channels joined (#rootine-dev, #rootine-planning)
+- [ ] Slack channels joined (#specag-dev, #specag-planning)
 - [ ] API keys configured (AI agents)
 - [ ] Local dev environment working (human devs)
 - [ ] Can push to feature branch

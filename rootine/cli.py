@@ -1,4 +1,4 @@
-"""SpecAg CLI — the main entry point for all rootine commands."""
+"""SpecAg CLI — the main entry point for all specag commands."""
 
 import click
 
